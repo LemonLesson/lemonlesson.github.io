@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>领域建模DDD - 柠檬资源社</title>
+
+
+    <meta name="description" content="领域建模DDDDDD切入点1 - 理解概念概念总结  领域就是问题域，有边界，领域中有很多问题； 任何一个系统要解决的那个大问题都对应一个领域； 通过建立领域模型来解决领域中的核心问题，模型驱动的思想； 领域建模的目标针对我们在领域中所关心的问题，即只针对核心关注点，而不是整个领域中的所有问题； 领域模型在设计时应考虑一定的抽象性、通用性，以及复用价值； 通过领域模型驱动代码的实现，确保代码让领域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="领域建模DDD">
+<meta property="og:url" content="http://yoursite.com/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/index.html">
+<meta property="og:site_name" content="柠檬资源社">
+<meta property="og:description" content="领域建模DDDDDD切入点1 - 理解概念概念总结  领域就是问题域，有边界，领域中有很多问题； 任何一个系统要解决的那个大问题都对应一个领域； 通过建立领域模型来解决领域中的核心问题，模型驱动的思想； 领域建模的目标针对我们在领域中所关心的问题，即只针对核心关注点，而不是整个领域中的所有问题； 领域模型在设计时应考虑一定的抽象性、通用性，以及复用价值； 通过领域模型驱动代码的实现，确保代码让领域">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="article:published_time" content="2019-08-02T06:48:51.089Z">
+<meta property="article:modified_time" content="2019-09-11T09:12:49.300Z">
+<meta property="article:author" content="Robynn-D">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="领域建模DDD" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10 minutes read (About 1516 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                领域建模DDD
+            
+        </h1>
+        <div class="content">
+            <h1 id="领域建模DDD"><a href="#领域建模DDD" class="headerlink" title="领域建模DDD"></a>领域建模DDD</h1><h2 id="DDD切入点1-理解概念"><a href="#DDD切入点1-理解概念" class="headerlink" title="DDD切入点1 - 理解概念"></a>DDD切入点1 - 理解概念</h2><p><strong>概念总结</strong></p>
+<ul>
+<li>领域就是问题域，有边界，领域中有很多问题；</li>
+<li>任何一个系统要解决的那个大问题都对应一个领域；</li>
+<li>通过建立领域模型来解决领域中的核心问题，模型驱动的思想；</li>
+<li>领域建模的目标针对我们在领域中所关心的问题，即只针对核心关注点，而不是整个领域中的所有问题；</li>
+<li>领域模型在设计时应考虑一定的抽象性、通用性，以及复用价值；</li>
+<li>通过领域模型驱动代码的实现，确保代码让领域模型落地，代码最终能解决问题；</li>
+<li>领域模型是系统的核心，是领域内的业务的直接沉淀，具有非常大的业务价值；</li>
+<li>技术架构设计或数据存储等是在领域模型的外围，帮助领域模型进行落地；</li>
+</ul>
+<h2 id="DDD切入点2-理解领域、拆分领域、细化领域"><a href="#DDD切入点2-理解领域、拆分领域、细化领域" class="headerlink" title="DDD切入点2 - 理解领域、拆分领域、细化领域"></a>DDD切入点2 - 理解领域、拆分领域、细化领域</h2><h3 id="拆分领域"><a href="#拆分领域" class="headerlink" title="拆分领域"></a>拆分领域</h3><p>按业务功能出发点拆分领域</p>
+<pre><code>**电商系统**
+    * 会员中心：负责用户账号登录、用户信息的管理；
+    * 商品中心：负责商品的展示、导航、维护；
+    * 订单中心：负责订单的生成和生命周期管理；
+    * 交易中心：负责交易相关的业务；
+    * 库存中心：负责维护商品的库存；
+    * 促销中心：负责各种促销活动的支持；</code></pre><blockquote>
+<p>上面这些中心看起来很自然，因为大家对电子商务的这个领域都已经非常熟悉了，所以都没什么疑问，好像很自然的样子。所以，领域划分是不是就是没什么挑战了呢？显然不是。之所以我们觉得子域划分很简单，是因为我们对整个大领域非常了解了。如果我们遇到一个冷门的领域，就没办法这么容易的去划分子域了。这就需要我们先去努力理解领域内的知识。所以，我个人从来不相信什么子域划分的技巧什么的东西，因为我觉得这个工作没有任何诀窍可以使用。当我们不了解一个东西的时候，如何去拆解它？当我们对整个领域有一定的熟悉了，了解了领域内的相关业务的本质和关系，我们就自然而然的能划分出合理的子域了。不过并不是所有的系统都需要划分子域的，有些系统只是解决一个小问题，这个问题不复杂，可能只有一两个核心概念。所以，这种系统完全不需要再划分子域。但不是绝对的，当一个领域，我们的关注点越来越多，每个关注点我们关注的信息越来越多的时候，我们会不由自主的去进一步的划分子域。比如，也许我们一开始将商品和商品的库存都放在商品中心里，但是后来由于库存的维护越来越复杂，导致揉在一起对我们的系统维护带来一定的困难时，我们就会考虑将两者进行拆分，这个就是所谓的业务垂直分割。  </p>
+</blockquote>
+<h3 id="细化领域"><a href="#细化领域" class="headerlink" title="细化领域"></a>细化领域</h3><pre><code>1. 梳理领域概念：梳理出领域内我们关注的概念、概念的关系，并统一交流词汇，形成统一语言；
+2. 梳理业务规则：梳理出领域内我们关注的各种业务规则，DDD中叫不变性（invariants），比如唯一性规则，余额不能小于零等；
+3. 梳理业务场景：梳理出领域内的核心业务场景，比如电商平台中的加入购物车、提交订单、发起付款等核心业务场景；
+4. 梳理业务流程：梳理出领域内的关键业务流程，比如订单处理流程，退款流程等；</code></pre><h2 id="DDD切入点3-领域模型设计"><a href="#DDD切入点3-领域模型设计" class="headerlink" title="DDD切入点3 - 领域模型设计"></a>DDD切入点3 - 领域模型设计</h2><h3 id="领域建模的方法"><a href="#领域建模的方法" class="headerlink" title="领域建模的方法"></a>领域建模的方法</h3><pre><code>1. 划分好边界上下文，通常每个子域（sub domain）对应一个边界上下文（bounded context），同一个边界上下文中的概念是明确的，没有任何歧义；
+2. 在每个边界上下文中设计领域模型，具体的领域模型设计方法有很多种，如以场景为出发点的 [四色原型](http://www.cnblogs.com/netfocus/archive/2011/03/05/1971899.html) 分析法，或者我早期写的这篇 [文章](http://www.cnblogs.com/netfocus/archive/2011/09/18/2180656.html) ；这个步骤最核心的就是找出聚合根，并找出每个聚合根包含的信息；关于如何设计聚合，可以看一下我写的 [这篇文章](http://www.cnblogs.com/netfocus/p/3307971.html) ；
+3. 画出领域模型图，圈出每个模型中的聚合边界；
+4. 设计领域模型时，要考虑该领域模型是否满足业务规则，同时还要综合考虑技术实现等问题，比如并发问题；领域模型不是概念模型，概念模型不关注技术实现，领域模型关心；所以领域模型才能直接指导编码实现；
+5. 思考领域模型是如何在业务场景中发挥作用的，以及是如何参与到业务流程的每个环节的；
+6. 场景走查，确认领域模型是否能满足领域中的业务场景和业务流程；
+7. 模型持续重构、完善、精炼；</code></pre>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/">
+                <span class="level-item">领域驱动设计战略</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Robynn-D">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Robynn-D
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        社長大人
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>中國台灣</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            61
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        
+        
+    </div>
+</div>
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="大结局后，谁还不服这华语最佳爱情">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T08:08:42.846Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">大结局后，谁还不服这华语最佳爱情</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T06:23:36.973Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="title has-link-black-ter is-size-6 has-text-weight-normal">浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域建模DDD">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域建模DDD</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域驱动设计战略">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域驱动设计战略</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="去BAT面试完的Mysql面试题总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="title has-link-black-ter is-size-6 has-text-weight-normal">去BAT面试完的Mysql面试题总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">59</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="大结局后，谁还不服这华语最佳爱情">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T08:08:42.846Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">大结局后，谁还不服这华语最佳爱情</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T06:23:36.973Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="title has-link-black-ter is-size-6 has-text-weight-normal">浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域建模DDD">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域建模DDD</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域驱动设计战略">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域驱动设计战略</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="去BAT面试完的Mysql面试题总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="title has-link-black-ter is-size-6 has-text-weight-normal">去BAT面试完的Mysql面试题总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">59</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="领域建模DDD" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Robynn-D&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://yoursite.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

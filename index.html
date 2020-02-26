@@ -532,6 +532,822 @@
 
 
 
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10 minutes read (About 1516 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/">领域建模DDD</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="领域建模DDD"><a href="#领域建模DDD" class="headerlink" title="领域建模DDD"></a>领域建模DDD</h1><h2 id="DDD切入点1-理解概念"><a href="#DDD切入点1-理解概念" class="headerlink" title="DDD切入点1 - 理解概念"></a>DDD切入点1 - 理解概念</h2><p><strong>概念总结</strong></p>
+<ul>
+<li>领域就是问题域，有边界，领域中有很多问题；</li>
+<li>任何一个系统要解决的那个大问题都对应一个领域；</li>
+<li>通过建立领域模型来解决领域中的核心问题，模型驱动的思想；</li>
+<li>领域建模的目标针对我们在领域中所关心的问题，即只针对核心关注点，而不是整个领域中的所有问题；</li>
+<li>领域模型在设计时应考虑一定的抽象性、通用性，以及复用价值；</li>
+<li>通过领域模型驱动代码的实现，确保代码让领域模型落地，代码最终能解决问题；</li>
+<li>领域模型是系统的核心，是领域内的业务的直接沉淀，具有非常大的业务价值；</li>
+<li>技术架构设计或数据存储等是在领域模型的外围，帮助领域模型进行落地；</li>
+</ul>
+<h2 id="DDD切入点2-理解领域、拆分领域、细化领域"><a href="#DDD切入点2-理解领域、拆分领域、细化领域" class="headerlink" title="DDD切入点2 - 理解领域、拆分领域、细化领域"></a>DDD切入点2 - 理解领域、拆分领域、细化领域</h2><h3 id="拆分领域"><a href="#拆分领域" class="headerlink" title="拆分领域"></a>拆分领域</h3><p>按业务功能出发点拆分领域</p>
+<pre><code>**电商系统**
+    * 会员中心：负责用户账号登录、用户信息的管理；
+    * 商品中心：负责商品的展示、导航、维护；
+    * 订单中心：负责订单的生成和生命周期管理；
+    * 交易中心：负责交易相关的业务；
+    * 库存中心：负责维护商品的库存；
+    * 促销中心：负责各种促销活动的支持；</code></pre><blockquote>
+<p>上面这些中心看起来很自然，因为大家对电子商务的这个领域都已经非常熟悉了，所以都没什么疑问，好像很自然的样子。所以，领域划分是不是就是没什么挑战了呢？显然不是。之所以我们觉得子域划分很简单，是因为我们对整个大领域非常了解了。如果我们遇到一个冷门的领域，就没办法这么容易的去划分子域了。这就需要我们先去努力理解领域内的知识。所以，我个人从来不相信什么子域划分的技巧什么的东西，因为我觉得这个工作没有任何诀窍可以使用。当我们不了解一个东西的时候，如何去拆解它？当我们对整个领域有一定的熟悉了，了解了领域内的相关业务的本质和关系，我们就自然而然的能划分出合理的子域了。不过并不是所有的系统都需要划分子域的，有些系统只是解决一个小问题，这个问题不复杂，可能只有一两个核心概念。所以，这种系统完全不需要再划分子域。但不是绝对的，当一个领域，我们的关注点越来越多，每个关注点我们关注的信息越来越多的时候，我们会不由自主的去进一步的划分子域。比如，也许我们一开始将商品和商品的库存都放在商品中心里，但是后来由于库存的维护越来越复杂，导致揉在一起对我们的系统维护带来一定的困难时，我们就会考虑将两者进行拆分，这个就是所谓的业务垂直分割。  </p>
+</blockquote>
+<h3 id="细化领域"><a href="#细化领域" class="headerlink" title="细化领域"></a>细化领域</h3><pre><code>1. 梳理领域概念：梳理出领域内我们关注的概念、概念的关系，并统一交流词汇，形成统一语言；
+2. 梳理业务规则：梳理出领域内我们关注的各种业务规则，DDD中叫不变性（invariants），比如唯一性规则，余额不能小于零等；
+3. 梳理业务场景：梳理出领域内的核心业务场景，比如电商平台中的加入购物车、提交订单、发起付款等核心业务场景；
+4. 梳理业务流程：梳理出领域内的关键业务流程，比如订单处理流程，退款流程等；</code></pre><h2 id="DDD切入点3-领域模型设计"><a href="#DDD切入点3-领域模型设计" class="headerlink" title="DDD切入点3 - 领域模型设计"></a>DDD切入点3 - 领域模型设计</h2><h3 id="领域建模的方法"><a href="#领域建模的方法" class="headerlink" title="领域建模的方法"></a>领域建模的方法</h3><pre><code>1. 划分好边界上下文，通常每个子域（sub domain）对应一个边界上下文（bounded context），同一个边界上下文中的概念是明确的，没有任何歧义；
+2. 在每个边界上下文中设计领域模型，具体的领域模型设计方法有很多种，如以场景为出发点的 [四色原型](http://www.cnblogs.com/netfocus/archive/2011/03/05/1971899.html) 分析法，或者我早期写的这篇 [文章](http://www.cnblogs.com/netfocus/archive/2011/09/18/2180656.html) ；这个步骤最核心的就是找出聚合根，并找出每个聚合根包含的信息；关于如何设计聚合，可以看一下我写的 [这篇文章](http://www.cnblogs.com/netfocus/p/3307971.html) ；
+3. 画出领域模型图，圈出每个模型中的聚合边界；
+4. 设计领域模型时，要考虑该领域模型是否满足业务规则，同时还要综合考虑技术实现等问题，比如并发问题；领域模型不是概念模型，概念模型不关注技术实现，领域模型关心；所以领域模型才能直接指导编码实现；
+5. 思考领域模型是如何在业务场景中发挥作用的，以及是如何参与到业务流程的每个环节的；
+6. 场景走查，确认领域模型是否能满足领域中的业务场景和业务流程；
+7. 模型持续重构、完善、精炼；</code></pre>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 minutes read (About 673 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/">领域驱动设计战略</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="领域驱动设计-战略"><a href="#领域驱动设计-战略" class="headerlink" title="领域驱动设计-战略"></a>领域驱动设计-战略</h1><ul>
+<li>领域驱动设计过程<ul>
+<li><img src="https://img.mubu.com/document_image/d0b950c9-d0ae-4c30-bbce-573da2c031a1-809178.jpg" alt=""></li>
+</ul>
+</li>
+<li>战略设计阶段<ul>
+<li>问题域<ul>
+<li>针对问题域，引入限界上下文（Bounded Context）和上下文映射（Context Map）对问题域进行合理的分解，识别出核心领域（Core Domain）与子领域（SubDomain），并确定领域的边界以及它们之间的关系，维持模型的完整性。</li>
+</ul>
+</li>
+<li>架构<ul>
+<li>通过分层架构来隔离关注点，尤其是将领域实现独立出来，能够更利于领域模型的单一性与稳定性；</li>
+<li>引入六边形架构可以清晰地表达领域与技术基础设施的边界；</li>
+<li>CQRS 模式则分离了查询场景和命令场景，针对不同场景选择使用同步或异步操作，来提高架构的低延迟性与高并发能力。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>战术设计阶段<ul>
+<li>领域驱动设计用以表示模型的主要要素包括：<ul>
+<li>值对象（Value Object）</li>
+<li>实体（Entity）</li>
+<li>领域服务（Domain Service）</li>
+<li>领域事件（Domain Event）</li>
+<li>资源库（Repository）</li>
+<li>工厂（Factory）</li>
+<li>聚合（Aggregate）</li>
+<li>应用服务（Application Service）</li>
+<li><img src="https://img.mubu.com/document_image/0fb87585-4eda-4e62-b0f9-8805bb85bdde-809178.jpg" alt=""></li>
+</ul>
+</li>
+<li>领域驱动设计围绕着领域模型进行设计，通过分层架构（Layered Architecture）将领域独立出来。</li>
+<li>表示领域模型的对象包括：实体、值对象和领域服务，领域逻辑都应该封装在这些对象中。</li>
+<li>在领域驱动设计的演进中，又引入了领域事件来丰富领域模型。</li>
+<li>聚合是一种边界，它可以封装一到多个实体与值对象，并维持该边界范围之内的业务完整性。</li>
+<li>在聚合中，至少包含一个实体，且只有实体才能作为聚合根（Aggregate Root）。</li>
+<li>工厂和资源库都是对领域对象生命周期的管理。</li>
+<li>工厂负责领域对象的创建，往往用于封装复杂或者可能变化的创建逻辑；</li>
+<li>资源库负责从存放资源的位置（数据库、内存或者其他 Web 资源）获取、添加、删除或者修改领域对象。领域模型中的资源库不应该暴露访问领域对象的技术实现细节。</li>
+</ul>
+</li>
+<li>演进的领域驱动设计过程<ul>
+<li><img src="https://img.mubu.com/document_image/07fb2d23-88c9-4218-8bfb-cc28e2f1ae6e-809178.jpg" alt=""></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 minutes read (About 778 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/">去BAT面试完的Mysql面试题总结</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="去BAT面试完的Mysql面试题总结"><a href="#去BAT面试完的Mysql面试题总结" class="headerlink" title="去BAT面试完的Mysql面试题总结"></a>去BAT面试完的Mysql面试题总结</h1><p>1、一张表里面有ID自增主键，当insert了17条记录之后，删除了第15,16,17条记录，再把mysql重启，再insert一条记录，这条记录的ID是18还是15 ？</p>
+<p>2、mysql的技术特点是什么？</p>
+<p>3、Heap表是什么？</p>
+<p>4、mysql服务器默认端口是什么？</p>
+<p>5、与Oracle相比，mysql有什么优势？</p>
+<p>6、如何区分FLOAT和DOUBLE？</p>
+<p>7、区分CHAR_LENGTH和LENGTH？</p>
+<p>8、请简洁描述mysql中InnoDB支持的四种事务隔离级别名称，以及逐级之间的区别？</p>
+<p>9、在mysql中ENUM的用法是什么？</p>
+<p>10、如何定义REGEXP？</p>
+<p>11、CHAR和VARCHAR的区别？</p>
+<p>12、列的字符串类型可以是什么？</p>
+<p>13、如何获取当前的mysql版本？</p>
+<p>14、mysql中使用什么存储引擎？</p>
+<p>15、mysql驱动程序是什么？</p>
+<p>16、TIMESTAMP在UPDATE　CURRENT_TIMESTAMP数据类型上做什么？</p>
+<p>17、主键和候选键有什么区别？</p>
+<p>18、如何使用Unix shell登录mysql？</p>
+<p>19、 myisamchk是用来做什么的？</p>
+<p>20、mysql数据库服务器性能分析的方法命令有哪些?</p>
+<p>21、如何控制HEAP表的最大尺寸？</p>
+<p>22、MyISAM Static和MyISAM Dynamic有什么区别？</p>
+<p>23、federated表是什么？</p>
+<p>24、如果一个表有一列定义为TIMESTAMP，将发生什么？</p>
+<p>25、列设置为AUTO　INCREMENT时，如果在表中达到最大值，会发生什么情况？</p>
+<p>26、怎样才能找出最后一次插入时分配了哪个自动增量？</p>
+<p>27、你怎么看到为表格定义的所有索引？</p>
+<p>28、LIKE声明中的％和_是什么意思？</p>
+<p>29、如何在Unix和mysql时间戳之间进行转换？</p>
+<p>30、列对比运算符是什么？</p>
+<p>31、我们如何得到受查询影响的行数？</p>
+<p>32、mysql查询是否区分大小写？</p>
+<p>33、LIKE和REGEXP操作有什么区别？</p>
+<p>34、BLOB和TEXT有什么区别？</p>
+<p>35、mysql_fetch_array和mysql_fetch_object的区别是什么？</p>
+<p>36、我们如何在mysql中运行批处理模式？</p>
+<p>37、MyISAM表格将在哪里存储，并且还提供其存储格式？</p>
+<p>38、mysql中有哪些不同的表格？</p>
+<p>39、ISAM是什么？</p>
+<p>40、InnoDB是什么？</p>
+<p>41、mysql如何优化DISTINCT？</p>
+<p>42、如何输入字符为十六进制数字？</p>
+<p>43、如何显示前50行？</p>
+<p>44、可以使用多少列创建索引？</p>
+<p>45、NOW（）和CURRENT_DATE（）有什么区别？</p>
+<p>46、什么样的对象可以使用CREATE语句创建？</p>
+<p>47、mysql表中允许有多少个TRIGGERS？</p>
+<p>48、什么是非标准字符串类型？</p>
+<p>49、什么是通用SQL函数？</p>
+<p>50、解释访问控制列表</p>
+<p>51、mysql支持事务吗？</p>
+<p>52、mysql里记录货币用什么字段类型好？</p>
+<p>53、mysql数据表在什么情况下容易损坏？</p>
+<p>54、mysql有关权限的表都有哪几个？</p>
+<p>55、mysql中有哪几种锁？</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    40 minutes read (About 6011 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%9D%A2%E8%AF%95%E9%A2%98%E5%8F%8A%E7%AD%94%E6%A1%88/">史上最全Java多线程面试题及答案</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="史上最全Java多线程面试题及答案"><a href="#史上最全Java多线程面试题及答案" class="headerlink" title="史上最全Java多线程面试题及答案"></a>史上最全Java多线程面试题及答案</h1><p>1、多线程有什么用？</p>
+<p>1）发挥多核CPU的优势</p>
+<p>随着工业的进步，现在的笔记本、台式机乃至商用的应用服务器至少也都是双核的，4核、8核甚至16核的也都不少见，如果是单线程的程序，那么在双核CPU上就浪费了50%，在4核CPU上就浪费了75%。单核CPU上所谓的”多线程”那是假的多线程，同一时间处理器只会处理一段逻辑，只不过线程之间切换得比较快，看着像多个线程”同时”运行罢了。多核CPU上的多线程才是真正的多线程，它能让你的多段逻辑同时工作，多线程，可以真正发挥出多核CPU的优势来，达到充分利用CPU的目的。</p>
+<p>2）防止阻塞</p>
+<p>从程序运行效率的角度来看，单核CPU不但不会发挥出多线程的优势，反而会因为在单核CPU上运行多线程导致线程上下文的切换，而降低程序整体的效率。但是单核CPU我们还是要应用多线程，就是为了防止阻塞。试想，如果单核CPU使用单线程，那么只要这个线程阻塞了，比方说远程读取某个数据吧，对端迟迟未返回又没有设置超时时间，那么你的整个程序在数据返回回来之前就停止运行了。多线程可以防止这个问题，多条线程同时运行，哪怕一条线程的代码执行读取数据阻塞，也不会影响其它任务的执行。</p>
+<p>3）便于建模</p>
+<p>这是另外一个没有这么明显的优点了。假设有一个大的任务A，单线程编程，那么就要考虑很多，建立整个程序模型比较麻烦。但是如果把这个大的任务A分解成几个小任务，任务B、任务C、任务D，分别建立程序模型，并通过多线程分别运行这几个任务，那就简单很多了。</p>
+<p>2、线程和进程的区别是什么？</p>
+<p>进程和线程的主要差别在于它们是不同的操作系统资源管理方式。进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，而线程只是一个进程中的不同执行路径。线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉，所以多进程的程序要比多线程的程序健壮，但在进程切换时，耗费资源较大，效率要差一些。但对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程。</p>
+<p>3、Java实现线程有哪几种方式？</p>
+<p>1、继承Thread类实现多线程<br>2、实现Runnable接口方式实现多线程<br>3、使用ExecutorService、Callable、Future实现有返回结果的多线程</p>
+<p>参考：<a href="http://mp.weixin.qq.com/s/39Sb60J0DC2mNN6DYvpFtg">http://mp.weixin.qq.com/s/39Sb60J0DC2mNN6DYvpFtg</a></p>
+<p>4、启动线程方法start()和run()有什么区别？</p>
+<p>只有调用了start()方法，才会表现出多线程的特性，不同线程的run()方法里面的代码交替执行。如果只是调用run()方法，那么代码还是同步执行的，必须等待一个线程的run()方法里面的代码全部执行完毕之后，另外一个线程才可以执行其run()方法里面的代码。</p>
+<p>5、怎么终止一个线程？如何优雅地终止线程？</p>
+<p>stop终止，不推荐。<br>参考：<a href="https://mp.weixin.qq.com/s/FPhtbM7Wdyr0iZqbdKecpA">https://mp.weixin.qq.com/s/FPhtbM7Wdyr0iZqbdKecpA</a></p>
+<p>6、一个线程的生命周期有哪几种状态？它们之间如何流转的？</p>
+<p>参考：<a href="http://mp.weixin.qq.com/s/hD3ie47XEWQQ577tX0Sawg">http://mp.weixin.qq.com/s/hD3ie47XEWQQ577tX0Sawg</a></p>
+<p>7、线程中的wait()和sleep()方法有什么区别？</p>
+<p>这个问题常问，sleep方法和wait方法都可以用来放弃CPU一定的时间，不同点在于如果线程持有某个对象的监视器，sleep方法不会放弃这个对象的监视器，wait方法会放弃这个对象的监视器</p>
+<p>参考：<a href="http://mp.weixin.qq.com/s/7E8ywAQO8QS7C94LJN2vww">http://mp.weixin.qq.com/s/7E8ywAQO8QS7C94LJN2vww</a></p>
+<p>8、多线程同步有哪几种方法？</p>
+<p>Synchronized关键字，Lock锁实现，分布式锁等。</p>
+<p>9、什么是死锁？如何避免死锁？</p>
+<p>死锁就是两个线程相互等待对方释放对象锁。<br>参考：<a href="http://mp.weixin.qq.com/s/soQG2pxTymgHzzNQqYYNgg">http://mp.weixin.qq.com/s/soQG2pxTymgHzzNQqYYNgg</a></p>
+<p>10、多线程之间如何进行通信？</p>
+<p>wait/notify</p>
+<p>11、线程怎样拿到返回结果？<br>实现Callable接口。</p>
+<p>12、violatile关键字的作用？</p>
+<p>一个非常重要的问题，是每个学习、应用多线程的Java程序员都必须掌握的。理解volatile关键字的作用的前提是要理解Java内存模型，这里就不讲Java内存模型了，可以参见第31点，volatile关键字的作用主要有两个：</p>
+<p>参考：<a href="http://mp.weixin.qq.com/s/TixFzi3JjXy0nQtviuVFOA">http://mp.weixin.qq.com/s/TixFzi3JjXy0nQtviuVFOA</a></p>
+<p>1、多线程主要围绕可见性和原子性两个特性而展开，使用volatile关键字修饰的变量，保证了其在多线程之间的可见性，即每次读取到volatile变量，一定是最新的数据</p>
+<p>2、代码底层执行不像我们看到的高级语言—-Java程序这么简单，它的执行是Java代码–&gt;字节码–&gt;根据字节码执行对应的C/C++代码–&gt;C/C++代码被编译成汇编语言–&gt;和硬件电路交互，现实中，为了获取更好的性能JVM可能会对指令进行重排序，多线程下可能会出现一些意想不到的问题。使用volatile则会对禁止语义重排序，当然这也一定程度上降低了代码执行效率</p>
+<p>从实践角度而言，volatile的一个重要作用就是和CAS结合，保证了原子性，详细的可以参见java.util.concurrent.atomic包下的类，比如AtomicInteger。</p>
+<p>13、新建T1、T2、T3三个线程，如何保证它们按顺序执行？</p>
+<p>用join方法。参考：<br><a href="http://mp.weixin.qq.com/s/at8NynjnYvqkFw61kn3Apg">http://mp.weixin.qq.com/s/at8NynjnYvqkFw61kn3Apg</a></p>
+<p>14、怎么控制同一时间只有3个线程运行？</p>
+<p>用Semaphore。</p>
+<p>15、为什么要使用线程池？</p>
+<p>我们知道不用线程池的话，每个线程都要通过new Thread(xxRunnable).start()的方式来创建并运行一个线程，线程少的话这不会是问题，而真实环境可能会开启多个线程让系统和程序达到最佳效率，当线程数达到一定数量就会耗尽系统的CPU和内存资源，也会造成GC频繁收集和停顿，因为每次创建和销毁一个线程都是要消耗系统资源的，如果为每个任务都创建线程这无疑是一个很大的性能瓶颈。所以，线程池中的线程复用极大节省了系统资源，当线程一段时间不再有任务处理时它也会自动销毁，而不会长驻内存。</p>
+<p>16、常用的几种线程池并讲讲其中的工作原理。</p>
+<p>参考：<a href="http://mp.weixin.qq.com/s/L2KKLlmOKJUQKfLdFa-1FA">http://mp.weixin.qq.com/s/L2KKLlmOKJUQKfLdFa-1FA</a></p>
+<p>17、线程池启动线程submit()和execute()方法有什么不同？</p>
+<p>execute没有返回值，如果不需要知道线程的结果就使用execute方法，性能会好很多。<br>submit返回一个Future对象，如果想知道线程结果就使用submit提交，而且它能在主线程中通过Future的get方法捕获线程中的异常。</p>
+<p>18、CyclicBarrier和CountDownLatch的区别？</p>
+<p>两个看上去有点像的类，都在java.util.concurrent下，都可以用来表示代码运行到某个点上，二者的区别在于：<br>1、CyclicBarrier的某个线程运行到某个点上之后，该线程即停止运行，直到所有的线程都到达了这个点，所有线程才重新运行；CountDownLatch则不是，某线程运行到某个点上之后，只是给某个数值-1而已，该线程继续运行<br>2、CyclicBarrier只能唤起一个任务，CountDownLatch可以唤起多个任务<br>3、CyclicBarrier可重用，CountDownLatch不可重用，计数值为0该CountDownLatch就不可再用了</p>
+<p>参考：<br><a href="http://mp.weixin.qq.com/s/JqTKpkH19at31aadfmVk9w">http://mp.weixin.qq.com/s/JqTKpkH19at31aadfmVk9w</a><br><a href="http://mp.weixin.qq.com/s/mZ-eht0bDwffdGQ_HXr0Ag">http://mp.weixin.qq.com/s/mZ-eht0bDwffdGQ_HXr0Ag</a></p>
+<p>19、什么是活锁、饥饿、无锁、死锁？</p>
+<p>参考：<a href="http://mp.weixin.qq.com/s/_z4yNYunaunqSDjktKU7EQ">http://mp.weixin.qq.com/s/_z4yNYunaunqSDjktKU7EQ</a></p>
+<p>20、什么是原子性、可见性、有序性？</p>
+<p>参考：<a href="http://mp.weixin.qq.com/s/DWaxnysIQ8NSWN1NME_HvA">http://mp.weixin.qq.com/s/DWaxnysIQ8NSWN1NME_HvA</a></p>
+<p>21、什么是守护线程？有什么用？</p>
+<p>参考：<a href="http://mp.weixin.qq.com/s/Tb0_mdWN46bAdeRlbBQO1w">http://mp.weixin.qq.com/s/Tb0_mdWN46bAdeRlbBQO1w</a></p>
+<p>22、一个线程运行时发生异常会怎样？</p>
+<p>如果异常没有被捕获该线程将会停止执行。Thread.UncaughtExceptionHandler是用于处理未捕获异常造成线程突然中断情况的一个内嵌接口。当一个未捕获异常将造成线程中断的时候JVM会使用Thread.getUncaughtExceptionHandler()来查询线程的UncaughtExceptionHandler并将线程和异常作为参数传递给handler的uncaughtException()方法进行处理。</p>
+<p>23、线程yield()方法有什么用？</p>
+<p>Yield方法可以暂停当前正在执行的线程对象，让其它有相同优先级的线程执行。它是一个静态方法而且只保证当前线程放弃CPU占用而不能保证使其它线程一定能占用CPU，执行yield()的线程有可能在进入到暂停状态后马上又被执行。</p>
+<p>24、什么是重入锁？</p>
+<p>所谓重入锁，指的是以线程为单位，当一个线程获取对象锁之后，这个线程可以再次获取本对象上的锁，而其他的线程是不可以的。</p>
+<p>25、Synchronized有哪几种用法？</p>
+<p>锁类、锁方法、锁代码块。</p>
+<p>26、Fork/Join框架是干什么的？</p>
+<p>大任务自动分散小任务，并发执行，合并小任务结果。<br>参考：<a href="http://mp.weixin.qq.com/s/YQa2_daDZbJsTxrqv45-QQ">http://mp.weixin.qq.com/s/YQa2_daDZbJsTxrqv45-QQ</a></p>
+<p>27、线程数过多会造成什么异常？</p>
+<p>线程过多会造成栈溢出，也有可能会造成堆异常。</p>
+<p>28、说说线程安全的和不安全的集合。</p>
+<p>参考：<a href="http://mp.weixin.qq.com/s/5Y5_6qn2g6kIVmQia_0R6g">http://mp.weixin.qq.com/s/5Y5_6qn2g6kIVmQia_0R6g</a></p>
+<p>29、什么是CAS算法？在多线程中有哪些应用。</p>
+<p>CAS，全称为Compare and Swap，即比较-替换。假设有三个操作数：内存值V、旧的预期值A、要修改的值B，当且仅当预期值A和内存值V相同时，才会将内存值修改为B并返回true，否则什么都不做并返回false。当然CAS一定要volatile变量配合，这样才能保证每次拿到的变量是主内存中最新的那个值，否则旧的预期值A对某条线程来说，永远是一个不会变的值A，只要某次CAS操作失败，永远都不可能成功。</p>
+<p>java.util.concurrent.atomic包下面的Atom****类都有CAS算法的应用。</p>
+<p>参考：<a href="http://mp.weixin.qq.com/s/HOAvNG6UcTdpb0mhPSTakg">http://mp.weixin.qq.com/s/HOAvNG6UcTdpb0mhPSTakg</a></p>
+<p>30、怎么检测一个线程是否拥有锁？</p>
+<p>java.lang.Thread#holdsLock方法</p>
+<p>31、Jdk中排查多线程问题用什么命令？</p>
+<p>jstack</p>
+<p>32、线程同步需要注意什么？</p>
+<p>1、尽量缩小同步的范围，增加系统吞吐量。<br>2、分布式同步锁无意义，要使用分布式锁。<br>3、防止死锁，注意加锁顺序。</p>
+<p>33、线程wait()方法使用有什么前提？</p>
+<p>要在同步块中使用。</p>
+<p>34、Fork/Join框架使用有哪些要注意的地方？</p>
+<p>如果任务拆解的很深，系统内的线程数量堆积，导致系统性能性能严重下降；<br>如果函数的调用栈很深，会导致栈内存溢出；</p>
+<p>35、线程之间如何传递数据？</p>
+<p>通过在线程之间共享对象就可以了，然后通过wait/notify/notifyAll、await/signal/signalAll进行唤起和等待，比方说阻塞队列BlockingQueue就是为线程之间共享数据而设计的</p>
+<p>36、保证”可见性”有哪几种方式？</p>
+<p>synchronized和viotatile</p>
+<p>37、说几个常用的Lock接口实现锁。</p>
+<p>ReentrantLock、ReadWriteLock</p>
+<p>38、ThreadLocal是什么？有什么应用场景？</p>
+<p>ThreadLocal的作用是提供线程内的局部变量，这种变量在线程的生命周期内起作用，减少同一个线程内多个函数或者组件之间一些公共变量的传递的复杂度。</p>
+<p>用来解决数据库连接、Session管理等。</p>
+<p>参考：<a href="http://mp.weixin.qq.com/s/V9w7rZP0138Kg3C9mBFfeg">http://mp.weixin.qq.com/s/V9w7rZP0138Kg3C9mBFfeg</a></p>
+<p>39、ReadWriteLock有什么用？</p>
+<p>ReadWriteLock是一个读写锁接口，ReentrantReadWriteLock是ReadWriteLock接口的一个具体实现，实现了读写的分离，读锁是共享的，写锁是独占的，读和读之间不会互斥，读和写、写和读、写和写之间才会互斥，提升了读写的性能。</p>
+<p>40、FutureTask是什么？</p>
+<p>FutureTask表示一个异步运算的任务，FutureTask里面可以传入一个Callable的具体实现类，可以对这个异步运算的任务的结果进行等待获取、判断是否已经完成、取消任务等操作。</p>
+<p>41、怎么唤醒一个阻塞的线程？</p>
+<p>如果线程是因为调用了wait()、sleep()或者join()方法而导致的阻塞，可以中断线程，并且通过抛出InterruptedException来唤醒它；如果线程遇到了IO阻塞，无能为力，因为IO是操作系统实现的，Java代码并没有办法直接接触到操作系统。</p>
+<p>42、不可变对象对多线程有什么帮助？</p>
+<p>不可变对象保证了对象的内存可见性，对不可变对象的读取不需要进行额外的同步手段，提升了代码执行效率。</p>
+<p>43、多线程上下文切换是什么意思？</p>
+<p>多线程的上下文切换是指CPU控制权由一个已经正在运行的线程切换到另外一个就绪并等待获取CPU执行权的线程的过程。</p>
+<p>44、Java中用到了什么线程调度算法？</p>
+<p>抢占式。一个线程用完CPU之后，操作系统会根据线程优先级、线程饥饿情况等数据算出一个总的优先级并分配下一个时间片给某个线程执行。</p>
+<p>45、Thread.sleep(0)的作用是什么？</p>
+<p>由于Java采用抢占式的线程调度算法，因此可能会出现某条线程常常获取到CPU控制权的情况，为了让某些优先级比较低的线程也能获取到CPU控制权，可以使用Thread.sleep(0)手动触发一次操作系统分配时间片的操作，这也是平衡CPU控制权的一种操作。</p>
+<p>46、Java内存模型是什么，哪些区域是线程共享的，哪些是不共享的？</p>
+<p>参考：<a href="http://mp.weixin.qq.com/s/4uXp1n1nlSLuOSPo2Us8mQ">http://mp.weixin.qq.com/s/4uXp1n1nlSLuOSPo2Us8mQ</a></p>
+<p>47、什么是乐观锁和悲观锁？</p>
+<p>乐观锁：就像它的名字一样，对于并发间操作产生的线程安全问题持乐观状态，乐观锁认为竞争不总是会发生，因此它不需要持有锁，将比较-替换这两个动作作为一个原子操作尝试去修改内存中的变量，如果失败则表示发生冲突，那么就应该有相应的重试逻辑。</p>
+<p>悲观锁：还是像它的名字一样，对于并发间操作产生的线程安全问题持悲观状态，悲观锁认为竞争总是会发生，因此每次对某资源进行操作时，都会持有一个独占的锁，就像synchronized，不管三七二十一，直接上了锁就操作资源了。</p>
+<p>48、Hashtable的size()方法为什么要做同步？</p>
+<p>同一时间只能有一条线程执行固定类的同步方法，但是对于类的非同步方法，可以多条线程同时访问。所以，这样就有问题了，可能线程A在执行Hashtable的put方法添加数据，线程B则可以正常调用size()方法读取Hashtable中当前元素的个数，那读取到的值可能不是最新的，可能线程A添加了完了数据，但是没有对size++，线程B就已经读取size了，那么对于线程B来说读取到的size一定是不准确的。而给size()方法加了同步之后，意味着线程B调用size()方法只有在线程A调用put方法完毕之后才可以调用，这样就保证了线程安全性</p>
+<p>CPU执行代码，执行的不是Java代码，这点很关键，一定得记住。Java代码最终是被翻译成机器码执行的，机器码才是真正可以和硬件电路交互的代码。即使你看到Java代码只有一行，甚至你看到Java代码编译之后生成的字节码也只有一行，也不意味着对于底层来说这句语句的操作只有一个。一句”return count”假设被翻译成了三句汇编语句执行，一句汇编语句和其机器码做对应，完全可能执行完第一句，线程就切换了。</p>
+<p>49、同步方法和同步块，哪种更好？</p>
+<p>同步块，这意味着同步块之外的代码是异步执行的，这比同步整个方法更提升代码的效率。请知道一条原则：同步的范围越小越好。</p>
+<p>50、什么是自旋锁？</p>
+<p>自旋锁是采用让当前线程不停地的在循环体内执行实现的，当循环的条件被其他线程改变时才能进入临界区。</p>
+<p>51、Runnable和Thread用哪个好？</p>
+<p>Java不支持类的多重继承，但允许你实现多个接口。所以如果你要继承其他类，也为了减少类之间的耦合性，Runnable会更好。</p>
+<p>52、Java中notify和notifyAll有什么区别？</p>
+<p>notify()方法不能唤醒某个具体的线程，所以只有一个线程在等待的时候它才有用武之地。而notifyAll()唤醒所有线程并允许他们争夺锁确保了至少有一个线程能继续运行。</p>
+<p>53、为什么wait/notify/notifyAll这些方法不在thread类里面？</p>
+<p>这是个设计相关的问题，它考察的是面试者对现有系统和一些普遍存在但看起来不合理的事物的看法。回答这些问题的时候，你要说明为什么把这些方法放在Object类里是有意义的，还有不把它放在Thread类里的原因。一个很明显的原因是JAVA提供的锁是对象级的而不是线程级的，每个对象都有锁，通过线程获得。如果线程需要等待某些锁那么调用对象中的wait()方法就有意义了。如果wait()方法定义在Thread类中，线程正在等待的是哪个锁就不明显了。简单的说，由于wait，notify和notifyAll都是锁级别的操作，所以把他们定义在Object类中因为锁属于对象。</p>
+<p>54、为什么wait和notify方法要在同步块中调用？</p>
+<p>主要是因为Java API强制要求这样做，如果你不这么做，你的代码会抛出IllegalMonitorStateException异常。还有一个原因是为了避免wait和notify之间产生竞态条件。</p>
+<p>55、为什么你应该在循环中检查等待条件？</p>
+<p>处于等待状态的线程可能会收到错误警报和伪唤醒，如果不在循环中检查等待条件，程序就会在没有满足结束条件的情况下退出。因此，当一个等待线程醒来时，不能认为它原来的等待状态仍然是有效的，在notify()方法调用之后和等待线程醒来之前这段时间它可能会改变。这就是在循环中使用wait()方法效果更好的原因，你可以在Eclipse中创建模板调用wait和notify试一试。</p>
+<p>56、Java中堆和栈有什么不同？</p>
+<p>每个线程都有自己的栈内存，用于存储本地变量，方法参数和栈调用，一个线程中存储的变量对其它线程是不可见的。而堆是所有线程共享的一片公用内存区域。对象都在堆里创建，为了提升效率线程会从堆中弄一个缓存到自己的栈，如果多个线程使用该变量就可能引发问题，这时volatile 变量就可以发挥作用了，它要求线程从主存中读取变量的值。</p>
+<p>57、你如何在Java中获取线程堆栈？</p>
+<p>对于不同的操作系统，有多种方法来获得Java进程的线程堆栈。当你获取线程堆栈时，JVM会把所有线程的状态存到日志文件或者输出到控制台。在Windows你可以使用Ctrl + Break组合键来获取线程堆栈，Linux下用kill -3命令。你也可以用jstack这个工具来获取，它对线程id进行操作，你可以用jps这个工具找到id。</p>
+<p>58、如何创建线程安全的单例模式？<br>参考：<a href="http://mp.weixin.qq.com/s/iOvBuv2yFb8Jyw_6WRWpsA">http://mp.weixin.qq.com/s/iOvBuv2yFb8Jyw_6WRWpsA</a></p>
+<p>59、什么是阻塞式方法？</p>
+<p>阻塞式方法是指程序会一直等待该方法完成期间不做其他事情，ServerSocket的accept()方法就是一直等待客户端连接。这里的阻塞是指调用结果返回之前，当前线程会被挂起，直到得到结果之后才会返回。此外，还有异步和非阻塞式方法在任务完成前就返回。</p>
+<p>60、提交任务时线程池队列已满会时发会生什么？</p>
+<p>当线程数小于最大线程池数maximumPoolSize时就会创建新线程来处理，而线程数大于等于最大线程池数maximumPoolSize时就会执行拒绝策略。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 minutes read (About 828 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E7%A8%8D%E5%BE%AE%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%9A%8410%E9%81%93java%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%8C%E4%BD%A0%E4%BC%9A%E5%87%A0%E9%81%93%EF%BC%9F/">稍微有点难度的10道java面试题，你会几道？</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="稍微有点难度的10道java面试题，你会几道？"><a href="#稍微有点难度的10道java面试题，你会几道？" class="headerlink" title="稍微有点难度的10道java面试题，你会几道？"></a>稍微有点难度的10道java面试题，你会几道？</h1><p>1、jvm对频繁调用的方法做了哪些优化？<br>    - java虚拟机最开始是通过解释器进行解释执行的，当虚拟机发现某个方法或者代码块的运行特别频繁时，就会把这些代码认定为”热点代码”，为了提高热点代码的执行效率，在运行时，虚拟机会把这些代码编译成与本地平台相关的机器码，并进行各种层次的优化，完成这个任务的编译器称为即时编译器(JIT)。</p>
+<p>2、常见的攻击手段有哪些？如何防范？<br>    -  XSS、CSRF、SQL注入、DOS/DDOS等具体细节见历史文章。</p>
+<p>3、restful api有哪些设计原则？<br>    - 需要考虑的设计原则有：域名、版本、路径、动词、状态码、返回结果等等之后具体会形成文章。</p>
+<p>4、hessian是做什么用的？它的传输单位是什么？<br>    - Hessian是一个轻量级的remoting onhttp工具，使用简单的方法提供了RMI的功能。 相比WebService，Hessian更简单、快捷。采用的是二进制RPC协议，因为采用的是二进制协议，所以它很适合于发送二进制数据。</p>
+<p>5、http中的post、get有什么区别？base64过后的字符串可以通过get传输吗？<br>    - 区别： 1、两种动作不一样，get是获取资源，post是提交资源 2、get参数在URL中不安全，post是放在http body中的相对安全 3、get传输字节数受限于URL长度，post无限制 4、后台获取数据的方式get只能是QueryString,post可从InputStream中获取 base64编码后有+=特殊符号的会转码不能经get传输，如果是改进的base64会替换掉特殊符号可以用get传输。</p>
+<p>6、常用的算法都有哪些分类，分别有哪些算法及应用场景？<br>    - 一般有散列算法、对称算法、非对称算法，具体细节见历史文章。</p>
+<p>7、死锁是什么？写一个死锁的例子？如何避免死锁？<br>    - 死锁就是多线程相互等待对方释放锁造成的假死状态，具体见历史文章。</p>
+<p>8、学用的序列化方案都有哪些，说说它们的优缺点？<br>    - 序列化有对象序列化，JSON序列化，XML序列化等，像java自带序列化、kryo、protostuff、GSON、jackson、fastjson等之后形成文章。</p>
+<p>9、什么是过滤器、拦截器、监听器，它们的顺序是怎样的？<br>    - 监听器是容器启动和销毁时触发的动作，过滤器是进入servlet请求之前触发的工作，拦截器是像springmvc框架实现的内部的请求拦截器。 顺序：监听器&gt;过滤器&gt;拦截器</p>
+<p>10、servlet3.0有哪些新规范？<br>    - 增加注解不需要web.xml配置、异步处理、可插性支持，性能增强等。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.084Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 minutes read (About 666 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/Spring%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%8870%E9%81%93%EF%BC%8C%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%EF%BC%89/">Spring面试题（70道，史上最全）</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="Spring面试题"><a href="#Spring面试题" class="headerlink" title="Spring面试题"></a>Spring面试题</h1><p>1.什么是spring?</p>
+<p>2.使用Spring框架的好处是什么？</p>
+<p>3.Spring由哪些模块组成?</p>
+<p>4.核心容器（应用上下文)模块。</p>
+<p>5.BeanFactory–BeanFactory实现举例。</p>
+<p>6.XMLBeanFactory</p>
+<p>7.解释AOP模块</p>
+<p>8.解释JDBC抽象和DAO模块。</p>
+<p>9.解释对象/关系映射集成模块。</p>
+<p>10.解释WEB模块。</p>
+<p>11.为什么说Spring是一个容器？</p>
+<p>12.Spring配置文件</p>
+<p>13.什么是SpringIOC容器？</p>
+<p>14.IOC的优点是什么？</p>
+<p>15.ApplicationContext通常的实现是什么?</p>
+<p>16.Bean工厂和Applicationcontexts有什么区别？</p>
+<p>17.一个Spring的应用看起来象什么？</p>
+<p>18.什么是Spring的依赖注入？</p>
+<p>19.有哪些不同类型的IOC（依赖注入）方式？</p>
+<p>20.哪种依赖注入方式你建议使用，构造器注入，还是Setter方法注入？</p>
+<p>21.什么是Springbeans?</p>
+<p>22.一个SpringBean定义包含什么？</p>
+<p>23.如何给Spring容器提供配置元数据?</p>
+<p>24.你怎样定义类的作用域?</p>
+<p>25.解释Spring支持的几种bean的作用域。</p>
+<p>26.Spring框架中的单例bean是线程安全的吗?</p>
+<p>27.解释Spring框架中bean的生命周期。</p>
+<p>28.哪些是重要的bean生命周期方法？你能重载它们吗？</p>
+<p>29.什么是Spring的内部bean？</p>
+<p>30.在Spring中如何注入一个java集合？</p>
+<p>31.什么是bean装配?</p>
+<p>32.什么是bean的自动装配？</p>
+<p>33.解释不同方式的自动装配。</p>
+<p>34.自动装配有哪些局限性?</p>
+<p>35.你可以在Spring中注入一个null和一个空字符串吗？</p>
+<p>36.什么是基于Java的Spring注解配置?给一些注解的例子.</p>
+<p>37.什么是基于注解的容器配置?</p>
+<p>38.怎样开启注解装配？</p>
+<p>39.@Required注解</p>
+<p>40.@Autowired注解</p>
+<p>41.@Qualifier注解</p>
+<p>42.在Spring框架中如何更有效地使用JDBC?</p>
+<p>43.JdbcTemplate</p>
+<p>44.Spring对DAO的支持</p>
+<p>45.使用Spring通过什么方式访问Hibernate?</p>
+<p>46.Spring支持的ORM</p>
+<p>47.如何通过HibernateDaoSupport将Spring和Hibernate结合起来？</p>
+<p>48.Spring支持的事务管理类型</p>
+<p>49.Spring框架的事务管理有哪些优点？</p>
+<p>50.你更倾向用那种事务管理类型？</p>
+<p>51.解释AOP</p>
+<p>52.Aspect切面</p>
+<p>53.在SpringAOP中，关注点和横切关注的区别是什么？</p>
+<p>54.连接点</p>
+<p>55.通知</p>
+<p>56.切点</p>
+<p>57.什么是引入?</p>
+<p>58.什么是目标对象?</p>
+<p>59.什么是代理?</p>
+<p>60.有几种不同类型的自动代理？</p>
+<p>61.什么是织入。什么是织入应用的不同点？</p>
+<p>62.解释基于XMLSchema方式的切面实现。</p>
+<p>63.解释基于注解的切面实现</p>
+<p>64.什么是Spring的MVC框架？</p>
+<p>65.DispatcherServlet</p>
+<p>66.WebApplicationContext</p>
+<p>67.什么是SpringMVC框架的控制器？</p>
+<p>68.@Controller注解</p>
+<p>69.@RequestMapping注解</p>
+<p>70.返回Json用什么注解？</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.084Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 368 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/Zookeeper%E9%9D%A2%E8%AF%95%E9%A2%98%E9%94%A6%E9%9B%86/">Zookeeper面试题锦集</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="Zookeeper面试题锦集"><a href="#Zookeeper面试题锦集" class="headerlink" title="Zookeeper面试题锦集"></a>Zookeeper面试题锦集</h1><p>1、zookeeper是什么框架？</p>
+<ul>
+<li>高可用的分布式数据管理与系统协调框架</li>
+</ul>
+<p>2、有哪些应用场景？</p>
+<ul>
+<li>分布式锁、分布式协调、集群管理/Master选举、命名服务</li>
+</ul>
+<p>3、使用什么协议？</p>
+<ul>
+<li>ZAB</li>
+</ul>
+<p>4、说说分布式一致性算法</p>
+<ul>
+<li>Paxos</li>
+</ul>
+<p>5、说一说选举算法及流程</p>
+<p>6、zookeeper有哪几种节点类型？</p>
+<ul>
+<li>持久节点（PERSISTENT）、持久顺序节点（PERSISTENT_SEQUENTIAL）、临时节点（EPHEMERAL）、临时顺序节点（EPHEMERAL_SEQUENTIAL）</li>
+</ul>
+<p>7、zookeeper对节点的watch监听通知是永久的吗？</p>
+<ul>
+<li>不是。官方声明：一个Watch事件是一个一次性的触发器，当被设置了Watch的数据发生了改变的时候，则服务器将这个改变发送给设置了Watch的客户   端，以便通知它们</li>
+</ul>
+<p>8、有哪几种部署模式？</p>
+<p>9、集群中的机器角色都有哪些？</p>
+<ul>
+<li>Leader、Follower、Observe、Client</li>
+</ul>
+<p>10、集群最少要几台机器，集群规则是怎样的</p>
+<ul>
+<li>3台，奇数</li>
+</ul>
+<p>11、集群如果有3台机器，挂掉一台集群还能工作吗？挂掉两台呢？</p>
+<ul>
+<li>半数以上</li>
+</ul>
+<p>12、集群支持动态添加机器吗？</p>
+<ul>
+<li>不能</li>
+</ul>
+<p>13、zookeeper的java客户端都有哪些？</p>
+<p>14、chubby是什么，和zookeeper比你怎么看？</p>
+<p>15、说几个zookeeper常用的命令。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.084Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 minutes read (About 1216 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E3%80%90%E5%8F%8C11%E5%8A%B2%E7%88%86%E5%B9%B2%E8%B4%A7%E3%80%91%E9%98%BF%E9%87%8C%E9%AB%98%E7%BA%A7Java%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%A6%96%E5%8F%91%EF%BC%8C70%E9%81%93%EF%BC%8C%E5%B8%A6%E8%AF%A6%E7%BB%86%E7%AD%94%E6%A1%88%EF%BC%89/">【双11劲爆干货】阿里高级Java面试题（首发，70道，带详细答案）</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="【双11劲爆干货】阿里高级Java面试题（首发，70道，带详细答案）"><a href="#【双11劲爆干货】阿里高级Java面试题（首发，70道，带详细答案）" class="headerlink" title="【双11劲爆干货】阿里高级Java面试题（首发，70道，带详细答案）"></a>【双11劲爆干货】阿里高级Java面试题（首发，70道，带详细答案）</h1><blockquote>
+<p>整理的70道阿里的Java面试题，都来挑战一下，看看自己有多厉害。下面题目都带超详细的解答，详情见底部。  </p>
+</blockquote>
+<p>1、java事件机制包括哪三个部分？分别介绍。</p>
+<p>2、为什么要使用线程池？</p>
+<p>3、线程池有什么作用？</p>
+<p>4、说说几种常见的线程池及使用场景。</p>
+<p>5、线程池都有哪几种工作队列？</p>
+<p>6、怎么理解无界队列和有界队列？</p>
+<p>7、线程池中的几种重要的参数及流程说明。</p>
+<p>8、什么是反射机制？</p>
+<p>9、说说反射机制的作用。</p>
+<p>10、反射机制会不会有性能问题？</p>
+<p>11、你怎么理解http协议？</p>
+<p>12、说说http协议的工作流程。</p>
+<p>13、http有哪些请求提交方式？</p>
+<p>14、http中的200,302,403,404,500,503都代表什么状态？</p>
+<p>15、http get和post有什么区别？</p>
+<p>16、你怎么理解cookie和session，有哪些不同点？</p>
+<p>17、什么是web缓存？有什么优点？</p>
+<p>18、什么是https，说说https的工作原理？</p>
+<p>19、什么是http代理服务器，有什么用？</p>
+<p>20、什么是虚拟主机及实现原理？</p>
+<p>21、什么是Java虚拟机，为什么要使用？</p>
+<p>22、说说Java虚拟机的生命周期及体系结构。</p>
+<p>23、说一说Java内存区域。</p>
+<p>24、什么是分布式系统？</p>
+<p>25、分布式系统你会考虑哪些方面？</p>
+<p>26、讲一讲TCP协议的三次握手和四次挥手流程。</p>
+<p>27、为什么TCP建立连接协议是三次握手，而关闭连接却是四次握手呢？为什么不能用两次握手进行连接？</p>
+<p>28、为什么TCP TIME_WAIT状态还需要等2MSL后才能返回到CLOSED状态？</p>
+<p>29、什么是DoS、DDoS、DRDoS攻击？如何防御？</p>
+<p>30、描述一下Java异常层次结构。</p>
+<p>31、什么是检查异常，不受检查异常，运行时异常？并分别举例说明。</p>
+<p>32、finally块一定会执行吗？</p>
+<p>33、正常情况下，当在try块或catch块中遇到return语句时，finally语句块在方法返回之前还是之后被执行？</p>
+<p>34、try、catch、finally语句块的执行顺序。</p>
+<p>35、Java虚拟机中，数据类型可以分为哪几类？</p>
+<p>36、怎么理解栈、堆？堆中存什么？栈中存什么？</p>
+<p>37、为什么要把堆和栈区分出来呢？栈中不是也可以存储数据吗？</p>
+<p>38、在Java中，什么是是栈的起始点，同是也是程序的起始点？</p>
+<p>39、为什么不把基本类型放堆中呢？</p>
+<p>40、Java中的参数传递时传值呢？还是传引用？</p>
+<p>41、Java中有没有指针的概念？</p>
+<p>42、Java中，栈的大小通过什么参数来设置？</p>
+<p>43、一个空Object对象的占多大空间？</p>
+<p>44、对象引用类型分为哪几类？</p>
+<p>45、讲一讲垃圾回收算法。</p>
+<p>46、如何解决内存碎片的问题？</p>
+<p>47、如何解决同时存在的对象创建和对象回收问题？</p>
+<p>48、讲一讲内存分代及生命周期。</p>
+<p>49、什么情况下触发垃圾回收？</p>
+<p>50、如何选择合适的垃圾收集算法？</p>
+<p>51、JVM中最大堆大小有没有限制？</p>
+<p>52、堆大小通过什么参数设置？</p>
+<p>53、JVM有哪三种垃圾回收器？</p>
+<p>54、吞吐量优先选择什么垃圾回收器？响应时间优先呢？</p>
+<p>55、如何进行JVM调优？有哪些方法？</p>
+<p>56、如何理解内存泄漏问题？有哪些情况会导致内存泄露？如何解决？</p>
+<p>57、从分布式系统部署角度考虑，分哪几层？</p>
+<p>58、如何解决业务层的数据访问问题？</p>
+<p>59、为了解决数据库服务器的负担，如何做数据库的分布？</p>
+<p>60、什么是著名的拜占庭将军问题？</p>
+<p>61、为什么说TCP/IP协议是不可靠的？</p>
+<p>62、讲讲CAP理念。</p>
+<p>63、怎么理解强一致性、单调一致性和最终一致性？</p>
+<p>64、分布式系统设计你会考虑哪些策略？</p>
+<p>65、最常见的数据分布方式是什么？</p>
+<p>66、谈一谈一致性哈希算法。</p>
+<p>67、paxos是什么？</p>
+<p>68、什么是Lease机制？</p>
+<p>69、如何理解选主算法？</p>
+<p>70、OSI有哪七层模型？TCP/IP是哪四层模型。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous is-invisible is-hidden-mobile">
+            <a class="is-flex-grow has-text-black-ter" href="/page/0/">Previous</a>
+        </div>
+        <div class="pagination-next">
+            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Next</a>
+        </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link is-current" href="/">1</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/2/">2</a></li>
+            
+            <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/7/">7</a></li>
+            
+        </ul>
+    </nav>
+</div>
 </div>
                 
 
@@ -577,7 +1393,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            2
+                            61
                         </p>
                     </a>
                 </div>
@@ -703,6 +1519,63 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域建模DDD">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域建模DDD</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域驱动设计战略">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域驱动设计战略</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="去BAT面试完的Mysql面试题总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="title has-link-black-ter is-size-6 has-text-weight-normal">去BAT面试完的Mysql面试题总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
         
@@ -721,6 +1594,17 @@
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">59</span>
                 </span>
             </a>
         </li>
@@ -798,6 +1682,63 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域建模DDD">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域建模DDD</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域驱动设计战略">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域驱动设计战略</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="去BAT面试完的Mysql面试题总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="title has-link-black-ter is-size-6 has-text-weight-normal">去BAT面试完的Mysql面试题总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
     
@@ -816,6 +1757,17 @@
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">59</span>
                 </span>
             </a>
         </li>

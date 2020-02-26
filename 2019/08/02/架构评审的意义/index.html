@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>架构评审的意义 - 柠檬资源社</title>
+
+
+    <meta name="description" content="架构评审的意义许多公司的项目流程中都有架构评审环节，却鲜少有人提起，大概对于参与者来说都并不是多么愉快的经历，一提都要皱着眉头，各有一肚子苦水涌上心头，慨叹不堪回首。￼被评审的同学感觉像是过堂，冥冥中有人在高声呼喝“升堂威武”，生怕自己一句话没说明白，对面的黑脸胖子就会蹦起来叫“开铡”，没通过评审连死的心都有。￼依我看，这源于认知冲突（这个词儿是从《架构即未来》里学的），参与各方的认知不一致，甚至">
+<meta property="og:type" content="article">
+<meta property="og:title" content="架构评审的意义">
+<meta property="og:url" content="http://yoursite.com/2019/08/02/%E6%9E%B6%E6%9E%84%E8%AF%84%E5%AE%A1%E7%9A%84%E6%84%8F%E4%B9%89/index.html">
+<meta property="og:site_name" content="柠檬资源社">
+<meta property="og:description" content="架构评审的意义许多公司的项目流程中都有架构评审环节，却鲜少有人提起，大概对于参与者来说都并不是多么愉快的经历，一提都要皱着眉头，各有一肚子苦水涌上心头，慨叹不堪回首。￼被评审的同学感觉像是过堂，冥冥中有人在高声呼喝“升堂威武”，生怕自己一句话没说明白，对面的黑脸胖子就会蹦起来叫“开铡”，没通过评审连死的心都有。￼依我看，这源于认知冲突（这个词儿是从《架构即未来》里学的），参与各方的认知不一致，甚至">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="article:published_time" content="2019-08-02T06:48:51.078Z">
+<meta property="article:modified_time" content="2019-08-02T06:48:51.078Z">
+<meta property="article:author" content="Robynn-D">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="架构评审的意义" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.078Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    16 minutes read (About 2353 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                架构评审的意义
+            
+        </h1>
+        <div class="content">
+            <h1 id="架构评审的意义"><a href="#架构评审的意义" class="headerlink" title="架构评审的意义"></a>架构评审的意义</h1><p>许多公司的项目流程中都有架构评审环节，却鲜少有人提起，大概对于参与者来说都并不是多么愉快的经历，一提都要皱着眉头，各有一肚子苦水涌上心头，慨叹不堪回首。<br>￼<br>被评审的同学感觉像是过堂，冥冥中有人在高声呼喝“升堂<del>威武</del>”，生怕自己一句话没说明白，对面的黑脸胖子就会蹦起来叫“开铡”，没通过评审连死的心都有。<br>￼<br>依我看，这源于认知冲突（这个词儿是从《架构即未来》里学的），参与各方的认知不一致，甚至引发情感冲突。<br>今天简单说说我对架构评审的认识，主要是评审的意义所在，理解了意义，目标一致，自然同心协力。</p>
+<p>曾经有次架构评审，两位其他部门的同事问我架构设计有什么特别思维，要掌握哪些不为人知的高能技巧。<br>我当时心思还在方案上，顺口回答其实跟编程做开发都是一脉相承的，该怎么拆分解耦怎么抽象聚合，道理上都是一样一样一样的啊。<br>大概这个答案不符合两位同事的预期，他们脸上有些失望，还有些不以为然，可能认为我在敷衍或者是本身就其实难副，就没再继续交流下去。<br>似乎不久之后，他们都离开了那个公司，不知如今是否找寻到了满意的答案。<br>如今再想，当年的确回答得太狭隘了，架构设计还要考虑很多其他方面。</p>
+<p>架构评审、跟技术方案评审、CodeReview一样，都是项目流程必要环节，是指对架构设计方案进行评审。</p>
+<p>在传统的软件工程理论中，设计阶段产出物就是设计文档，包括概要设计/详细设计，但不分产品和研发，所以文档既包括功能描述，也包括技术实现，有些对日外包的项目，甲方发过来的文档里连伪代码都写好了，就等着你翻译成代码，外包工程师纯粹就是一个翻译机器。<br>而到了互联网时代，提倡敏捷迭代，总嫌传统方式太重，流程复杂，影响效率，什么都希望短平快，在扁平化的组织中，经常是需求火速分发到一线研发，然后就靠个人折腾去了。<br>实际上达到一定规模的公司多半会进行架构评审，即由架构评审组织（架构评审委员会之类）制定架构设计文档规范，设计人员根据规范编写方案，设计人员当面向评审人员讲解方案，回答评审人员问题，评审人员提出意见和建议，双方进行讨论以充分沟通，最终由评审人员决定是否通过，一次评审不通过可以修改后再次评审。</p>
+<p>本质上架构评审跟测试相同，都为了保证质量，也没见谁对测试有多反感，宣称不需要测试通过就可以直接上线的。<br>由于技术人员普遍存在文人相轻的心理，对于参加评审被人挑毛拣刺的活动容易有所抵触。<br>评审过程中会讲到实现的关键点，因此有些相关人员也会参与了解，比如测试、数据、安全等，可能在无形中增加了被审者的心理压力。<br>毕竟架构设计代表着更高阶的技术能力，当面当众被指出问题要求修改，惯于“一人我撸代码”的研发人员容易自尊心受伤，面子上挂不住。</p>
+<p>有强烈的技术个人自由主义倾向的同学，并不适合团队作战。<br>只注重研发实现，技术新潮，不关注线上性能、持续运维、故障应急的程序猿，再牛也不是好攻城狮。<br>自己的设计被指出问题，提出改进建议，不喜反恼，则是心态不成熟的表现。</p>
+<p>架构评审的目的是什么？</p>
+<ol>
+<li>把关，确保方案合格，各方面都考虑到了，避免缺陷和遗漏，不求方案多牛，至少不犯错。 </li>
+<li>保证架构设计合理和基本一致，符合整体原则。 </li>
+<li>维持对系统架构的全局认知，避免黑盒效应。 </li>
+<li>通过评审发掘创新亮点，推广最佳实践。<br>以上四点重要性从高到低排列。<br>可见，评审都是对事，而不是对人，参与评审的各方是平等的，各司其职，而项目是服务于公司业务的。</li>
+</ol>
+<p>有人会自信满满拍着胸脯说自己的设计已经足够完美，不需要再费时间给别人讲，你敢保证别人的也跟你一样完美么？这次完美了，下次也会么？<br>方案设计不仅仅是考虑功能实现，还有很多非功能需求，以及持续运维所需要的工作，需要工程实践经验，进行平衡和取舍。<br>架构设计往往没有想象中那么简单纯粹，甚至一多半的精力要关注非核心的方面。<br>随便举几个例子：</p>
+<ol>
+<li>互联网金融公司的系统没有对账机制——你还敢投钱在里面么？ </li>
+<li>有的人号称玩转高并发多线程，扣减积分/余额程序就是先查询，再判断够不够，够的话就减掉后更新。——不知道被人白刷掉多少呢，刷多了应该能发现，拜托，对账都没有，你怎么发现？ </li>
+<li>对异常情况考虑不全，数据流断了，数据就丢了，逻辑要是再复杂点儿，时间再久一点，再想修复？愁死你。 </li>
+<li>核心业务应用，方案设计很费心思，但没考虑过性能指标，也没想过怎么监控告警——这都是没吃过亏，捅过篓子的。 </li>
+<li>有人对着自己的完美方案讲着讲着，不等别人指出，就发现了数据逻辑没有完整闭环的问题。 </li>
+</ol>
+<p>有人会说经验都是趟坑积累出来的，否则没法成长，你问问老板愿意拿业务系统当练手的试验田么？<br>于是有了架构评审，更多有丰富经验的人花较少的时间成本，快速的过一遍方案设计，三个臭皮匠赛过诸葛亮，更何况有资格做架构评审的，都是见识过各种情况的。<br>但不代表评审的人就高人一等更权威，再牛的人，讨论技术方案，也要以理服人。<br>有些做评审的，认为浪费自己时间，因为总是那些常见问题，还要耐心听完，自己似乎没有得到什么提高，请注意，能避免犯错，系统不至于三天两头到处冒烟，这就是莫大的光荣。<br>有些被评审的，在评审时感觉低人一头，仿佛被人审判，进一步会想“凭什么你来评审我，你算老几啊，这业务你没我懂啊！”对不起，这真不是业务百科知识大赛。<br>身边的人牛就不爽，觉得没啥了不起，碰到业界大神又惊呼真平易近人！<br>其实大神本来就平易近人，不会觉得自己高高在上，心智成熟，有自知之明。<br>大牛之所以成为大牛，也许就因为人家不飘飘然，脚踏实地，勤于做事，虚怀若谷，空杯心态。</p>
+<p>系统是满足需求，实现业务功能的，大家都是为了能查漏补缺才坐到一起。<br>良好的心态才能合作，才能共赢。功劳是大家的，出了问题，共担责任，不能置身事外。<br>最后一句，既然都来了，放下那些有的没的，好好琢磨方案才是正道！</p>
+<p>￼<br> <br>3月由中生代技术&amp;iTechPlus发起的年度大会降临魔都，20+话题，6大主题，<br>干货专家悉数到场，学习是一辈子的事，坚持学习，成为优秀人才！</p>
+<p> </p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/08/02/%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">携程大数据实践：高并发应用架构及推荐系统案例</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/02/%E8%99%B9%E8%99%B9%E6%A2%A6%E8%9D%B6%EF%BC%9A%E5%BC%BA%E5%A4%A7%E7%9A%84%E7%A5%96%E5%9B%BD%20%E4%BD%A0%E5%88%B0%E5%BA%95%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F/">
+                <span class="level-item">虹虹梦蝶：强大的祖国 你到底在哪里？</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Robynn-D">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Robynn-D
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        社長大人
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>中國台灣</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            61
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        
+        
+    </div>
+</div>
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="大结局后，谁还不服这华语最佳爱情">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T08:08:42.846Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">大结局后，谁还不服这华语最佳爱情</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T06:23:36.973Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="title has-link-black-ter is-size-6 has-text-weight-normal">浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域建模DDD">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域建模DDD</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域驱动设计战略">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域驱动设计战略</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="去BAT面试完的Mysql面试题总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="title has-link-black-ter is-size-6 has-text-weight-normal">去BAT面试完的Mysql面试题总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">59</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="大结局后，谁还不服这华语最佳爱情">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T08:08:42.846Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">大结局后，谁还不服这华语最佳爱情</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T06:23:36.973Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="title has-link-black-ter is-size-6 has-text-weight-normal">浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域建模DDD">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域建模DDD</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域驱动设计战略">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域驱动设计战略</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="去BAT面试完的Mysql面试题总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="title has-link-black-ter is-size-6 has-text-weight-normal">去BAT面试完的Mysql面试题总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">59</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="架构评审的意义" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Robynn-D&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://yoursite.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

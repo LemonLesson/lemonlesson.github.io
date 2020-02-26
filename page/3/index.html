@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>柠檬资源社</title>
+
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="柠檬资源社">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="柠檬资源社">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="article:author" content="Robynn-D">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="柠檬资源社" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.079Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    an hour read (About 6822 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%20%7C%20%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84TIME_WAIT%E5%92%8CCLOSE_WAIT/">高性能网络 | 你所不知道的TIME_WAIT和CLOSE_WAIT</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="高性能网络-你所不知道的TIME-WAIT和CLOSE-WAIT"><a href="#高性能网络-你所不知道的TIME-WAIT和CLOSE-WAIT" class="headerlink" title="高性能网络 | 你所不知道的TIME_WAIT和CLOSE_WAIT"></a>高性能网络 | 你所不知道的TIME_WAIT和CLOSE_WAIT</h1><blockquote>
+<p>本文是我将最近两篇文章，重新整理成一篇，方便收藏。如果你已经阅读过前两篇，并且已经做了收藏，可以重新收藏本文即可。  </p>
+</blockquote>
+<blockquote>
+<p>你有收藏和整理文章的习惯吗？好好利用Evernote或者印象笔记，不要吝啬那点年费，你值得购买，并养成收藏和整理的习惯！  </p>
+</blockquote>
+<p>本文源于大家在公众号里面的留言，既然很多人都搞不清楚TIME_WAIT和CLOSE_WAIT，那么小胖哥今天还是抽个时间，统一帮大家理理概念吧。</p>
+<p><strong>你遇到过TIME_WAIT的问题吗？</strong></p>
+<p>我相信很多都遇到过这个问题。一旦有用户在喊：网络变慢了。第一件事情就是，netstat -a | grep TIME_WAIT | wc -l 一下。哎呀妈呀，几千个TIME_WAIT.</p>
+<p>然后，做的第一件事情就是：打开Google或者Bing，输入关键词：too many time wait。一定能找到解决方案，而排在最前面或者被很多人到处转载的解决方案一定是：</p>
+<blockquote>
+<p>打开 sysctl.conf 文件，修改以下几个参数：  </p>
+</blockquote>
+<ul>
+<li>net.ipv4.tcp_tw_recycle = 1</li>
+<li>net.ipv4.tcp_tw_reuse = 1</li>
+<li>net.ipv4.tcp_timestamps = 1</li>
+</ul>
+<p>你也会被告知，开启tw_recylce和tw_reuse一定需要timestamps的支持，而且这些配置一般不建议开启，但是对解决TIME_WAIT很多的问题，有很好的用处。</p>
+<p>接下来，你就直接修改了这几个参数，reload一下，发现，咦，没几分钟，TIME_WAIT的数量真的降低了，也没发现哪个用户说有问题，然后就没有然后了。</p>
+<p>做到这一步，相信50%或者更高比例的开发就已经止步了。问题好像解决了，但是，要彻底理解并解决这个问题，可能就没这么简单，或者说，还有很长的路要走！</p>
+<p><strong>什么是TIME-WAIT和CLOSE-WAIT?</strong></p>
+<p>所谓，要解决问题，就要先理解问题。随便改两行代码，发现bug“没有了”，也不是bug真的没有了，只是隐藏在更深的地方，你没有发现，或者以你的知识水平，你无法发现而已。</p>
+<p>大家知道，由于socket是全双工的工作模式，一个socket的关闭，是需要四次握手来完成的。</p>
+<ul>
+<li><p>主动关闭连接的一方，调用close()； <strong>协议层发送FIN包</strong></p>
+</li>
+<li><p><strong>被动关闭的一方收到FIN包后，协议层回复ACK</strong> ；然后 <strong>被动关闭的一方，进入CLOSE_WAIT状态，</strong> 主动关闭的一方等待对方关闭，则进入FIN_WAIT_2状态；此时，主动关闭的一方 等待 被动关闭一方的应用程序，调用close操作</p>
+</li>
+<li><p>被动关闭的一方在完成所有数据发送后，调用close()操作；此时， <strong>协议层发送FIN包给主动关闭的一方，等待对方的ACK，被动关闭的一方进入LAST_ACK状态</strong> ；</p>
+</li>
+<li><p><strong>主动关闭的一方收到FIN包，协议层回复ACK</strong> ；此时， <strong>主动关闭连接的一方，进入TIME_WAIT状态；而被动关闭的一方，进入CLOSED状态</strong></p>
+</li>
+<li><p>等待2MSL时间，主动关闭的一方，结束TIME_WAIT，进入CLOSED状态</p>
+</li>
+</ul>
+<p>通过上面的一次socket关闭操作，你可以得出以下几点：</p>
+<ol>
+<li><p>主动关闭连接的一方 - 也就是主动调用socket的close操作的一方，最终会进入TIME_WAIT状态</p>
+</li>
+<li><p>被动关闭连接的一方，有一个中间状态，即CLOSE_WAIT，因为协议层在等待上层的应用程序，主动调用close操作后才主动关闭这条连接</p>
+</li>
+<li><p>TIME_WAIT会默认等待2MSL时间后，才最终进入CLOSED状态；</p>
+</li>
+<li><p>在一个连接没有进入CLOSED状态之前，这个连接是不能被重用的！</p>
+</li>
+</ol>
+<p>所以，这里凭你的直觉，TIME_WAIT并不可怕（not really，后面讲），CLOSE_WAIT才可怕，因为CLOSE_WAIT很多，表示说要么是你的应用程序写的有问题，没有合适的关闭socket；要么是说，你的服务器CPU处理不过来（CPU太忙）或者你的应用程序一直睡眠到其它地方(锁，或者文件I/O等等)，你的应用程序获得不到合适的调度时间，造成你的程序没法真正的执行close操作。</p>
+<p>这里又出现两个问题：</p>
+<ol>
+<li><p>上文提到的连接重用，那连接到底是个什么概念？</p>
+</li>
+<li><p>协议层为什么要设计一个TIME_WAIT状态？这个状态为什么默认等待2MSL时间才会进入CLOSED</p>
+</li>
+</ol>
+<p>先解释清楚这两个问题，我们再来看，开头提到的几个网络配置究竟有什么用，以及TIME_WAIT的后遗症问题。</p>
+<p><strong>Socket连接到底是个什么概念？</strong></p>
+<p>大家经常提socket，那么，到底什么是一个socket？其实，socket就是一个 五元组，包括：</p>
+<ol>
+<li>源IP</li>
+<li>源端口</li>
+<li>目的IP</li>
+<li>目的端口</li>
+<li>类型：TCP or UDP</li>
+</ol>
+<p>这个五元组，即标识了一条可用的连接。注意，有很多人把一个socket定义成四元组，也就是 源IP:源端口 + 目的IP:目的端口，这个定义是不正确的。</p>
+<p>例如，如果你的本地出口IP是180.172.35.150，那么你的浏览器在连接某一个Web服务器，例如百度的时候，这条socket连接的四元组可能就是：</p>
+<blockquote>
+<p>[180.172.35.150:45678, tcp, 180.97.33.108:80]  </p>
+</blockquote>
+<p>源IP为你的出口IP地址 180.172.35.150，源端口为随机端口 45678，目的IP为百度的某一个负载均衡服务器IP 180.97.33.108，端口为HTTP标准的80端口。</p>
+<p>如果这个时候，你再开一个浏览器，访问百度，将会产生一条新的连接：</p>
+<blockquote>
+<p>[180.172.35.150:43678, tcp, 180.97.33.108:80]  </p>
+</blockquote>
+<p>这条新的连接的源端口为一个新的随机端口 43678。</p>
+<p>如此来看，如果你的本机需要压测百度，那么，你最多可以创建多少个连接呢？我在文章《云思路 | 轻松构建千万级投票系统》里也稍微提过这个问题，没有阅读过本文的，可以发送“投票系统”阅读。</p>
+<p><strong>第二个问题，TIME_WAIT有什么用？</strong></p>
+<p>如果我们来做个类比的话，TIME_WAIT的出现，对应的是你的程序里的异常处理，它的出现，就是为了解决网络的丢包和网络不稳定所带来的其他问题： </p>
+<p>第一，防止前一个连接【五元组，我们继续以 180.172.35.150:45678, tcp, 180.97.33.108:80 为例】上延迟的数据包或者丢失重传的数据包，被后面复用的连接【前一个连接关闭后，此时你再次访问百度，新的连接可能还是由180.172.35.150:45678, tcp, 180.97.33.108:80 这个五元组来表示，也就是源端口凑巧还是45678】错误的接收（异常：数据丢了，或者传输太慢了），参见下图：<br><img src="%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%20%7C%20%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84TIME_WAIT%E5%92%8CCLOSE_WAIT/5C34D31F-CEA8-4F80-B26E-D73537B836B7.png" alt=""></p>
+<ul>
+<li><p>SEQ=3的数据包丢失，重传第一次，没有得到ACK确认</p>
+</li>
+<li><p>如果没有TIME_WAIT，或者TIME_WAIT时间非常端，那么关闭的连接【180.172.35.150:45678, tcp, 180.97.33.108:80 的状态变为了CLOSED，源端口可被再次利用】，马上被重用【对180.97.33.108:80新建的连接，复用了之前的随机端口45678】，并连续发送SEQ=1,2 的数据包</p>
+</li>
+<li><p>此时，前面的连接上的SEQ=3的数据包再次重传，同时，seq的序号刚好也是3（这个很重要，不然，SEQ的序号对不上，就会RST掉），此时，前面一个连接上的数据被后面的一个连接错误的接收</p>
+</li>
+</ul>
+<p>第二，确保连接方能在时间范围内，关闭自己的连接。其实，也是因为丢包造成的，参见下图：<br><img src="%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%20%7C%20%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84TIME_WAIT%E5%92%8CCLOSE_WAIT/9DA87743-E891-40D7-9E41-3DD2ED015ACA.png" alt=""></p>
+<ul>
+<li><p>主动关闭方关闭了连接，发送了FIN；</p>
+</li>
+<li><p>被动关闭方回复ACK同时也执行关闭动作，发送FIN包；此时，被动关闭的一方进入LAST_ACK状态</p>
+</li>
+<li><p>主动关闭的一方回去了ACK，主动关闭一方进入TIME_WAIT状态；</p>
+</li>
+<li><p>但是最后的ACK丢失，被动关闭的一方还继续停留在LAST_ACK状态</p>
+</li>
+<li><p>此时，如果没有TIME_WAIT的存在，或者说，停留在TIME_WAIT上的时间很短，则主动关闭的一方很快就进入了CLOSED状态，也即是说，如果此时新建一个连接，源随机端口如果被复用，在connect发送SYN包后，由于被动方仍认为这条连接【五元组】还在等待ACK，但是却收到了SYN，则被动方会回复RST</p>
+</li>
+<li><p>造成主动创建连接的一方，由于收到了RST，则连接无法成功</p>
+</li>
+</ul>
+<p>所以，你看到了，TIME_WAIT的存在是很重要的，如果强制忽略TIME_WAIT，还是有很高的机率，造成数据粗乱，或者短暂性的连接失败。</p>
+<p>那么，为什么说，TIME_WAIT状态会是持续2MSL（2倍的max segment lifetime）呢？这个时间可以通过修改内核参数调整吗？第一，这个2MSL，是RFC 793里定义的，参见RFC的截图标红的部分：<br><img src="%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%20%7C%20%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84TIME_WAIT%E5%92%8CCLOSE_WAIT/116A09E1-A9D6-453A-A62A-8F43EE181FD2.png" alt=""></p>
+<p>这个定义，更多的是一种保障（IP数据包里的TTL，即数据最多存活的跳数，真正反应的才是数据在网络上的存活时间），确保最后丢失了ACK，被动关闭的一方再次重发FIN并等待回复的ACK，一来一去两个来回。内核里，写死了这个MSL的时间为：30秒（有读者提醒，RFC里建议的MSL其实是2分钟，但是很多实现都是30秒），所以TIME_WAIT的即为1分钟：</p>
+<p>所以，再次回想一下前面的问题，如果一条连接，即使在四次握手关闭了，由于TIME_WAIT的存在，这个连接，在1分钟之内，也无法再次被复用，那么，如果你用一台机器做压测的客户端，你一分钟能发送多少并发连接请求？如果这台是一个负载均衡服务器，一台负载均衡服务器，一分钟可以有多少个连接同时访问后端的服务器呢？</p>
+<p><strong>TIME_WAIT很多，可怕吗？</strong></p>
+<p>如果你通过 ss -tan state time-wait | wc -l 发现，系统中有很多TIME_WAIT，很多人都会紧张。多少算多呢？几百几千？如果是这个量级，其实真的没必要紧张。第一，这个量级，因为TIME_WAIT所占用的内存很少很少；因为记录和寻找可用的local port所消耗的CPU也基本可以忽略。</p>
+<p><strong>会占用内存吗？当然</strong> <strong>！</strong> 任何你可以看到的数据，内核里都需要有相关的数据结构来保存这个数据啊。一条Socket处于TIME_WAIT状态，它也是一条“存在”的socket，内核里也需要有保持它的数据：</p>
+<ol>
+<li><p>内核里有保存所有连接的一个hash table，这个hash table里面既包含TIME_WAIT状态的连接，也包含其他状态的连接。主要用于有新的数据到来的时候，从这个hash table里快速找到这条连接。不同的内核对这个hash table的大小设置不同，你可以通过dmesg命令去找到你的内核设置的大小：</p>
+</li>
+<li><p>还有一个hash table用来保存所有的bound ports，主要用于可以快速的找到一个可用的端口或者随机端口：</p>
+</li>
+</ol>
+<p>由于内核需要保存这些数据，必然，会占用一定的内存。</p>
+<p><strong>会消耗CPU吗？</strong> <strong>当然！</strong> 每次找到一个随机端口，还是需要遍历一遍bound ports的吧，这必然需要一些CPU时间。</p>
+<p>TIME_WAIT很多，既占内存又消耗CPU，这也是为什么很多人，看到TIME_WAIT很多，就蠢蠢欲动的想去干掉他们。其实，如果你再进一步去研究，1万条TIME_WAIT的连接，也就多消耗1M左右的内存，对现代的很多服务器，已经不算什么了。至于CPU，能减少它当然更好，但是不至于因为1万多个hash item就担忧。<br>如果，你真的想去调优，还是需要搞清楚别人的调优建议，以及调优参数背后的意义！</p>
+<p><strong>TIME_WAIT调优，你必须理解的几个调优参数</strong></p>
+<p>在具体的图例之前，我们还是先解析一下相关的几个参数存在的意义。</p>
+<p><strong>net.ipv4.tcp_timestamps</strong></p>
+<blockquote>
+<p>RFC 1323 在 TCP Reliability一节里，引入了timestamp的TCP option，两个4字节的时间戳字段，其中第一个4字节字段用来保存发送该数据包的时间，第二个4字节字段用来保存最近一次接收对方发送到数据的时间。有了这两个时间字段，也就有了后续优化的余地。  </p>
+</blockquote>
+<blockquote>
+<p>tcp_tw_reuse 和 tcp_tw_recycle就依赖这些时间字段。<br><strong>net.ipv4.tcp_tw_reuse</strong></p>
+</blockquote>
+<blockquote>
+<p>字面意思，reuse TIME_WAIT状态的连接。  </p>
+</blockquote>
+<blockquote>
+<p>时刻记住一条socket连接，就是那个五元组，出现TIME_WAIT状态的连接，一定出现在主动关闭连接的一方。所以，当主动关闭连接的一方，再次向对方发起连接请求的时候（例如，客户端关闭连接，客户端再次连接服务端，此时可以复用了；负载均衡服务器，主动关闭后端的连接，当有新的HTTP请求，负载均衡服务器再次连接后端服务器，此时也可以复用），可以复用TIME_WAIT状态的连接。  </p>
+</blockquote>
+<blockquote>
+<p>通过字面解释，以及例子说明，你看到了，tcp_tw_reuse应用的场景：某一方，需要不断的通过“短连接”连接其他服务器，总是自己先关闭连接(TIME_WAIT在自己这方)，关闭后又不断的重新连接对方。  </p>
+</blockquote>
+<blockquote>
+<p>那么，当连接被复用了之后，延迟或者重发的数据包到达，新的连接怎么判断，到达的数据是属于复用后的连接，还是复用前的连接呢？那就需要依赖前面提到的两个时间字段了。复用连接后，这条连接的时间被更新为当前的时间，当延迟的数据达到，延迟数据的时间是小于新连接的时间，所以，内核可以通过时间判断出，延迟的数据可以安全的丢弃掉了。  </p>
+</blockquote>
+<blockquote>
+<p>这个配置，依赖于连接双方，同时对timestamps的支持。同时，这个配置，仅仅影响outbound连接，即做为客户端的角色，连接服务端[connect(dest_ip, dest_port)]时复用TIME_WAIT的socket。  </p>
+</blockquote>
+<p><strong>net.ipv4.tcp_tw_recycle</strong></p>
+<blockquote>
+<p>字面意思，销毁掉 TIME_WAIT。  </p>
+</blockquote>
+<blockquote>
+<p>当开启了这个配置后，内核会快速的回收处于TIME_WAIT状态的socket连接。多快？不再是2MSL，而是一个RTO（retransmission timeout，数据包重传的timeout时间）的时间，这个时间根据RTT动态计算出来，但是远小于2MSL。  </p>
+</blockquote>
+<blockquote>
+<p>有了这个配置，还是需要保障 丢失重传或者延迟的数据包，不会被新的连接(注意，这里不再是复用了，而是之前处于TIME_WAIT状态的连接已经被destroy掉了，新的连接，刚好是和某一个被destroy掉的连接使用了相同的五元组而已)所错误的接收。在启用该配置，当一个socket连接进入TIME_WAIT状态后，内核里会记录包括该socket连接对应的五元组中的对方IP等在内的一些统计数据，当然也包括从该对方IP所接收到的最近的一次数据包时间。当有新的数据包到达，只要时间晚于内核记录的这个时间，数据包都会被统统的丢掉。  </p>
+</blockquote>
+<blockquote>
+<p>这个配置，依赖于连接双方对timestamps的支持。同时，这个配置，主要影响到了inbound的连接（对outbound的连接也有影响，但是不是复用），即做为服务端角色，客户端连进来，服务端主动关闭了连接，TIME_WAIT状态的socket处于服务端，服务端快速的回收该状态的连接。  </p>
+</blockquote>
+<blockquote>
+<p>由此，如果客户端处于NAT的网络(多个客户端，同一个IP出口的网络环境)，如果配置了tw_recycle，就可能在一个RTO的时间内，只能有一个客户端和自己连接成功(不同的客户端发包的时间不一致，造成服务端直接把数据包丢弃掉)。  </p>
+</blockquote>
+<p>我尽量尝试用文字解释清楚，但是，来点案例和图示，应该有助于我们彻底理解。</p>
+<p>我们来看这样一个网络情况：<br><img src="%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%20%7C%20%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84TIME_WAIT%E5%92%8CCLOSE_WAIT/5E23D0D9-4566-48E3-9705-11861704230E.png" alt=""></p>
+<ol>
+<li><p>客户端IP地址为：180.172.35.150，我们可以认为是浏览器</p>
+</li>
+<li><p>负载均衡有两个IP，外网IP地址为 115.29.253.156，内网地址为10.162.74.10；外网地址监听80端口</p>
+</li>
+<li><p>负载均衡背后有两台Web服务器，一台IP地址为 10.162.74.43，监听80端口；另一台为 10.162.74.44，监听 80 端口</p>
+</li>
+<li><p>Web服务器会连接数据服务器，IP地址为 10.162.74.45，监听 3306 端口</p>
+</li>
+</ol>
+<p>这种简单的架构下，我们来看看，在不同的情况下，我们今天谈论的tw_reuse/tw_recycle对网络连接的影响。</p>
+<p>先做个假定：</p>
+<ol>
+<li><p>客户端通过HTTP/1.1连接负载均衡，也就是说，HTTP协议投Connection为keep-alive，所以我们假定，客户端 对 负载均衡服务器 的socket连接，客户端会断开连接，所以，TIME_WAIT出现在客户端</p>
+</li>
+<li><p>Web服务器和MySQL服务器的连接，我们假定，Web服务器上的程序在连接结束的时候，调用close操作关闭socket资源连接，所以，TIME_WAIT出现在 Web 服务器端。</p>
+</li>
+</ol>
+<p>那么，在这种假定下：</p>
+<ol>
+<li><p>Web服务器上，肯定可以配置开启的配置：tcp_tw_reuse；如果Web服务器有很多连向DB服务器的连接，可以保证socket连接的复用。</p>
+</li>
+<li><p>那么，负载均衡服务器和Web服务器，谁先关闭连接，则决定了我们怎么配置tcp_tw_reuse/tcp_tw_recycle了</p>
+</li>
+</ol>
+<p><strong>方案一：负载均衡服务器 首先关闭连接</strong></p>
+<p>在这种情况下，因为负载均衡服务器对Web服务器的连接，TIME_WAIT大都出现在负载均衡服务器上，所以，在负载均衡服务器上的配置：</p>
+<ul>
+<li><p>net.ipv4.tcp_tw_reuse = 1 //尽量复用连接</p>
+</li>
+<li><p>net.ipv4.tcp_tw_recycle = 0 //不能保证客户端不在NAT的网络啊</p>
+</li>
+</ul>
+<p>在Web服务器上的配置为：</p>
+<ul>
+<li><p>net.ipv4.tcp_tw_reuse = 1 //这个配置主要影响的是Web服务器到DB服务器的连接复用</p>
+</li>
+<li><p>net.ipv4.tcp_tw_recycle： 设置成1和0都没有任何意义。想一想，在负载均衡和它的连接中，它是服务端，但是TIME_WAIT出现在负载均衡服务器上；它和DB的连接，它是客户端，recycle对它并没有什么影响，关键是reuse</p>
+</li>
+</ul>
+<p><strong>方案二：Web服务器首先关闭来自负载均衡服务器的连接</strong></p>
+<p>在这种情况下，Web服务器变成TIME_WAIT的重灾区。负载均衡对Web服务器的连接，由Web服务器首先关闭连接，TIME_WAIT出现在Web服务器上；Web服务器对DB服务器的连接，由Web服务器关闭连接，TIME_WAIT也出现在它身上，此时，负载均衡服务器上的配置：</p>
+<ul>
+<li><p>net.ipv4.tcp_tw_reuse：0 或者 1 都行，都没有实际意义</p>
+</li>
+<li><p>net.ipv4.tcp_tw_recycle=0 //一定是关闭recycle</p>
+</li>
+</ul>
+<p>在Web服务器上的配置：</p>
+<ul>
+<li><p>net.ipv4.tcp_tw_reuse = 1 //这个配置主要影响的是Web服务器到DB服务器的连接复用</p>
+</li>
+<li><p>net.ipv4.tcp_tw_recycle=1 //由于在负载均衡和Web服务器之间并没有NAT的网络，可以考虑开启recycle，加速由于负载均衡和Web服务器之间的连接造成的大量TIME_WAIT</p>
+</li>
+</ul>
+<p><strong>回答几个大家提到的几个问题</strong></p>
+<ol>
+<li>请问我们所说连接池可以复用连接，是不是意味着，需要等到上个连接time wait结束后才能再次使用?</li>
+</ol>
+<blockquote>
+<p>所谓连接池复用，复用的一定是活跃的连接，所谓活跃，第一表明连接池里的连接都是ESTABLISHED的，第二，连接池做为上层应用，会有定时的心跳去保持连接的活跃性。既然连接都是活跃的，那就不存在有TIME_WAIT的概念了，在上篇里也有提到，TIME_WAIT是在主动关闭连接的一方，在关闭连接后才进入的状态。既然已经关闭了，那么这条连接肯定已经不在连接池里面了，即被连接池释放了。  </p>
+</blockquote>
+<ol start="2">
+<li>想请问下，作为负载均衡的机器随机端口使用完的情况下大量time_wait，不调整你文字里说的那三个参数，有其他的更好的方案吗？</li>
+</ol>
+<blockquote>
+<p>第一，随机端口使用完，你可以通过调整/etc/sysctl.conf下的net.ipv4.ip_local_port_range配置，至少修改成 net.ipv4.ip_local_port_range=1024 65535，保证你的负载均衡服务器至少可以使用6万个随机端口，也即可以有6万的反向代理到后端的连接，可以支持每秒1000的并发（想一想，因为TIME_WAIT状态会持续1分钟后消失，所以一分钟最多有6万，每秒1000）；如果这么多端口都使用完了，也证明你应该加服务器了，或者，你的负载均衡服务器需要配置多个IP地址，或者，你的后端服务器需要监听更多的端口和配置更多的IP（想一下socket的五元组）  </p>
+</blockquote>
+<blockquote>
+<p>第二，大量的TIME_WAIT，多大量？如果是几千个，其实不用担心，因为这个内存和CPU的消耗有一些，但是是可以忽略的。  </p>
+</blockquote>
+<blockquote>
+<p>第三，如果真的量很大，上万上万的那种，可以考虑，让后端的服务器主动关闭连接，如果后端服务器没有外网的连接只有负载均衡服务器的连接（主要是没有NAT网络的连接），可以在后端服务器上配置tw_recycle，然后同时，在负载均衡服务器上，配置tw_reuse。  </p>
+</blockquote>
+<ol start="3">
+<li>如果想深入的学习一下网络方面的知识，有什么推荐的？</li>
+</ol>
+<blockquote>
+<p>学习网络比学一门编程语言“难”很多。所谓难，其实，是因为需要花很多的时间投入。我自己不算精通，只能说入门和理解。基本书可以推荐：《TCP/IP 协议详解》，必读；《TCP/IP高效编程：改善网络程序的44个技巧》，必读；《Unix环境高级编程》，必读；《Unix网络编程：卷一》，我只读过卷一；另外，还需要熟悉一下网络工具，tcpdump以及wireshark，我的notes里有一个一站式学习Wireshark：<a href="https://github.com/dafang/notebook/issues/114，也值得一读。有了这些积累，可能就是一些实践以及碎片化的学习和积累了。">https://github.com/dafang/notebook/issues/114，也值得一读。有了这些积累，可能就是一些实践以及碎片化的学习和积累了。</a>  </p>
+</blockquote>
+<p><strong>写在最后</strong></p>
+<p>这篇文章我断断续续写了两天，内容找了多个地方去验证，包括看到Vincent Bernat的一篇文章以及Vincent在多个地方和别人的讨论。期间，我也花了一些时间和Vincent探讨了几个我没在tcp源码里翻找到的有疑问的地方。</p>
+<p>我力求比散布在网上的文章做到准确并尽量整理的清晰一些。但是，也难免会</p>
+<p>有疏漏或者有错误的地方，高手看到可以随时指正，并和我讨论，大家一起研究！<br>感谢您阅读。</p>
+<p>用一点赞赏，来鼓励作者继续撰写干货</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI4MjA4ODU0Ng==&mid=402415747&idx=1&sn=2458ba4fe1830eecdb8db725d3f395fa&mpshare=1&scene=1&srcid=0710ehXQ8Ie8dBtv7RGfraxj&key=dd608d91fd702d6445d20498afa18b8b719e095009b5c4681969c9b4cc5ccb4932d014b5101216c783f4ed13fda6408e87751fa23ab82ba32352b1feb0bf5800ae5b33d9e710d5cb79dba99af1fec435&ascene=0&uin=ODAzMDQyMjU%3D&devicetype=iMac+MacBookPro10%2C2+OSX+OSX+10.12.4+build(16E195)&version=12020810&nettype=WIFI&fontScale=100&pass_ticket=Cc9juYHNJFxAOsrB75olHFYxSRYnY82R1kRuvr8ZyAA%3D">高性能网络 | 你所不知道的TIME_WAIT和CLOSE_WAIT</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.078Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    37 minutes read (About 5482 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/">携程大数据实践：高并发应用架构及推荐系统案例</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="携程大数据实践：高并发应用架构及推荐系统案例"><a href="#携程大数据实践：高并发应用架构及推荐系统案例" class="headerlink" title="携程大数据实践：高并发应用架构及推荐系统案例"></a>携程大数据实践：高并发应用架构及推荐系统案例</h1><p>摘要：本文来自携程技术中心基础业务研发部的《应用架构涅槃》系列分享。</p>
+<p>本文来自携程技术中心基础业务研发部的《应用架构涅槃》系列分享。据基础业务研发部负责人李小林介绍，互联网二次革命的移动互联网时代，如何吸引用户、留住用户并深入挖掘用户价值，在激烈的竞争中脱颖而出，是各大电商的重要课题。通过各类 <a href="http://www.afenxi.com/topic/%e5%a4%a7%e6%95%b0%e6%8d%ae">大数据</a> 对用户进行研究，以数据驱动产品是解决这个课题的主要手段，携程的大数据团队也由此应运而生；经过几年的努力，大数据的相关技术为业务带来了惊人的提升与帮助。以基础大数据的用户意图服务为例，通过将广告和栏位的“千人一面”变为“千人千面”，在提升用户便捷性，可用性，降低费力度的同时，其转化率也得到了数倍的提升，体现了大数据服务的真正价值。</p>
+<p>在李小林看来，大数据是互联网行业发展的趋势，互联网的从业人员需要高度关注大数据相关的技术及应用，也希望通过这一系列大数据相关的讲座，让各位同学有所收获。</p>
+<p>首场《应用架构涅磐》分享来自基础业务研发部的董锐，包括业务高速发展带来的应用架构挑战、应对挑战的架构涅磐、应用系统整体架构和 <a href="http://www.afenxi.com/topic/%e6%8e%a8%e8%8d%90%e7%b3%bb%e7%bb%9f">推荐系统</a> 案例等四个部分。</p>
+<h2 id="一、业务高速发展带来的应用架构挑战"><a href="#一、业务高速发展带来的应用架构挑战" class="headerlink" title="一、业务高速发展带来的应用架构挑战"></a>一、业务高速发展带来的应用架构挑战</h2><p>公司业务高速发展带来哪些主要的变化，以及给我们的系统带来了哪些挑战？</p>
+<ol>
+<li>业务需求的急速增长，访问请求的并发量激增，2016年1月份以来，业务部门的服务日均请求量激增了5.5倍。</li>
+<li>业务逻辑日益复杂化，基础业务研发部需要支撑起OTA数十个业务线，业务逻辑日趋复杂和繁多。</li>
+<li>业务数据源多样化，异构化，接入的业务线、合作公司的数据源越来越多；接入的数据结构由以前的数据库结构化数据整合转为Hive表、评论文本数据、日志数据、天气数据、网页数据等多元化异构数据整合。</li>
+<li>业务的高速发展和迭代，部门一直以追求以最少的开发人力，以架构和系统的技术优化，支撑起携程各业务线高速发展和迭代的需要。<br>在这种新形势下，传统应用架构不得不变，做为工程师也必然要自我涅槃，改为大数据及新的高并发架构，来应对业务需求激增及高速迭代的需要。计算分层分解、去SQL、去数据库化、模块化拆解的相关技改工作已经刻不容缓。</li>
+</ol>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/201608280510525.png" alt=""></p>
+<p>以用户意图（AI 点金杖）的个性化服务为例， 面对BU业务线的全面支持的迫切需要，其应用架构必须解决如下技术难点：</p>
+<ol>
+<li>高访问并发：每天近亿次的访问请求；</li>
+<li>数据量大：每天TB级的增量数据，近百亿条的用户数据，上百万的产品数据；</li>
+<li>业务逻辑复杂：复杂个性化算法和LBS算法；例如：满足一个复杂用户请求需要大量计算和30次左右的SQL数据查询，服务延时越来越长；</li>
+<li>高速迭代上线：面对OTA多业务线的个性化、Cross-saling、Up-saling、需满足提升转化率的迫切需求，迭代栏位或场景要快速，同时减少研发成本。<h2 id="二、应对挑战的架构涅磐"><a href="#二、应对挑战的架构涅磐" class="headerlink" title="二、应对挑战的架构涅磐"></a>二、应对挑战的架构涅磐</h2></li>
+</ol>
+<p>面对这些挑战，我们的应用系统架构应该如何涅磐？主要分如下三大方面系统详解:</p>
+<ul>
+<li><strong>存储的涅磐</strong> ，这一点对于整个系统的吞吐量和并发量的提升起到最关键的作用，需要结合数据存储模型和具体应用的场景。</li>
+<li><strong>计算的涅磐</strong> ，可以从横向和纵向考虑：横向主要是增加并发度，首先想到的是分布式。纵向拆分就是要求我们找到计算的结合点从而进行分层，针对不同的层次选择不同的计算地点。然后再将各层次计算完后的结果相结合，尽可能最大化系统整体的处理能力。</li>
+<li><strong>业务层架构的涅磐</strong> ，要求系统的良好的模块化设计，清楚的定义模块的边界，模块自升级和可配置化。<h2 id="三、应用系统的整体架构"><a href="#三、应用系统的整体架构" class="headerlink" title="三、应用系统的整体架构"></a>三、应用系统的整体架构</h2></li>
+</ul>
+<p>认识到需要应对的挑战，我们应该如何设计我们的系统呢，下面将全面的介绍下我们的应用系统整体架构。</p>
+<p>下图就是我们应用系统整体架构以及系统层次的模块构成。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/84d140cfd5bd087f6b69fc1aa0546bdf.png" alt=""></p>
+<p>数据源部分，Hermes是携程框架部门提供的消息队列，基于Kafka和MySQL做为底层实现的封装，应用于系统间实时数据传输交互通道。Hive和HDFS是携程海量数据的主要存储，两者来自Hadoop生态体系。Hadoop大家已经很熟悉，如果不熟悉的同学只要知道Hadoop主要用于大数据量存储和并行计算批处理工作。</p>
+<p>Hive是基于Hadoop平台的数据仓库，沿用了关系型数据库的很多概念。比如说数据库和表，还有一套近似于SQL的查询接口的支持，在Hive里叫做HQL，但是其底层的实现细节和关系型数据库完全不一样，Hive底层所有的计算都是基于MR来完成，我们的数据工程师90%都数据处理工作都基于它来完成。</p>
+<p>离线部分，包含的模块有MR、Hive、Mahout、SparkQL/MLLib。Hive上面已经介绍过，Mahout简单理解提供基于Hadoop平台进行数据挖掘的一些机器学习的算法包。Spark类似hadoop也是提供大数据并行批量处理平台，但是它是基于内存的。SparkQL 和Spark MLLib是基于Spark平台的SQL查询引擎和数据挖掘相关算法框架。我们主要用Mahout和Spark MLLib进行数据挖掘工作。</p>
+<p>调度系统zeus，是淘宝开源大数据平台调度系统，于2015年引进到携程，之后我们进行了重构和功能升级，做为携程大数据平台的作业调度平台。</p>
+<p>近线部分，是基于Muise来实现我们的近实时的计算场景，Muise是也是携程OPS提供的实时计算流处理平台，内部是基于Storm实现与HERMES消息队列搭配起来使用。例如，我们使用MUSIE通过消费来自消息队列里的用户实时行为，订单记录，结合画像等一起基础数据，经一系列复杂的规则和算法，实时的识别出用户的行程意图。</p>
+<p>后台/线上应用部分，MySQL用于支撑后台系统的数据库。ElasticSearch是基于Lucene实现的分布式搜索引擎，用于索引用户画像的数据，支持离线精准营销的用户筛选，同时支持线上应用推荐系统的选品功能。HBase 基于Hadoop的HDFS 上的列存储NoSQL数据库，用于后台报表可视化系统和线上服务的数据存储。</p>
+<p>这里说明一下, 在线和后台应用使用的ElasticSearch和HBase集群是分开的，互不影响。Redis支持在线服务的高速缓存，用于缓存统计分析出来的热点数据。</p>
+<h2 id="四、推荐系统案例"><a href="#四、推荐系统案例" class="headerlink" title="四、推荐系统案例"></a>四、推荐系统案例</h2><p>介绍完我们应用系统的整体构成，接下来分享基于这套系统架构实现的一个实例——携程个性化推荐系统。</p>
+<p>推荐系统的架构图：</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/2af98e023c7b6cea11663bd0845336c0.png" alt=""></p>
+<h3 id="1、存储的涅磐"><a href="#1、存储的涅磐" class="headerlink" title="1、存储的涅磐"></a>1、存储的涅磐</h3><p>1）NoSQL (HBase+Redis)<br><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/b9f12f1fece87c1b0d8aab9ddf0b1284.png" alt=""></p>
+<p>我们之前存储使用的是MySQL，一般关系型数据库会做为应用系统存储的首选。大家知道MySQL非商业版对分布式支持不够，在存储数据量不高，查询量和计算复杂度不是很大的情况下，可以满足应用系统绝大部分的功能需求。</p>
+<p>我们现状是需要安全存储海量的数据，高吞吐，并发能力强，同时随着数据量和请求量的快速增加，能够通过加节点来扩容。另外还需要支持故障转移，自动恢复，无需额外的运维成本。综上几个主要因素，我们进行了大量的调研和测试，最终我们选用HBase和Redis两个NoSQL数据库来取代以往使用的MySQL。我们把用户意图以及推荐产品数据以KV的形式存储在HBase中，我对操作HBase进行一些优化，其中包括rowkey的设计，预分配，数据压缩等，同时针对我们的使用场景对HBase本身配置方面的也进行了调优。目前存储的数据量已经达到TB级别，支持每天千万次请求，同时保证99%在50毫秒内返回。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/9d33e5a6922ec81eff2d9d36f6b9b519.png" alt=""></p>
+<p>Redis和多数应用系统使用方式一样，主要用于缓存热点数据，这里就不多说了。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/27ac490e8e515119f534d812bd195aac.png" alt=""></p>
+<p>2）搜索引擎 (ElasticSearch)<br><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/5ba19a12e87cd2ae964fbe30bac7fd67.png" alt=""></p>
+<p>ES索引各业务线产品特征数据，提供基于用户的意图特征和产品特征复杂的多维检索和排序功能，当前集群由4台大内存物理机器构成，采用全内存索引。对比某一个复杂的查询场景，之前用MySQL将近需要30次查询，使用ES只需要一次组合查询且在100毫秒内返回。目前每天千万次搜索，99%以上在300毫秒以内返回。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/4a52e65454c764839434bd68bc127835.png" alt=""></p>
+<h3 id="2、计算的涅磐"><a href="#2、计算的涅磐" class="headerlink" title="2、计算的涅磐"></a>2、计算的涅磐</h3><p>1）数据源，我们的数据源分结构化和半结构化数据以及非结构化数据。<br><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/ddcd3c25617e387ff34f5e2b581974d2.png" alt=""></p>
+<p>结构化数据主要是指携程各产线的产品维表和订单数据，有酒店、景酒、团队游、门票、景点等，还有一些基础数据，比如城市表、车站等，这类数据基本上都是T+1，每天会有流程去各BU的生产表拉取数据。</p>
+<p>半结构化数据是指，携程用户的访问行为数据，例如浏览、搜索、预订、反馈等，这边顺便提一下，这些数据这些是由前端采集框架实时采集，然后下发到后端的收集服务，由收集服务在写入到Hermes消息队列，一路会落地到Hadoop上面做长期存储，另一路近线层可以通过订阅Hermes此类数据Topic进行近实时的计算工作。</p>
+<p>我们还用到外部合作渠道的数据，还有一些评论数据，评论属于非结构化的，也是T+1更新。</p>
+<p>2）离线计算，主要分三个处理阶段。<br><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/c89572e9069f64f539bbc1b9d8286bf8.png" alt=""></p>
+<p>预处理阶段，这块主要为后续数据挖掘做一些数据的准备工作，数据去重，过滤，对缺失信息的补足。举例来说采集下来的用户行为数据，所含有的产品信息很少，我们会使用产品表的数据进行一些补足，确保给后续的数据挖掘使用时候尽量完整的。</p>
+<p>数据挖掘阶段，主要运用一些常用的数据挖掘算法进行模型训练和推荐数据的输出(分类、聚类、回归、CF等)。</p>
+<p>结果导入阶段，我们通过可配置的数据导入工具将推荐数据，进行一系列转换后，导入到HBase、Redis以及建立ES索引，Redis存储的是经统计计算出的热点数据。</p>
+<p>3）近线计算（用户意图、产品缓存）</p>
+<p>当用户没有明确的目的性情况下，很难找到满足兴趣的产品，我们不仅需要了解用户的历史兴趣，用户实时行为特征的抽取和理解更加重要，以便快速的推荐出符合用户当前兴趣的产品，这就是用户意图服务需要实现的功能。</p>
+<p>一般来说用户特征分成两大类：一种是稳定的特征（用户画像），如用户性别、常住地、主题偏好等特征；另一类是根据用户行为计算获取的特征，如用户对酒店星级的偏好、目的地偏好、跟团游/自由行偏好等。基于前面所述的计算的特点，我们使用近在线计算来获取第二类用户特征，整体框图如下。从图中可以看出它的输入数据源包括两大类：第一类是实时的用户行为；第二类是用户画像，历史交易以及情景等离线模块提供的数据。结合这两类数据，经一些列复杂的近线学习算法和规则引擎，计算得出用户当前实时意图列表存储到HBase和Redis中。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/513a6b967998e90739cf93ea9781bd4d.png" alt=""></p>
+<p>携程用户意图框架近线另一个工作是产品数据缓存，携程的业务线很多，而我们的推荐系统会推各个业务线的产品，因此我们需要调用所有业务线的产品服务接口，但随着我们上线的场景的增加，这样无形的增加了对业务方接口的调用压力。而且业务线产品接口服务主要应用于业务的主流程或关键型应用，比较重，且SLA服务等级层次不齐，可能会影响到整个推荐系统的响应时间。</p>
+<p>为了解决这两个问题，我们设计了近在线计算来进行业务的产品信息异步缓存策略，具体的流程如下。</p>
+<p>我们会将待推荐的产品Id全部通过Kafka异步下发，在Storm中我们会对各业务方的产品首先进行聚合，达到批处理个数或者时间gap时，再调用各业务方的接口，这样减少对业务方接口的压力。通过调用业务方接口更新的产品状态临时缓存起来（根据各业务产品信息更新周期分别设置缓存失效时间），在线计算的时候直接先读取临时缓存数据，缓存不存在的情况下，再击穿到业务的接口服务。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/05397d61a7bc98253dc8ab33d89bd381.png" alt=""></p>
+<p>产品异步缓存框架</p>
+<p>4）在线计算（2个关键业务层架构模块介绍）</p>
+<p><strong>①业务层架构-数据治理和访问模块</strong> ，支持的存储介质，目前支持的存储介质有Localcache、Redis、HBase、MySQL可以支持横向扩展。统一配置，对同一份数据，采用统一配置，可以随意存储在任意介质，根据id查询返回统一格式的数据，对查询接口完全透明。</p>
+<p>穿透策略和容灾策略，Redis只存储了热数据，当需要查询冷数据则可以自动到下一级存储如HBase查询，避免缓存资源浪费。当Redis出现故障时或请求数异常上涨，超过整体承受能力，此时服务降级自动生效，并可配置化。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/2da4694bd4cd65061368551f3231d691.png" alt=""></p>
+<p><strong>②业务层架构-推荐策略模块</strong> ，整个流程是先将用户意图、用户浏览，相关推荐策略生成的产品集合等做为数据输入，接着按照场景规则，业务逻辑重新过滤，聚合、排序。最后验证和拼装业务线产品信息后输出推荐结果；</p>
+<p>我们对此流程每一步进行了一些模块化的抽象，将重排序逻辑按步骤抽象解耦，抽象如右图所示的多个组件，开发新接口时仅需要将内部DSL拼装便可以得到满足业务需求的推荐服务；提高了代码的复用率和可读性，减少了超过50%的开发时间；对于充分验证的模块的复用，有效保证了服务的质量。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/2092f38cba40ba40cbb4f5403d84453a.png" alt=""></p>
+<blockquote>
+<p>转自：极客头条  </p>
+</blockquote>
+<blockquote>
+<p>链接：<a href="http://geek.csdn.net/news/detail/96708">http://geek.csdn.net/news/detail/96708</a>  </p>
+</blockquote>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.078Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    16 minutes read (About 2353 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E6%9E%B6%E6%9E%84%E8%AF%84%E5%AE%A1%E7%9A%84%E6%84%8F%E4%B9%89/">架构评审的意义</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="架构评审的意义"><a href="#架构评审的意义" class="headerlink" title="架构评审的意义"></a>架构评审的意义</h1><p>许多公司的项目流程中都有架构评审环节，却鲜少有人提起，大概对于参与者来说都并不是多么愉快的经历，一提都要皱着眉头，各有一肚子苦水涌上心头，慨叹不堪回首。<br>￼<br>被评审的同学感觉像是过堂，冥冥中有人在高声呼喝“升堂<del>威武</del>”，生怕自己一句话没说明白，对面的黑脸胖子就会蹦起来叫“开铡”，没通过评审连死的心都有。<br>￼<br>依我看，这源于认知冲突（这个词儿是从《架构即未来》里学的），参与各方的认知不一致，甚至引发情感冲突。<br>今天简单说说我对架构评审的认识，主要是评审的意义所在，理解了意义，目标一致，自然同心协力。</p>
+<p>曾经有次架构评审，两位其他部门的同事问我架构设计有什么特别思维，要掌握哪些不为人知的高能技巧。<br>我当时心思还在方案上，顺口回答其实跟编程做开发都是一脉相承的，该怎么拆分解耦怎么抽象聚合，道理上都是一样一样一样的啊。<br>大概这个答案不符合两位同事的预期，他们脸上有些失望，还有些不以为然，可能认为我在敷衍或者是本身就其实难副，就没再继续交流下去。<br>似乎不久之后，他们都离开了那个公司，不知如今是否找寻到了满意的答案。<br>如今再想，当年的确回答得太狭隘了，架构设计还要考虑很多其他方面。</p>
+<p>架构评审、跟技术方案评审、CodeReview一样，都是项目流程必要环节，是指对架构设计方案进行评审。</p>
+<p>在传统的软件工程理论中，设计阶段产出物就是设计文档，包括概要设计/详细设计，但不分产品和研发，所以文档既包括功能描述，也包括技术实现，有些对日外包的项目，甲方发过来的文档里连伪代码都写好了，就等着你翻译成代码，外包工程师纯粹就是一个翻译机器。<br>而到了互联网时代，提倡敏捷迭代，总嫌传统方式太重，流程复杂，影响效率，什么都希望短平快，在扁平化的组织中，经常是需求火速分发到一线研发，然后就靠个人折腾去了。<br>实际上达到一定规模的公司多半会进行架构评审，即由架构评审组织（架构评审委员会之类）制定架构设计文档规范，设计人员根据规范编写方案，设计人员当面向评审人员讲解方案，回答评审人员问题，评审人员提出意见和建议，双方进行讨论以充分沟通，最终由评审人员决定是否通过，一次评审不通过可以修改后再次评审。</p>
+<p>本质上架构评审跟测试相同，都为了保证质量，也没见谁对测试有多反感，宣称不需要测试通过就可以直接上线的。<br>由于技术人员普遍存在文人相轻的心理，对于参加评审被人挑毛拣刺的活动容易有所抵触。<br>评审过程中会讲到实现的关键点，因此有些相关人员也会参与了解，比如测试、数据、安全等，可能在无形中增加了被审者的心理压力。<br>毕竟架构设计代表着更高阶的技术能力，当面当众被指出问题要求修改，惯于“一人我撸代码”的研发人员容易自尊心受伤，面子上挂不住。</p>
+<p>有强烈的技术个人自由主义倾向的同学，并不适合团队作战。<br>只注重研发实现，技术新潮，不关注线上性能、持续运维、故障应急的程序猿，再牛也不是好攻城狮。<br>自己的设计被指出问题，提出改进建议，不喜反恼，则是心态不成熟的表现。</p>
+<p>架构评审的目的是什么？</p>
+<ol>
+<li>把关，确保方案合格，各方面都考虑到了，避免缺陷和遗漏，不求方案多牛，至少不犯错。 </li>
+<li>保证架构设计合理和基本一致，符合整体原则。 </li>
+<li>维持对系统架构的全局认知，避免黑盒效应。 </li>
+<li>通过评审发掘创新亮点，推广最佳实践。<br>以上四点重要性从高到低排列。<br>可见，评审都是对事，而不是对人，参与评审的各方是平等的，各司其职，而项目是服务于公司业务的。</li>
+</ol>
+<p>有人会自信满满拍着胸脯说自己的设计已经足够完美，不需要再费时间给别人讲，你敢保证别人的也跟你一样完美么？这次完美了，下次也会么？<br>方案设计不仅仅是考虑功能实现，还有很多非功能需求，以及持续运维所需要的工作，需要工程实践经验，进行平衡和取舍。<br>架构设计往往没有想象中那么简单纯粹，甚至一多半的精力要关注非核心的方面。<br>随便举几个例子：</p>
+<ol>
+<li>互联网金融公司的系统没有对账机制——你还敢投钱在里面么？ </li>
+<li>有的人号称玩转高并发多线程，扣减积分/余额程序就是先查询，再判断够不够，够的话就减掉后更新。——不知道被人白刷掉多少呢，刷多了应该能发现，拜托，对账都没有，你怎么发现？ </li>
+<li>对异常情况考虑不全，数据流断了，数据就丢了，逻辑要是再复杂点儿，时间再久一点，再想修复？愁死你。 </li>
+<li>核心业务应用，方案设计很费心思，但没考虑过性能指标，也没想过怎么监控告警——这都是没吃过亏，捅过篓子的。 </li>
+<li>有人对着自己的完美方案讲着讲着，不等别人指出，就发现了数据逻辑没有完整闭环的问题。 </li>
+</ol>
+<p>有人会说经验都是趟坑积累出来的，否则没法成长，你问问老板愿意拿业务系统当练手的试验田么？<br>于是有了架构评审，更多有丰富经验的人花较少的时间成本，快速的过一遍方案设计，三个臭皮匠赛过诸葛亮，更何况有资格做架构评审的，都是见识过各种情况的。<br>但不代表评审的人就高人一等更权威，再牛的人，讨论技术方案，也要以理服人。<br>有些做评审的，认为浪费自己时间，因为总是那些常见问题，还要耐心听完，自己似乎没有得到什么提高，请注意，能避免犯错，系统不至于三天两头到处冒烟，这就是莫大的光荣。<br>有些被评审的，在评审时感觉低人一头，仿佛被人审判，进一步会想“凭什么你来评审我，你算老几啊，这业务你没我懂啊！”对不起，这真不是业务百科知识大赛。<br>身边的人牛就不爽，觉得没啥了不起，碰到业界大神又惊呼真平易近人！<br>其实大神本来就平易近人，不会觉得自己高高在上，心智成熟，有自知之明。<br>大牛之所以成为大牛，也许就因为人家不飘飘然，脚踏实地，勤于做事，虚怀若谷，空杯心态。</p>
+<p>系统是满足需求，实现业务功能的，大家都是为了能查漏补缺才坐到一起。<br>良好的心态才能合作，才能共赢。功劳是大家的，出了问题，共担责任，不能置身事外。<br>最后一句，既然都来了，放下那些有的没的，好好琢磨方案才是正道！</p>
+<p>￼<br> <br>3月由中生代技术&amp;iTechPlus发起的年度大会降临魔都，20+话题，6大主题，<br>干货专家悉数到场，学习是一辈子的事，坚持学习，成为优秀人才！</p>
+<p> </p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.078Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 minutes read (About 1649 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E8%99%B9%E8%99%B9%E6%A2%A6%E8%9D%B6%EF%BC%9A%E5%BC%BA%E5%A4%A7%E7%9A%84%E7%A5%96%E5%9B%BD%20%E4%BD%A0%E5%88%B0%E5%BA%95%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F/">虹虹梦蝶：强大的祖国 你到底在哪里？</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="虹虹梦蝶：强大的祖国-你到底在哪里？"><a href="#虹虹梦蝶：强大的祖国-你到底在哪里？" class="headerlink" title="虹虹梦蝶：强大的祖国 你到底在哪里？"></a>虹虹梦蝶：强大的祖国 你到底在哪里？</h1><p>有友发来信息，要我为她的亲戚重病无奈之际的“轻松筹”发朋友圈，我是一个冷血冷酷无情无义的人，踌躇些许后，狠心拒绝了。如果我这次帮她发了，让其他人得知后，要我发朋友圈的接踵而至，那我怎么办？不用去数字统计，估计每个人的朋友圈或三天两头或十天半月就见有人转发“轻松筹”的帖子，请求好心人的怜悯，伸出援手以渡难关。但是可怜不了许多！</p>
+<p>暑假末期的时候，这位友人去看《战狼2》看得热血沸腾，还在朋友圈写下一段对电影对祖国情深如许的文字，爱国之情溢于言表，就像很多小粉红一样，总是动不动就说自己的祖国强大。这个国家不是时时处处对里对外宣称自己强大吗？既然你的国民生病了，应该找大言炎炎的吴京，应该找背后强大的祖国，而不是找弱小的如我者来转发帖子。华夏大地上生病的人越来越多，看不起病的人也越来越多，因没钱医治而自绝于人世的越来越多，强大的祖国，你在哪里？你眼睛瞎了吗？</p>
+<p>看不起病的人需要你，<br>上不起学的需要你，<br>买不起房子的需要你，<br>死不起的人需要你，</p>
+<p>一桩桩悲惨悲痛的事件发生了，一个个有泪无处流、有苦不敢说的人们越来越多了，可是，强大的祖国，你到底在哪里？</p>
+<p>在新闻联播上，领导人很忙，人民很幸福，能不能从电视上走出来，让这些遍野的哀鸿感受祖国的强大？</p>
+<p>在主流媒体的各种标题上：美帝被吓傻了，美国穷到无钱开饭了，美国哀叹赶不上中国了，日本被吓尿了，俄罗斯对中国甘拜下风了，非洲国家正式向中国道歉了，资本主义国家的人民一天不如一天了。美帝日本们根本看不到强国的强大标题，无耻的御用文人和无良媒体，能不能不要这样瞎编乱造？</p>
+<p>在每一次往外大撒钱的挥钱如纸中，各国人民都接受优质的教育，实现免费医疗，都在研究怎么让自己吃得更好，过上自由平等的生活，而强大的祖国，能不能先解决我们的吃上饭的问题？能不能让我们看得起病，不要让我们闻病色变，如进屠宰场进一次被宰一次？</p>
+<p>强大的祖国，你到底在哪里？最近发生那么多虐童性侵事件，如果发生在美国，罪犯会被阉割；如果发生在德国，要么蹲监狱，要么被阉割；如果发生在韩国，立法实施化学阉割；如果发生在大清，绞决；可是发生在我们强大的祖国，要么不闻不问不报道，要么隐瞒、删帖、禁言、抓人，强大的祖国，你强在哪里？</p>
+<p>强大的祖国，你到底在哪里？最近屡见因生病无钱医治的悲惨事件，网易一则新闻，“白血病女孩‘为了不带累父母，自拔氧气去世”。再一则“哥哥将鸡蛋留给重病弟弟吃，结果全放坏了”。再再一则“上海一位单亲妈妈在寒风中跪在儿子面前，3岁的孩子患病无钱续医，无助的妈妈在街头哭泣”。仅仅在一天之内的悲惨事件，引发万千网友的关注，疾呼实现全民免费医疗，痛骂某个不负责任的大锅，我们强大的祖国，你到底在哪里？死哪里去了？这些无助可怜的人需要你，你怎么就不见了？</p>
+<p>北方的隆冬季节来了，供暖系统设备跟不上，几个人烧煤取暖竟然被刑拘！饿了要吃，冷了要取暖，这是生物的本能，何错之有？凭什么将人刑拘？强大的祖国，你国的人民连取暖都不容许，证明你国的人活得连猪狗动物都不如，冬天来了猫怕冷了都会钻到有暖意的所在而不会被刑拘，蛇也会冬眠而不会被驱逐，鸡犬之类的也会去晒太阳而不会有无妄之灾，而竟不容许一个大活人在大冷天烧煤取暖！强大的祖国，你到底强在哪里？</p>
+<p>由此可见，所谓强大的祖国，是有人刻意编造的谎言，目的是让人活在虚幻中，感受虚假的幸福；是自我拔高自我表扬自欺欺人；是让傻子上当，不吵不闹，安心做奴隶。</p>
+<p>连一罐安全的奶粉都买不到，连一种无毒的食品都吃不上，连一家安全的、正常的幼儿园都难找，连假疫苗的问题都解决不了，连丢失的孩子学生都找不到，还好意思说强大？</p>
+<p>连短途坐车都要实名，连买个炊具都要实名，连上网都要实名，连官方的微博都不敢放开评论 ，防民如防贼一般，还好意思说强大？</p>
+<p>连别人写两篇文字都怕，连别人发个微博也怕，连别人建了几十个人的闲聊群也怕，歌曲也怕，数字也怕，番樯也怕，不绝对的忠诚也怕，崇拜过头了也怕，歌颂不到点子上也怕，还好意思说强大？</p>
+<p>连这篇小短文都要急欲删除而后快，还好意思说强大？</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.078Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 331 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E8%AE%BE%E8%AE%A1%E4%BC%98%E9%9B%85API%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%8F%E9%AA%8C%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/">设计优雅API的一些经验要点总结</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="设计优雅API的一些经验要点总结"><a href="#设计优雅API的一些经验要点总结" class="headerlink" title="设计优雅API的一些经验要点总结"></a>设计优雅API的一些经验要点总结</h1><ul>
+<li><p>如果尚未公开 Web API，则应立刻考虑公开。</p>
+</li>
+<li><p>设计优美的 Web API。</p>
+</li>
+<li><p>不用过分拘泥于 REST 一词。</p>
+</li>
+<li><p>最大限度地减少 API 版本的更新频率，注意向下兼容性。</p>
+</li>
+<li><p>在 URI 中嵌入 API 版本的主版本编号。</p>
+</li>
+<li><p>停止提供 API 服务时不能立刻终止，至少需要继续公开 6 个月。</p>
+</li>
+<li><p>最大程度地利用 HTTP 协议规范，最小程度地使用私有规范。</p>
+</li>
+<li><p>使用合适的状态码。</p>
+</li>
+<li><p>返回恰当的、尽可能通用的媒体类型。</p>
+</li>
+<li><p>返回便于客户端执行恰当的缓存的信息。</p>
+</li>
+<li><p>使用 JSON 或者和目的一致的数据格式。</p>
+</li>
+<li><p>不要进行不必要的封装。</p>
+</li>
+<li><p>响应数据尽可能使用扁平化结构。</p>
+</li>
+<li><p>各个数据的名称应简洁易懂，并恰当地使用单复数。</p>
+</li>
+<li><p>错误格式应统一，使客户端能够机械地理解错误的详细信息</p>
+</li>
+<li><p>设计容易记忆、功能一目了然的端点。</p>
+</li>
+<li><p>使用合适的 HTTP 方法。</p>
+</li>
+<li><p>选择合适的英语单词，注意单词的单复数形式。</p>
+</li>
+<li><p>使用 OAuth 2.0 进行认证。</p>
+</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.077Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 minutes read (About 1737 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E5%A6%82%E4%BD%95%E5%85%8D%E8%B4%B9%E7%9A%84%E8%AE%A9%E7%BD%91%E7%AB%99%E5%90%AF%E7%94%A8HTTPS/">如何免费的让网站启用HTTPS</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="如何免费的让网站启用HTTPS"><a href="#如何免费的让网站启用HTTPS" class="headerlink" title="如何免费的让网站启用HTTPS"></a>如何免费的让网站启用HTTPS</h1><p>今天，我把CoolShell变成https的安全访问了。我承认这件事有点晚了，因为之前的HTTP的问题也有网友告诉我，被国内的电信运营商在访问我的网站时加入了一些弹窗广告。另外，HTTP的网站在搜索引擎中的rank会更低。所以，这事早就应该干了。现在用HTTP访问CoolShell会被得到一个 301 的HTTPS的跳转。下面我分享一下启用HTTPS的过程。</p>
+<p>我用的是 <a href="https://letsencrypt.org/">Let’s Encrypt</a> 这个免费的解决方案。Let’s Encrypt 是一个于2015年推出的数字证书认证机构，将通过旨在消除当前手动创建和安装证书的复杂过程的自动化流程，为安全网站提供免费的SSL/TLS证书。这是由 <a href="https://letsencrypt.org/isrg/">互联网安全研究小组</a> （ISRG – Internet Security Research Group，一个公益组织）提供的服务。主要赞助商包括 <a href="https://www.eff.org/">电子前哨基金会</a> ， <a href="https://www.mozilla.org/foundation/">Mozilla基金会</a> ， <a href="https://www.akamai.com/">Akamai</a> 以及Cisco等公司（ <a href="https://letsencrypt.org/sponsors/">赞助商列表</a> ）。</p>
+<p>2015年6月，Let’s Encrypt得到了一个存储在硬件安全模块中的离线的RSA根证书。这个由IdenTrust证书签发机构交叉签名的根证书被用于签署两个证书。其中一个就是用于签发请求的证书，另一个则是保存在本地的证书，这个证书用于在上一个证书出问题时作备份证书之用。因为IdenTrust的CA根证书目前已被预置于主流浏览器中，所以Let’s Encrypt签发的证书可以从项目开始就被识别并接受，甚至当用户的浏览器中没有信任ISRG的根证书时也可以。</p>
+<p>以上介绍文字来自 Wikipedia 的 <a href="https://zh.wikipedia.org/wiki/Let%27s_Encrypt">Let’s Encrypt 词条</a> 。</p>
+<p>为你的网站来安装一个证书十分简单，只需要使用电子子前哨基金会EFF的 <a href="https://certbot.eff.org/">Certbot</a> ，就可以完成。</p>
+<p>1）首先，打开  <a href="https://certbot.eff.org/">https://certbot.eff.org</a> 网页。</p>
+<p>2）在那个机器上图标下面，你需要选择一下你用的 Web 接入软件 和你的 操作系统。比如，我选的， <code>nginx</code>  和 <code>Ubuntu 14.04</code></p>
+<p>3）然后就会跳转到一个安装教程网页。你就照着做一遍就好了。</p>
+<p>以Coolshell.cn为例 – Nginx + Ubuntu</p>
+<p>首先先安装相应的环境：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update $ sudo apt-get install software-properties-common $ sudo add-apt-repository ppa:certbot&#x2F;certbot $ sudo apt-get update $ sudo apt-get install python-certbot-nginx</span><br></pre></td></tr></table></figure>
+
+<p>然后，运行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo certbot --nginx</span><br></pre></td></tr></table></figure>
+
+<p><code>certbot</code> 会自动检查到你的 <code>nginx.conf</code> 下的配置，把你所有的虚拟站点都列出来，然后让你选择需要开启 https 的站点。你就简单的输入列表编号（用空格分开），然后，certbot 就帮你下载证书并更新 <code>nginx.conf</code> 了。</p>
+<p>你打开你的 <code>nginx.conf</code>  文件 ，你可以发现你的文件中的 <code>server</code>  配置中可能被做了如下的修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen 443 ssl; # managed by Certbot ssl_certificate &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;coolshell.cn&#x2F;fullchain.pem; # managed by Certbot ssl_certificate_key &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;coolshell.cn&#x2F;privkey.pem; # managed by Certbot include &#x2F;etc&#x2F;letsencrypt&#x2F;options-ssl-nginx.conf; # managed by Certbot</span><br></pre></td></tr></table></figure>
+
+<p>和</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># Redirect non-https traffic to https if ($scheme !&#x3D; &quot;https&quot;) &#123; return 301 https:&#x2F;&#x2F;$host$request_uri; &#125; # managed by Certbot</span><br></pre></td></tr></table></figure>
+
+<p>这里建议配置 http2，这要求 Nginx 版本要大于 1.9.5。HTTP2 具有更快的 HTTPS 传输性能，非常值得开启（ <a href="http://blog.httpwatch.com/2015/01/16/a-simple-performance-comparison-of-https-spdy-and-http2/">关于性能你可以看一下这篇文章</a> ）。需要开启HTTP/2其实很简单，只需要在 <code>nginx.conf</code>  的 <code>listen 443 ssl;</code>  后面加上 <code>http2</code>  就好了。如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen 443 ssl http2; # managed by Certbot ssl_certificate &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;coolshell.cn&#x2F;fullchain.pem; # managed by Certbot ssl_certificate_key &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;coolshell.cn&#x2F;privkey.pem; # managed by Certbot include &#x2F;etc&#x2F;letsencrypt&#x2F;options-ssl-nginx.conf; # managed by Certbot</span><br></pre></td></tr></table></figure>
+
+<p>然后，就 <code>nginx -s reload</code>  就好了。</p>
+<p>但是， <strong>Let’s Encrypt 的证书90天就过期了</strong> ，所以，你还要设置上自动化的更新脚本，最容易的莫过于使用 <code>crontab</code>  了。使用 <code>crontab -e</code>  命令加入如下的定时作业（每个月都强制更新一下）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 1 * * &#x2F;usr&#x2F;bin&#x2F;certbot renew --force-renewal 5 0 1 * * &#x2F;usr&#x2F;sbin&#x2F;service nginx restart</span><br></pre></td></tr></table></figure>
+
+<p>当然，你也可以每天凌晨1点检查一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 1 * * * certbot renew</span><br></pre></td></tr></table></figure>
+
+<p>注：crontab 中有六个字段，其含义如下：</p>
+<ul>
+<li>第1个字段：分钟 (0-59)</li>
+<li>第2个字段：小时 (0-23)</li>
+<li>第3个字段：日期 (1-31)</li>
+<li>第4个字段：月份 (1-12 [12 代表 December])</li>
+<li>第5个字段：一周当中的某天 (0-7 [7 或 0 代表星期天])</li>
+<li>/path/to/command – 计划执行的脚本或命令的名称</li>
+<li><em>这么方便的同时，我不禁要问，如果是一些恶意的钓鱼网站也让自己的站点变成https的，这个对于一般用来说就有点难以防范了。哎……*</em></li>
+</ul>
+<p>当然，在nginx或apache上启用HTTPS后，还没有结束。因为你可能还需要修改一下你的网站，不然你的网站在浏览时会出现各种问题。</p>
+<p><strong>启用HTTPS后，你的网页中的所有的使用 <code>http://</code>  的方式的地方都要改成 <code>https://</code> 不然你的图片，js， css等非https的连接都会导致浏览器抱怨不安全而被block掉</strong> 。所以，你还需要修改你的网页中那些 hard code <code>http://</code>  的地方。</p>
+<p>对于我这个使用wordpress的博客系统来说，有这么几个部分需要做修改。</p>
+<p>1）首先是 wordpress的 常规设置中的 “ <strong>WordPress 地址</strong> ” 和 “ <strong>站点地址</strong> ” 需要变更为 https 的方式。</p>
+<p>2）然后是文章内的图片等资源的链接需要变更为 https 的方式。对此，你可以使用一个叫 “ <a href="https://wordpress.org/plugins/search-regex/">Search Regex</a> ” 插件来批量更新你历史文章里的图片或别的资源的链接。比如：把 <code>http://coolshell.cn</code>  替换成了 <code>https://coolshell.cn</code></p>
+<p>3）如果你像我一样启用了文章缓存（我用的是 <a href="https://wordpress.org/plugins/wp-super-cache/">WP-SuperCache</a> 插件），你还要去设置一下 “ <strong>CDN</strong> ” 页面中的 “Site URL” 和 “off-site URL” 确保生成出来的静态网页内是用https做资源链接的。</p>
+<p>基本上就是这些事。希望大家都来把自己的网站更新成 https 的。</p>
+<p>嗯，12306，你什么时候按照这个教程做一下你的证书？</p>
+<p>（全文完）</p>
+<p><a href="https://www.instapaper.com/read/947932941">如何免费的让网站启用HTTPS</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.077Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    19 minutes read (About 2894 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%85%A8%E9%9D%A2%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB%EF%BC%9F/">如何快速全面建立自己的大数据知识体系？</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="如何快速全面建立自己的大数据知识体系？"><a href="#如何快速全面建立自己的大数据知识体系？" class="headerlink" title="如何快速全面建立自己的大数据知识体系？"></a>如何快速全面建立自己的大数据知识体系？</h1><p>摘要：很多人都看过不同类型的书，也接触过很多有关大数据方面的文章，但都是很零散不成系统，对自己也没有起到多大的作用，所以作者第一时间，带大家从整体体系思路上，了解大数据产品设计架构和技术策略。</p>
+<blockquote>
+<p>作者经过研发多个 <a href="http://www.afenxi.com/topic/%e5%a4%a7%e6%95%b0%e6%8d%ae">大数据</a> 产品，将自己形成关于大数据知识体系的干货分享出来，希望给大家能够快速建立起大数据产品的体系思路，让大家系统性学习和了解有关大数据的设计架构。  </p>
+</blockquote>
+<p>很多人都看过不同类型的书，也接触过很多有关大数据方面的文章，但都是很零散不成系统，对自己也没有起到多大的作用，所以作者第一时间，带大家从整体体系思路上，了解大数据产品设计架构和技术策略。</p>
+<p>大数据产品，从系统性和体系思路上来做，主要分为五步：</p>
+<ul>
+<li>针对前端不同渠道进行数据埋点，然后根据不同渠道的采集多维数据，也就是做大数据的第一步，没有全量数据，何谈大数据分析；</li>
+<li>第二步，基于采集回来的多维度数据，采用ETL对其各类数据进行结构化处理及加载；</li>
+<li>然后第三步，对于ETL处理后的标准化结构数据，建立数据存储管理子系统，归集到底层数据仓库，这一步很关键，基于数据仓库，对其内部数据分解成基础的同类数据集市；</li>
+<li>然后基于归集分解的不同数据集市，利用各类R函数包对其数据集进行数据建模和各类算法设计，里面算法是需要自己设计，个别算法可以用R函数，这个过程产品和运营参与最多；这一步做好了，也是很多公司用户画像系统的底层。</li>
+<li>最后根据建立的各类数据模型及算法，结合前端不同渠道不同业务特征，根据渠道触点自动匹配后端模型自动展现用户个性化产品和服务。</li>
+</ul>
+<p><strong>建立系统性数据采集指标体系</strong></p>
+<p>建立数据采集分析指标体系是形成营销数据集市的基础，也是营销数据集市覆盖用户行为数据广度和深度的前提，数据采集分析体系要包含用户全活动行为触点数据，用户结构化相关数据及非结构化相关数据，根据数据分析指标体系才能归类汇总形成筛选用户条件的属性和属性值，也是发现新的营销事件的基础。</p>
+<p>构建营销数据指标分析模型，完善升级数据指标采集，依托用户全流程行为触点，建立用户行为消费特征和个体属性，从用户行为分析、商业经营数据分析、营销数据分析三个维度，形成用户行为特征分析模型。用户维度数据指标是不同维度分析要素与用户全生命周期轨迹各触点的二维交叉得出。</p>
+<p>目前做大数据平台的公司，大多数采集的数据指标和输出的可视化报表，都存在几个关键问题：</p>
+<ul>
+<li>采集的数据都是以渠道、日期、地区统计，无法定位到具体每个用户；</li>
+<li>计算统计出的数据都是规模数据，针对规模数据进行挖掘分析，无法支持；</li>
+<li>数据无法支撑系统做用户获客、留存、营销推送使用。<br>所以，要使系统采集的数据指标能够支持平台前端的个性化行为分析，必须围绕用户为主线来进行画像设计，在初期可视化报表成果基础上，将统计出来的不同规模数据，细分定位到每个用户，使每个数据都有一个用户归属。</li>
+</ul>
+<p>将分散无序的统计数据，在依据用户来衔接起来，在现有产品界面上，每个统计数据都增加一个标签，点击标签，可以展示对应每个用户的行为数据，同时可以链接到其他统计数据页面。</p>
+<p>由此可以推导出，以用户为主线来建立数据采集指标维度：用户身份信息、用户社会生活信息、用户资产信息、用户行为偏好信息、用户购物偏好、用户价值、用户反馈、用户忠诚度等多个维度，依据建立的采集数据维度，可以细分到数据指标或数据属性项。</p>
+<p><strong>① 用户身份信息维度</strong></p>
+<p>性别，年龄，星座，居住城市，活跃区域，证件信息，学历，收入，健康等。</p>
+<p><strong>② 用户社会生活信息维度</strong></p>
+<p>行业，职业，是否有孩子，孩子年龄，车辆，住房性质，通信情况，流量使用情况……</p>
+<p><strong>③ 用户行为偏好信息</strong></p>
+<p>是否有网购行为，风险敏感度，价格敏感度，品牌敏感度，收益敏感度，产品偏好，渠道偏好……</p>
+<p><strong>④ 用户购物偏好信息</strong></p>
+<p>品类偏好，产品偏好，购物频次，浏览偏好，营销广告喜好，购物时间偏好，单次购物最高金额……</p>
+<p><strong>⑤ 用户反馈信息维度</strong></p>
+<p>用户参与的活动，参与的讨论，收藏的产品，购买过的商品，推荐过的产品，评论过的产品……</p>
+<p><strong>基于采集回来的多维度数据，采用ETL对其各类数据进行结构化处理及加载</strong></p>
+<ul>
+<li>数据补缺：对空数据、缺失数据进行数据补缺操作，无法处理的做标记。</li>
+<li>数据替换：对无效数据进行数据的替换。</li>
+<li>格式规范化：将源数据抽取的数据格式转换成为便于进入仓库处理的目标数据格式。</li>
+<li>主外键约束：通过建立主外键约束，对非法数据进行数据替换或导出到错误文件重新处理。</li>
+<li>数据合并：多用表关联实现（每个字段加索引，保证关联查询的效率）</li>
+<li>数据拆分：按一定规则进行数据拆分</li>
+<li>行列互换、排序/修改序号、去除重复记录<br>数据处理层 由 Hadoop集群 组成 , Hadoop集群从数据采集源读取业务数据，通过并行计算完成业务数据的处理逻辑，将数据筛选归并形成目标数据。</li>
+</ul>
+<p><strong>数据建模、用户画像及特征算法</strong></p>
+<p>提取与营销相关的客户、产品、服务数据，采用聚类分析和关联分析方法搭建数据模型，通过用户规则属性配置、规则模板配置、用户画像打标签，形成用户数据规则集，利用规则引擎实现营销推送和条件触发的实时营销推送，同步到前端渠道交互平台来执行营销规则，并将营销执行效果信息实时返回到大数据系统。</p>
+<p><strong>根据前端用户不同个性化行为，自动匹配规则并触发推送内容</strong></p>
+<p>根据用户全流程活动行为轨迹，分析用户与线上渠道与线下渠道接触的所有行为触点，对营销用户打标签，形成用户行为画像，基于用户画像提炼汇总营销筛选规则属性及属性值，最终形成细分用户群体的条件。每个用户属性对应多个不同属性值，属性值可根据不同活动个性化进行配置，支持用户黑白名单的管理功能。</p>
+<p>可以预先配置好基于不同用户身份特性的活动规则和模型，当前端用户来触发配置好的营销事件，数据系统根据匹配度最高的原则来实时自动推送营销规则，并通过实时推送功能来配置推送的活动内容、优惠信息和产品信息等，同时汇总前端反馈回的效果数据，对推送规则和内容进行优化调整。</p>
+<p>大数据系统结合客户营销系统在现有用户画像、用户属性打标签、客户和营销规则配置推送、同类型用户特性归集分库模型基础上，未来将逐步扩展机器深度学习功能，通过系统自动搜集分析前端用户实时变化数据，依据建设的机器深度学习函数模型，自动计算匹配用户需求的函数参数和对应规则，营销系统根据计算出的规则模型，实时自动推送高度匹配的营销活动和内容信息。</p>
+<p>机器自学习模型算法是未来大数据系统深度学习的核心，通过系统大量采样训练，多次数据验证和参数调整，才能最终确定相对精准的函数因子和参数值，从而可以根据前端用户产生的实时行为数据，系统可自动计算对应的营销规则和推荐模型。</p>
+<p>大数据系统在深度自学习外，未来将通过逐步开放合作理念，对接外部第三方平台，扩展客户数据范围和行为触点，尽可能覆盖用户线上线下全生命周期行为轨迹，掌握用户各行为触点数据，扩大客户数据集市和事件库，才能深层次挖掘客户全方位需求，结合机器自学习功能，从根本上提升产品销售能力和客户全方位体验感知。</p>
+<blockquote>
+<p><strong>本文转自作者个人微信号「互联网金融干货」，版权归作者所有。</strong>  </p>
+</blockquote>
+<blockquote>
+<p>作者：刘永平 ，11年以上互联网电商、互联网金融项目实操经验，任职高级产品总监，产品运营专家，曾亲自主导参与项目超过15个，10个以上从0到1实操经验。  </p>
+</blockquote>
+<p><a href="http://www.afenxi.com/post/46913">如何快速全面建立自己的大数据知识体系？</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.077Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 minutes read (About 2174 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E5%BC%80%E5%90%AF%20macOS%20%E7%B3%BB%E7%BB%9F%E9%9A%90%E8%97%8F%E5%8A%9F%E8%83%BD/">开启 macOS 系统隐藏功能</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="开启-macOS-系统隐藏功能"><a href="#开启-macOS-系统隐藏功能" class="headerlink" title="开启 macOS 系统隐藏功能"></a>开启 macOS 系统隐藏功能</h1><p><em>编注：</em> 「新手问号」是少数派的一个全新栏目。它面向完全「零基础」的新手用户，通过最简单易懂的方式，帮助你快速掌握关于系统和软硬件的入门知识。</p>
+<p>栏目文章回顾：</p>
+<p>Mac 中有一个图标是「黑色的窗口」名为「终端 Terminal」的应用，对于一个普通人用户来说，它就好像有一层神秘的面纱，时常让人觉得只有技术流、程序员才能驾驭。而命令行这种东西似乎也都是存在想象里的，一个人对着空白的窗口噼里啪啦的打下一行代码，然后电脑便自动给你执行相应的任务。其实作为新手的我们一样也可以让它发挥出一定的作用，今天的这一篇文章就带你了解一些你可能也能用到的命令行，让你轻松开启系统的隐藏功能。</p>
+<h2 id="配置-Launchpad"><a href="#配置-Launchpad" class="headerlink" title="配置 Launchpad"></a>配置 Launchpad</h2><p>在大家安装好应用去 Launchpad 里寻找的时候，时常会发现原生的配置让 Launchpad 看的稍许拥挤，但是在系统偏好设置里我们是无法修改的。为了让我们的 Launchpad 识别度更高并且更加美观，可以通过终端对排列方式进行修改，复制以下代码至终端即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int 11; defaults write com.apple.dock springboard-rows -int 10; defaults write com.apple.dock ResetLaunchPad -bool TRUE; killall Dock</span><br></pre></td></tr></table></figure>
+
+<p>命令中有两个数字 8 和 7，它们分别代表的是布局中的列数和行数，如果想更清除的了解该段命令，可以参考《 <a href="https://sspai.com/post/33299">通过终端命令改变 Launchpad 中应用图标的大小</a> 》。</p>
+<p><img src="%E5%BC%80%E5%90%AF%20macOS%20%E7%B3%BB%E7%BB%9F%E9%9A%90%E8%97%8F%E5%8A%9F%E8%83%BD/4b53845799f46d7aba1eb7d58fe9b846.png" alt=""><br>除了可以对 Launchpad 的布局进行更改，还可以根据自己的喜好对北背景的模糊程度进行更改，复制以下代码至终端即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-blur-radius -int 100; killall Dock</span><br></pre></td></tr></table></figure>
+
+<p>命令中有一个数字 100，它代表的背景模糊的程度，你可以在 0 ~ 255 的范围内选择。</p>
+<h2 id="修改截图属性"><a href="#修改截图属性" class="headerlink" title="修改截图属性"></a>修改截图属性</h2><p>Mac 上自带的截图非常的还用，可以区域、窗口、延时截图。但是截图会默认保存在你的桌面上，时间一长，你的桌面就会被五花八门的截图堆满。对此，我们可以新建一个文件夹专门来存放截图，新建一个 screenshots 的文件夹在桌面或者任意一个你希望它待在的地方，将下述代码复制进终端即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture location &#x2F;Users&#x2F;DonxYu&#x2F;Pictures&#x2F;ScreenShot; killall SystemUIServer</span><br></pre></td></tr></table></figure>
+
+<p>~ 之后填写你相应的文件夹路径即可，如果不清楚路径的写法，可以打开该文件夹右键点击任何一个文件「显示简介」，复制「位置」之后的内容即可，也可以直接将文件夹拖拽至终端以此显示路径。</p>
+<p><img src="%E5%BC%80%E5%90%AF%20macOS%20%E7%B3%BB%E7%BB%9F%E9%9A%90%E8%97%8F%E5%8A%9F%E8%83%BD/05c353239dec51329c19169daef951a6.gif" alt=""><br>除此之外，你也可以使用以下命令修改截图保存的类型，例如你想保存 JPG 格式的截图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">efaults write com.apple.screencapture type jpg &amp;&amp; killall SystemUIServe</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示隐藏文件夹"><a href="#显示隐藏文件夹" class="headerlink" title="显示隐藏文件夹"></a>显示隐藏文件夹</h2><p>在 Windows 上隐藏文件夹大家应该都是老手了，转到 Mac 后，却发现隐藏文件夹和自己想象有那么一些不一样。为了更好的把大家的「小秘密」藏到内心最深处的地方，也可以使用两段命令来完成操作。跟前文一样，我们需要获取文件夹的路径，然后在终端中输入以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chflags hidden ~&#x2F;Desktop&#x2F;Hidden</span><br></pre></td></tr></table></figure>
+
+<p>你也可以使用  <code>nohidden</code>  重新让该文件夹显示。如果你要显示全部文件，推荐大家直接使用快捷键「 <em>Shift + Command + .</em> 」即可显示全部隐藏文件。</p>
+<p><img src="%E5%BC%80%E5%90%AF%20macOS%20%E7%B3%BB%E7%BB%9F%E9%9A%90%E8%97%8F%E5%8A%9F%E8%83%BD/52ea8991101b5a04c7f5d3a59aea7731.gif" alt=""><br>除此之外，如果你觉得自己桌面太乱了，但是这会又有人来看你的电脑，你可以使用一段命令行将桌面的文件全部隐藏起来，让桌面回归清爽，文件也依旧可以通过 Finder 中的桌面中找到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder CreateDesktop -bool false; killall Finder</span><br></pre></td></tr></table></figure>
+
+<p>如果想重新看到桌面的图标，将 false 替换为 true 输入终端即可。</p>
+<h2 id="Dock-栏属性修改"><a href="#Dock-栏属性修改" class="headerlink" title="Dock 栏属性修改"></a>Dock 栏属性修改</h2><p>Mac 中为了获得更大的可视空间，在不使用 Dock 时我们可以隐藏它。若要查看隐藏的 Dock，可以将指针移到 Dock 所在屏幕的边缘。但是这个显示速度存在了一定的延迟，为了加速这个过程，我们可以使用一段命令行，让你的隐藏 Dock 弹出的时候更加的顺滑流畅：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.Dock autohide-delay -float 0 &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<p>使用后的效果，可以说是非常明显了，再也不会有在「挤牙膏」的感觉。</p>
+<p><img src="%E5%BC%80%E5%90%AF%20macOS%20%E7%B3%BB%E7%BB%9F%E9%9A%90%E8%97%8F%E5%8A%9F%E8%83%BD/938e520e64d816a59123861e24efda34.gif" alt=""><br>如果在你的使用下，Dock 栏上摆满了各类 App，却发现这不是自己想要的结果。你可以通过终端来重置你的 Dock 栏，让它回到最开始的状态：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h2 id="让屏幕亮的更久"><a href="#让屏幕亮的更久" class="headerlink" title="让屏幕亮的更久"></a>让屏幕亮的更久</h2><p>Mac 在运行一段时间后，会自动进入睡眠。如果大家不想 Mac 那么快的进入书面，可以采用一些第三方软件来达到此目的。其实与其下载一个软件占用 Mac 上精贵的储存，不如使用一段命令行就可以解决这些问题了。下方命令行中的 3600 单位是秒，即你希望多长时间内你的 Mac 不会进入睡眠：</p>
+<h2 id="应用安装与更新"><a href="#应用安装与更新" class="headerlink" title="应用安装与更新"></a>应用安装与更新</h2><p>MAS 的连接情况大家也很清楚，时常会因为情绪不稳定导致你无法获得最完美的下载体验，况且还有很多应用并不在商店上架，或是非商店版本有更多的功能。原来的时候，我们需要查找一个又一个的官网，然后下载安装，其实这么多繁琐操作，在终端里可以更快的完成。你只需要输入： </p>
+<p>将 App 替换为你需要安装的软件的名字即可。但是使用前，需要你在电脑中安装 Homebrew Cask ，具体可以参考《 <a href="https://sspai.com/post/40321">再谈 Homebrew Cask 在 macOS 上安装应用的轻松感</a> 》。大多数通过 Cask 安装的软件都自带更新选项，如果没有该选项，用户依旧可以通过终端进行更新，在终端中输入 <code>brew tap buo/cask-upgrade</code> ，然后再输入下段命令即可更新全部应用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cu</span><br></pre></td></tr></table></figure>
+
+<p><img src="%E5%BC%80%E5%90%AF%20macOS%20%E7%B3%BB%E7%BB%9F%E9%9A%90%E8%97%8F%E5%8A%9F%E8%83%BD/0a289482f9790f047468edf2d0c89996.png" alt=""><br>如果你希望安装 MAS 上的应用，也可以绕过原生的商店应用，直接采用终端进行安装。你可以先通过刚才安装的 Homebrew 安装一个我们需要的 mas ，即在终端输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mas</span><br></pre></td></tr></table></figure>
+
+<p>然后，可以在终端中搜索需要的软件，或者直接输入关键字段加上应用的识别码进行安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mas install AppID</span><br></pre></td></tr></table></figure>
+
+<h2 id="友情提示-⚠️"><a href="#友情提示-⚠️" class="headerlink" title="友情提示 ⚠️"></a>友情提示 ⚠️</h2><p>终端操作虽然说很快捷，可能你也觉得很高端。但是，在网络上经常会有人拿终端命令开玩笑，比如前面带有  <code>sudo</code>  或者  <code>rm -rf</code>  类型字段的，一定要谨慎使用。可能就是这一步操作，电脑就会「爆炸」，也希望大家也不要开这一类玩笑，给大家一个美好的环境！</p>
+<p><a href="https://sspai.com/post/41695">简单几条命令，轻松开启 macOS 系统隐藏功能 | 新手问号</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.077Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    39 minutes read (About 5869 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/">手机换了新卡后，我换绑了这些账户的手机号</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="手机换了新卡后，我换绑了这些账户的手机号"><a href="#手机换了新卡后，我换绑了这些账户的手机号" class="headerlink" title="手机换了新卡后，我换绑了这些账户的手机号"></a>手机换了新卡后，我换绑了这些账户的手机号</h1><p>最近各大运营商推出的流量套餐越来越多，虽说近来老用户办理新套餐的难度有所下降，不过如果自己心仪的套餐频频在别家推出，自己就只能眼巴巴地爬墙头了。当然，忍无可忍的你也可以选择跳槽重新来过。不过在你急不可耐地销掉原号之前，还得记得把一众绑定着手机号码的互联网账号也一起带走，以免日后需要短信验证时的尴尬，也避免账户被号码新主人登陆的危险。笔者尝试了一些常用账号的换绑方式，总结了一下流程，顺便可以一窥各种验证方式的安全性，希望能够帮助到有需要的你。</p>
+<h2 id="哪些账号是用手机注册的？"><a href="#哪些账号是用手机注册的？" class="headerlink" title="哪些账号是用手机注册的？"></a>哪些账号是用手机注册的？</h2><p>当下用手机号注册的互联网账号越来越多，注册时候的确很方便，不过换号的时候就需要一个一个转换账号信息了。在更换注册信息前首先要快速地想起都有哪些账号是使用手机注册的。如果你使用1Password 等密码管理软件，最快的方式就是打开它搜索一下。如果你平时的密码管理就不太规整，大概就要花一点时间仔细想想。当然，你也可以跟着下面的文章内容回忆起自己常用的账号都有哪些。</p>
+<h3 id="微信"><a href="#微信" class="headerlink" title="微信"></a>微信</h3><p>仰仗于国内的社交环境，你大概怎么也不会把微信忘了。微信的验证机制有些特殊，在我的手机上插入新电话卡，并在设置中选择“更换手机号”之后，只要在弹出的页面上输入新手机号，然后填入用新手机号接收的验证码，即可完成更换步骤。此时如果退出账号，靠新号接收短信验证码就可以完成登录。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/1ac7d31d4412e8fca5346d136d571f7f.png" alt=""><br>微信更换绑定步骤</p>
+<p>不过微信如何保证被换绑的手机号不是陌生人的呢？为此我和朋友专门做了一个测试：首先在我的微信换绑设置里输入她的号码，填入她收到的验证码，在这一步，绑定账号成功。接下来，使用她的设备再通过手机验证码登录我的微信账号时，我的手机微信上会弹出提示，告诉我有人在登录我的微信账号：</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/15f4b95052f39cf4300e83db4de79b0e.png" alt=""><br>他人登录提醒</p>
+<p>同时，她的设备上会显示这是一个新的设备，需要验证身份。选择验证后提供了两种途径：一是使用原设备扫描二维码，二是让至少两位好友向该账号发送一个验证码。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/9b3c4f43e2b57bff1b74827d3d4405d5.png" alt=""><br>新设备登录验证</p>
+<p>至此大概可以看出，微信进行身份识别是基于你的常用设备信息，或者你的通讯录关系。如果你的朋友趁你不备拿着你的手机来一出恶作剧，小心自己的微信号被绑定上TA 的号码哦！</p>
+<h3 id="支付宝"><a href="#支付宝" class="headerlink" title="支付宝"></a>支付宝</h3><p>作为日常支付手段之一，牵涉财务的支付宝也不要忘记换绑。进入设置中更换手机号码的界面，首先依然在更改电话号码的界面输入新的号码，然后填入收到的验证码，这时支付宝跳出了一个“正在进行智能检测”的页面，检测通过的话无需任何其他认证即可继续换绑。</p>
+<p>这时支付宝会将账户退出，你需要使用新号码重新登录（这里默认填入的是旧号码），不过这时已经可以使用新号接收短信验证码登录了。登录过后才会提示换绑完成，然后它会让你再登录一次。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/1cf91653b16e23a7a0a7d1e37f851b32.png" alt=""><br>支付宝更换绑定过程</p>
+<p>为了验证安全性，我又用朋友的手机做了一次试验。选择更换为她的号码，然后填入她接收到的验证码，接下来的“智能检测”就没有通过，页面跳出了输入 <strong>支付密码</strong> 的要求。如果把它叉掉，可以看到“验证指纹或支付密码”或“填写银行卡信息”两种验证方式。（所以你家到底什么时候支持Face ID）</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/8e5d174b332bc88922d0460fcc4b05c0.png" alt=""><br>更换陌生手机号后出现了身份验证</p>
+<p>至此，虽然不知道中间的“智能检测”的算法是怎样的，由于试验过多现在我自己的两个手机号互换也不能通过智能检测了。不过支付宝看起来也保证了我们的账号不会轻易被他人换绑。</p>
+<h3 id="淘宝"><a href="#淘宝" class="headerlink" title="淘宝"></a>淘宝</h3><p>关掉支付宝，我们默默打开了还留存着双十一烧钱余温的淘宝客户端。不过打开之后我们发现淘宝账号绑定的手机已经随着支付宝更改过了。不过如果你是先在淘宝账号中更改的手机号，可以选择如下方式：</p>
+<p>首先在设置里找到更改手机这一项之后，输入新手机号，然后在新手机上接收短信验证码。而在接下来的页面中会要求输入支付密码。如果年久不用而忘记了它，还可以选择联系客服。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/28fbcf32ac8541632b71c6ef3280ea4e.png" alt=""><br>淘宝验证要求</p>
+<p>选择联系客服之后，实际上会进入支付宝的网页登录界面，而登录之后也是在如下问题列表中选择你需要的问题。不过这个答案好像与我们的目的并无联系。选择“向我提问”之后，出现智能机器人，回复关键词”修改手机号“，答案引导我们去支付宝中修改手机号码。不过如果依然执着，我们可以点开温馨提示1 里的“点击查看”，千呼万唤始出来，我们终于看到了人工处理的方式……然后就可以关掉手机打开电脑，去申请人工处理了。另外提醒大家，以上的过程中千万不要点击左上角的返回，否则就会回到最开始，重新来过……</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/538c5bd12a52f40dacae247056683580.png" alt=""><br>联系客服处理</p>
+<p>我们可以看到，同一个手机绑定的支付宝和淘宝账号是联动的，更换其中之一即可。如果你的“支付密码”和“银行卡信息”两条路都走不通，还可以去支付宝的网页上申请人工处理。</p>
+<h3 id="京东"><a href="#京东" class="headerlink" title="京东"></a>京东</h3><p>淘宝之后，我们来到另一家网购平台。京东的换绑在设置 - 账户安全中，点击”手机验证“后选择原手机能否接收验证码，如果可以输入验证码即可；选择不能接收验证码会进入输入“支付密码”的界面。同样你也可以选择下方的申诉功能。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/cf1652abf5bb5d4b7f903a2795734cd9.png" alt=""><br>京东手机端验证</p>
+<p>不过即使你的手机不在身边、或是忘记了支付密码，你也可以进入网页版进行更改。京东网页版提供了一个“三选二”的验证方式，你可以在手机验证码、支付密码、银行卡信息之间选择两个，颇有些两步验证的感觉。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/ad05b8d6b15e4e3338793438c8f0fc79.jpg" alt=""><br>京东网页版验证方式</p>
+<p><strong>友情提示：上面两个收获地址里的电话别忘了改哦！</strong></p>
+<h3 id="新浪微博"><a href="#新浪微博" class="headerlink" title="新浪微博"></a>新浪微博</h3><p>微博官方客户端的换绑设置在“账号与安全”里，点进去会发现微博是可以添加多个手机号的，但能作为登录账号的只有一个。添加一个手机号需要原号码的验证码许可。添加副号码会开启登录保护功能，副号码只能在陌生设备登录时接收验证码使用，不可以作为登录用户名。</p>
+<p>这里我们选择更换“登录手机”，在下一个界面中点击“获取短信验证码”会向旧号码发送一个验证码，填入这个验证码后就可以继续输入新的手机号以及新号中接收到的验证码了。然后点击确认即可。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/b658c6046068e502e57cd2578132be87.png" alt=""><br>微博换绑流程</p>
+<p>不过如果你的旧手机不在身边，你可以在第一个获取短信验证码的界面下点击”其他验证方式“。微博会首先请求填入完整的绑定手机号，填写正确就可以继续添加新号码。如果在这个页面再点击“其他验证方式”，会出现通过实名认证验证身份的页面。出于对个人信息安全的考虑，笔者就没有再继续了。还是推荐大家使用短信验证的方式，比较方便快捷。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/6771677be0571d163294c04a403d69ac.png" alt=""><br>两种其他验证方式</p>
+<h3 id="知乎"><a href="#知乎" class="headerlink" title="知乎"></a>知乎</h3><p>知乎的普通验证方式包括手机和邮箱验证码两种，接收验证码后即可更改新手机。不过这里提一下知乎的人工申诉，可以说是事无巨细地验证了各种信息，必填与选填一应俱全，最后还要再填一遍接收消息的手机和收到的验证码。这样就更看得出使用验证码的便利性啦。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/91c2522b2be298123764a335d7e94a2b.png" alt=""><br>知乎的人工申诉</p>
+<h3 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h3><p>笔者的百度账号在上大学初换号码时就没有更换，种种原因导致一直拖到先在也没有换绑。由于没有安装百度旗下的App，所以这里使用Mac 上的Safari 登录账号后在账号设置页找到更换手机的位置，会弹出页面要求使用旧手机验证码验证。由于旧手机号不可用，下拉菜单选择申诉，然后百度就会引导我们扫码下载App 进行申诉……</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/93a6a6e154d90293f12c79c0d036c4f0.jpg" alt=""><br>百度账号申诉流程</p>
+<p>下载完App 后，在设置 - 账号管理里可以更改手机，选择“更换手机号”后依然需要旧设备验证码，填入即可换绑。不过我们仍然继续点击申诉并确定，输入联系手机号码，这时App 会要求向指定号码发送一个短信。发送完成后，点击页面上的“我已发送短信，继续下一步”，会弹出提示框“请先获取验证码”。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/59e2bc4cb1499f1ac200d0a56debb1d4.jpg" alt=""><br>在手机百度上进行申诉</p>
+<p>截止发稿前，笔者还在等待百度获取到验证码……</p>
+<h3 id="视频网站"><a href="#视频网站" class="headerlink" title="视频网站"></a>视频网站</h3><p>这里以Bilibili、爱奇艺与优酷为例，三家的验证方式都差不多。B 站的身份验证方式有手机和邮箱两种，获得验证码后再填入新号即可。如果两种验证方式都不可用，也可以选择向帮助邮箱发送邮件让客服帮你处理，这里就不调戏Bilibili 娘了。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/70c3f045d160124fad67ef5e3a7789ed.jpg" alt=""><br>Bilibili</p>
+<p>爱奇艺上可以选择原手机验证码和人工申诉两种，点击人工申诉的话，还是会首先推荐你使用自家App 扫码继续，不过这里却可以点击下面小小的链接进入客服申诉。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/0ce169413d36e39d42d587011bb45540.jpg" alt=""><br>爱奇艺</p>
+<p>优酷的验证方式只有使用原号码验证码一种，如果原号码已经不可用，大概是要联系客服了商讨解决了，不过本质上还是人工申诉嘛。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/9e173748042560c505905f32d435bcd6.jpg" alt=""><br>优酷</p>
+<h3 id="外卖账号"><a href="#外卖账号" class="headerlink" title="外卖账号"></a>外卖账号</h3><p>由于日常好吃懒做外卖App 在我们生活中也越来越重要，而且里面存放着我们的地址等敏感信息。饿了吗的正常更改途径也是使用原号码的验证码，这里就不再赘述。页面下方有一个小小的“在线申诉”按钮，点击进入，输入新手机号以及接收到的验证码提交审核。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/de28ff11ef538ffe0eecf662348d1e49.png" alt=""><br>饿了吗</p>
+<p>美团App 在进入更换号码的页面之前也有一个安全环境检测的界面。在我这里，连接WiFi 的时候就被判定为环境安全，而使用蜂窝数据的时候就被认为不安全，此时需要输入支付密码，或者可更换为使用短信验证。但我的校园WiFi 又是被iOS 建议为安全性较低的，真是不知道谁说得对。验证后输入新的手机号码并接收验证码换绑就完成了。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/2a9fba75c0eca1f2d197c4a426c8e7a5.png" alt=""><br>美团</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>12306</p>
+<p>12306 就像Mac 上避不开的Office，每次看着都不爽却每次都不得不用它。手机端打开App 不能点击任何按钮，于是只能登录网页端。Safari 打开只有无休止地转圈，又不得不使用Chrome。进入账号安全当中的手机核验，原手机号已经列出，这里需要填入新手机号和 <strong>登录密码</strong> 。点击确认后弹出了一个”手机双向验证“的提示框，实际上就是主动请求一个验证码而已。至此就可以完成了。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/68365121b75159d53cf2b4af94d25d0c.png" alt=""><br>12306 工商银行</p>
+<p>银行账户虽然不是互联网账户，不过绑定的安全性也很重要。我这里只有工商银行的卡，所以只以其为例作为尝试。感谢评论区里侧脸君的提醒，我才发现工行App 的设置中有 <strong>调整注册手机号</strong> 和 <strong>手机号管理</strong> 两项，看起来一个像是登录手机银行用的，另一个像是业务联系用的。先来更改第一个。进入页面后输入新号码，填入发来的验证码（它每次都会发两次），第三页的验证方式是 <strong>使用工行的密码器获取动态密码</strong> ，与以上各种方式都不相同，虽然略有麻烦但出于安全还是可以理解的。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/7b46e3ce906dc98f7562720f3aaa7be4.jpg" alt=""><br>调整注册手机号</p>
+<p>在手机号管理的页面里，可以看到这里是一个联系信息的修改，第二层页面中看到该手机号关联的几项业务。输入短信验证码后依然需要工行的密码器验证。</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/1bd5a0e5838089830c29521d5c8bcf3d.png" alt=""><br>手机号管理</p>
+<p>不过在疑惑以上两个手机号到底哪个才是我们通常上认为的“预留手机号”的时候，我在智能机器人里发现了如下答案：</p>
+<p><img src="%E6%89%8B%E6%9C%BA%E6%8D%A2%E4%BA%86%E6%96%B0%E5%8D%A1%E5%90%8E%EF%BC%8C%E6%88%91%E6%8D%A2%E7%BB%91%E4%BA%86%E8%BF%99%E4%BA%9B%E8%B4%A6%E6%88%B7%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7/367fd2d8dd64dae2c6fd2b881f6aaeba.png" alt=""><br>还是得去营业厅……</p>
+<p>看来虽然改了两个号码了，但谁也不是，最后还是得去营业厅办理。虽然麻烦一点，不过还是提醒大家一定要记得更改自己的银行、社保账户等绑定的手机号码，我的同学直到前几天还在接收提醒上一任机主交社保的短信……</p>
+<h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p>以上，不同家的设备换绑和验证方式虽然大同小异，但在便利性和安全性的权衡上，也演化出了各种细微的差别，顺带也可以看得出各家拥有的用户信息量各有不同。不过不论是使用常用设备、银行信息还是实名认证等方式，使用原号码作为验证还是最普遍的，所以换手机号之后不要急着注销旧号，否则可能会在需要解绑时遇到一些麻烦。</p>
+<p>移动网络设备的发展降低了手机号码的联络性功能，可能不知道对方的手机号我们也可以毫无障碍地联系到TA，然而作为各种账号的绑定中心，当前阶段它依然起到维系互联网生活的重要作用。及时更换绑定不光涉及使用便利性，也关乎信息安全。记得及时解绑不用的账号，也是保护我们信息安全的有效途径。</p>
+<p>文中涉及的截图可能有的左上角时间顺序不对，因为版本控制不力所致；另外，涉及不同App 在不同网络环境下的安全检测以及软件升级等原因，换绑流程也可能与各位实际使用时略有差异，敬请谅解！如果你还有什么补充的账号解绑姿势，欢迎在评论区补充与大家分享哦！</p>
+<p>还在纠结换什么套餐？这些文章值得读：</p>
+<p>👉 <a href="https://sspai.com/post/41692">老用户能自由更换手机套餐，我们整理了最全面的操作指南 - 少数派</a></p>
+<p>👉 <a href="https://sspai.com/post/41903">手机想换互联网套餐不知道哪款合适？这款小程序能给你满意答案 - 少数派</a></p>
+<p><a href="https://sspai.com/post/41897">手机换了新卡后，我换绑了这些账户的手机号</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.076Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    21 minutes read (About 3116 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/02/%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%20ElasticSearch%20%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">全文搜索引擎 ElasticSearch 入门教程</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="全文搜索引擎-ElasticSearch-入门教程"><a href="#全文搜索引擎-ElasticSearch-入门教程" class="headerlink" title="全文搜索引擎 ElasticSearch 入门教程"></a>全文搜索引擎 ElasticSearch 入门教程</h1><p><a href="https://baike.baidu.com/item/%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">全文搜索</a> 属于最常见的需求，开源的 <a href="https://www.elastic.co/">ElasticSearch</a> （以下简称 Elastic）是目前全文搜索引擎的首选。</p>
+<p>它可以快速地储存、搜索和分析海量数据。维基百科、Stack Overflow、Github 都采用它。</p>
+<p><img src="%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%20ElasticSearch%20%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/bg2017081701.jpg" alt=""><br>Elastic 的底层是开源库 <a href="https://lucene.apache.org/">Lucene</a> 。但是，你没法直接用 Lucene，必须自己写代码去调用它的接口。Elastic 是 Lucene 的封装，提供了 REST API 的操作接口，开箱即用。</p>
+<p>本文从零开始，讲解如何使用 Elastic 搭建自己的全文搜索引擎。每一步都有详细的说明，大家跟着做就能学会。</p>
+<h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><p>Elastic 需要 Java 8 环境。如果你的机器还没安装 Java，可以参考 <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-debian-8">这篇文章</a> ，注意要保证环境变量 <code>JAVA_HOME</code> 正确设置。</p>
+<p>安装完 Java，就可以跟着 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-targz.html">官方文档</a> 安装 Elastic。直接下载压缩包比较简单。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget https:&#x2F;&#x2F;artifacts.elastic.co&#x2F;downloads&#x2F;elasticsearch&#x2F;elasticsearch-5.5.1.zip</span><br><span class="line">$ unzip elasticsearch-5.5.1.zip</span><br><span class="line">$ cd elasticsearch-5.5.1&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>接着，进入解压后的目录，运行下面的命令，启动 Elastic。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ .&#x2F;bin&#x2F;elasticsearch</span><br></pre></td></tr></table></figure>
+
+<p>如果这时 <a href="https://github.com/spujadas/elk-docker/issues/92">报错</a>“max virtual memory areas vm.max <em>map</em> count [65530] is too low”，要运行下面的命令。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo sysctl -w vm.max_map_count&#x3D;262144</span><br></pre></td></tr></table></figure>
+
+<p>如果一切正常，Elastic 就会在默认的9200端口运行。这时，打开另一个命令行窗口，请求该端口，会得到说明信息。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl localhost:9200 &#123; &quot;name&quot; : &quot;atntrTf&quot;, &quot;cluster_name&quot; : &quot;elasticsearch&quot;, &quot;cluster_uuid&quot; : &quot;tf9250XhQ6ee4h7YI11anA&quot;, &quot;version&quot; : &#123; &quot;number&quot; : &quot;5.5.1&quot;, &quot;build_hash&quot; : &quot;19c13d0&quot;, &quot;build_date&quot; : &quot;2017-07-18T20:44:24.823Z&quot;, &quot;build_snapshot&quot; : false, &quot;lucene_version&quot; : &quot;6.6.0&quot; &#125;, &quot;tagline&quot; : &quot;You Know, for Search&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，请求9200端口，Elastic 返回一个 JSON 对象，包含当前节点、集群、版本等信息。</p>
+<p>按下 Ctrl + C，Elastic 就会停止运行。</p>
+<p>默认情况下，Elastic 只允许本机访问，如果需要远程访问，可以修改 Elastic 安装目录的 <code>config/elasticsearch.yml</code> 文件，去掉 <code>network.host</code> 的注释，将它的值改成 <code>0.0.0.0</code> ，然后重新启动 Elastic。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">network.host: 0.0.0.0</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，设成 <code>0.0.0.0</code> 让任何人都可以访问。线上服务不要这样设置，要设成具体的 IP。</p>
+<h2 id="二、基本概念"><a href="#二、基本概念" class="headerlink" title="二、基本概念"></a>二、基本概念</h2><h3 id="2-1-Node-与-Cluster"><a href="#2-1-Node-与-Cluster" class="headerlink" title="2.1 Node 与 Cluster"></a>2.1 Node 与 Cluster</h3><p>Elastic 本质上是一个分布式数据库，允许多台服务器协同工作，每台服务器可以运行多个 Elastic 实例。</p>
+<p>单个 Elastic 实例称为一个节点（node）。一组节点构成一个集群（cluster）。</p>
+<h3 id="2-2-Index"><a href="#2-2-Index" class="headerlink" title="2.2 Index"></a>2.2 Index</h3><p>Elastic 会索引所有字段，经过处理后写入一个反向索引（Inverted Index）。查找数据的时候，直接查找该索引。</p>
+<p>所以，Elastic 数据管理的顶层单位就叫做 Index（索引）。它是单个数据库的同义词。每个 Index （即数据库）的名字必须是小写。</p>
+<p>下面的命令可以查看当前节点的所有 Index。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X GET &#39;http:&#x2F;&#x2F;localhost:9200&#x2F;_cat&#x2F;indices?v&#39;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-Document"><a href="#2-3-Document" class="headerlink" title="2.3 Document"></a>2.3 Document</h3><p>Index 里面单条的记录称为 Document（文档）。许多条 Document 构成了一个 Index。</p>
+<p>Document 使用 JSON 格式表示，下面是一个例子。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;user&quot;: &quot;张三&quot;, &quot;title&quot;: &quot;工程师&quot;, &quot;desc&quot;: &quot;数据库管理&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同一个 Index 里面的 Document，不要求有相同的结构（scheme），但是最好保持相同，这样有利于提高搜索效率。</p>
+<h3 id="2-4-Type"><a href="#2-4-Type" class="headerlink" title="2.4 Type"></a>2.4 Type</h3><p>Document 可以分组，比如 <code>weather</code> 这个 Index 里面，可以按城市分组（北京和上海），也可以按气候分组（晴天和雨天）。这种分组就叫做 Type，它是虚拟的逻辑分组，用来过滤 Document。</p>
+<p>不同的 Type 应该有相似的结构（schema），举例来说， <code>id</code> 字段不能在这个组是字符串，在另一个组是数值。这是与关系型数据库的表的 <a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/mapping.html">一个区别</a> 。性质完全不同的数据（比如 <code>products</code> 和 <code>logs</code> ）应该存成两个 Index，而不是一个 Index 里面的两个 Type（虽然可以做到）。</p>
+<p>下面的命令可以列出每个 Index 所包含的 Type。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl &#39;localhost:9200&#x2F;_mapping?pretty&#x3D;true&#39;</span><br></pre></td></tr></table></figure>
+
+<p>根据 <a href="https://www.elastic.co/blog/index-type-parent-child-join-now-future-in-elasticsearch">规划</a> ，Elastic 6.x 版只允许每个 Index 包含一个 Type，7.x 版将会彻底移除 Type。</p>
+<h2 id="三、新建和删除-Index"><a href="#三、新建和删除-Index" class="headerlink" title="三、新建和删除 Index"></a>三、新建和删除 Index</h2><p>新建 Index，可以直接向 Elastic 服务器发出 PUT 请求。下面的例子是新建一个名叫 <code>weather</code> 的 Index。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X PUT &#39;localhost:9200&#x2F;weather&#39;</span><br></pre></td></tr></table></figure>
+
+<p>服务器返回一个 JSON 对象，里面的 <code>acknowledged</code> 字段表示操作成功。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;acknowledged&quot;:true, &quot;shards_acknowledged&quot;:true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后，我们发出 DELETE 请求，删除这个 Index。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X DELETE &#39;localhost:9200&#x2F;weather&#39;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、中文分词设置"><a href="#四、中文分词设置" class="headerlink" title="四、中文分词设置"></a>四、中文分词设置</h2><p>首先，安装中文分词插件。这里使用的是 <a href="https://github.com/medcl/elasticsearch-analysis-ik/">ik</a> ，也可以考虑其他插件（比如 <a href="https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-smartcn.html">smartcn</a> ）。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ .&#x2F;bin&#x2F;elasticsearch-plugin install https:&#x2F;&#x2F;github.com&#x2F;medcl&#x2F;elasticsearch-analysis-ik&#x2F;releases&#x2F;download&#x2F;v5.5.1&#x2F;elasticsearch-analysis-ik-5.5.1.zip</span><br></pre></td></tr></table></figure>
+
+<p>上面代码安装的是5.5.1版的插件，与 Elastic 5.5.1 配合使用。</p>
+<p>接着，重新启动 Elastic，就会自动加载这个新安装的插件。</p>
+<p>然后，新建一个 Index，指定需要分词的字段。这一步根据数据结构而异，下面的命令只针对本文。基本上，凡是需要搜索的中文字段，都要单独设置一下。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X PUT &#39;localhost:9200&#x2F;accounts&#39; -d &#39;</span><br><span class="line">&#123; &quot;mappings&quot;: &#123; &quot;person&quot;: &#123; &quot;properties&quot;: &#123; &quot;user&quot;: &#123; &quot;type&quot;: &quot;text&quot;, &quot;analyzer&quot;: &quot;ik_max_word&quot;, &quot;search_analyzer&quot;: &quot;ik_max_word&quot; &#125;, &quot;title&quot;: &#123; &quot;type&quot;: &quot;text&quot;, &quot;analyzer&quot;: &quot;ik_max_word&quot;, &quot;search_analyzer&quot;: &quot;ik_max_word&quot; &#125;, &quot;desc&quot;: &#123; &quot;type&quot;: &quot;text&quot;, &quot;analyzer&quot;: &quot;ik_max_word&quot;, &quot;search_analyzer&quot;: &quot;ik_max_word&quot; &#125; &#125; &#125; &#125;</span><br><span class="line">&#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，首先新建一个名称为 <code>accounts</code> 的 Index，里面有一个名称为 <code>person</code> 的 Type。 <code>person</code> 有三个字段。</p>
+<p>这三个字段都是中文，而且类型都是文本（text），所以需要指定中文分词器，不能使用默认的英文分词器。</p>
+<p>Elastic 的分词器称为 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis.html">analyzer</a> 。我们对每个字段指定分词器。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;user&quot;: &#123; &quot;type&quot;: &quot;text&quot;, &quot;analyzer&quot;: &quot;ik_max_word&quot;, &quot;search_analyzer&quot;: &quot;ik_max_word&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中， <code>analyzer</code> 是字段文本的分词器， <code>search_analyzer</code> 是搜索词的分词器。 <code>ik_max_word</code> 分词器是插件 <code>ik</code> 提供的，可以对文本进行最大数量的分词。</p>
+<h2 id="五、数据操作"><a href="#五、数据操作" class="headerlink" title="五、数据操作"></a>五、数据操作</h2><h3 id="5-1-新增记录"><a href="#5-1-新增记录" class="headerlink" title="5.1 新增记录"></a>5.1 新增记录</h3><p>向指定的 /Index/Type 发送 PUT 请求，就可以在 Index 里面新增一条记录。比如，向 <code>/accounts/person</code> 发送请求，就可以新增一条人员记录。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X PUT &#39;localhost:9200&#x2F;accounts&#x2F;person&#x2F;1&#39; -d &#39;</span><br><span class="line">&#123; &quot;user&quot;: &quot;张三&quot;, &quot;title&quot;: &quot;工程师&quot;, &quot;desc&quot;: &quot;数据库管理&quot;</span><br><span class="line">&#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>服务器返回的 JSON 对象，会给出 Index、Type、Id、Version 等信息。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;_index&quot;:&quot;accounts&quot;, &quot;_type&quot;:&quot;person&quot;, &quot;_id&quot;:&quot;1&quot;, &quot;_version&quot;:1, &quot;result&quot;:&quot;created&quot;, &quot;_shards&quot;:&#123;&quot;total&quot;:2,&quot;successful&quot;:1,&quot;failed&quot;:0&#125;, &quot;created&quot;:true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你仔细看，会发现请求路径是 <code>/accounts/person/1</code> ，最后的 <code>1</code> 是该条记录的 Id。它不一定是数字，任意字符串（比如 <code>abc</code> ）都可以。</p>
+<p>新增记录的时候，也可以不指定 Id，这时要改成 POST 请求。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X POST &#39;localhost:9200&#x2F;accounts&#x2F;person&#39; -d &#39;</span><br><span class="line">&#123; &quot;user&quot;: &quot;李四&quot;, &quot;title&quot;: &quot;工程师&quot;, &quot;desc&quot;: &quot;系统管理&quot;</span><br><span class="line">&#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，向 <code>/accounts/person</code> 发出一个 POST 请求，添加一个记录。这时，服务器返回的 JSON 对象里面， <code>_id</code> 字段就是一个随机字符串。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;_index&quot;:&quot;accounts&quot;, &quot;_type&quot;:&quot;person&quot;, &quot;_id&quot;:&quot;AV3qGfrC6jMbsbXb6k1p&quot;, &quot;_version&quot;:1, &quot;result&quot;:&quot;created&quot;, &quot;_shards&quot;:&#123;&quot;total&quot;:2,&quot;successful&quot;:1,&quot;failed&quot;:0&#125;, &quot;created&quot;:true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，如果没有先创建 Index（这个例子是 <code>accounts</code> ），直接执行上面的命令，Elastic 也不会报错，而是直接生成指定的 Index。所以，打字的时候要小心，不要写错 Index 的名称。</p>
+<h3 id="5-2-查看记录"><a href="#5-2-查看记录" class="headerlink" title="5.2 查看记录"></a>5.2 查看记录</h3><p>向 <code>/Index/Type/Id</code> 发出 GET 请求，就可以查看这条记录。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl &#39;localhost:9200&#x2F;accounts&#x2F;person&#x2F;1?pretty&#x3D;true&#39;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码请求查看 <code>/accounts/person/1</code> 这条记录，URL 的参数 <code>pretty=true</code> 表示以易读的格式返回。</p>
+<p>返回的数据中， <code>found</code> 字段表示查询成功， <code>_source</code> 字段返回原始记录。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;_index&quot; : &quot;accounts&quot;, &quot;_type&quot; : &quot;person&quot;, &quot;_id&quot; : &quot;1&quot;, &quot;_version&quot; : 1, &quot;found&quot; : true, &quot;_source&quot; : &#123; &quot;user&quot; : &quot;张三&quot;, &quot;title&quot; : &quot;工程师&quot;, &quot;desc&quot; : &quot;数据库管理&quot; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果 Id 不正确，就查不到数据， <code>found</code> 字段就是 <code>false</code> 。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl &#39;localhost:9200&#x2F;weather&#x2F;beijing&#x2F;abc?pretty&#x3D;true&#39; &#123; &quot;_index&quot; : &quot;accounts&quot;, &quot;_type&quot; : &quot;person&quot;, &quot;_id&quot; : &quot;abc&quot;, &quot;found&quot; : false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-删除记录"><a href="#5-3-删除记录" class="headerlink" title="5.3 删除记录"></a>5.3 删除记录</h3><p>删除记录就是发出 DELETE 请求。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X DELETE &#39;localhost:9200&#x2F;accounts&#x2F;person&#x2F;1&#39;</span><br></pre></td></tr></table></figure>
+
+<p>这里先不要删除这条记录，后面还要用到。</p>
+<h3 id="5-4-更新记录"><a href="#5-4-更新记录" class="headerlink" title="5.4 更新记录"></a>5.4 更新记录</h3><p>更新记录就是使用 PUT 请求，重新发送一次数据。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X PUT &#39;localhost:9200&#x2F;accounts&#x2F;person&#x2F;1&#39; -d &#39;</span><br><span class="line">&#123; &quot;user&quot; : &quot;张三&quot;, &quot;title&quot; : &quot;工程师&quot;, &quot;desc&quot; : &quot;数据库管理，软件开发&quot;</span><br><span class="line">&#125;&#39; &#123; &quot;_index&quot;:&quot;accounts&quot;, &quot;_type&quot;:&quot;person&quot;, &quot;_id&quot;:&quot;1&quot;, &quot;_version&quot;:2, &quot;result&quot;:&quot;updated&quot;, &quot;_shards&quot;:&#123;&quot;total&quot;:2,&quot;successful&quot;:1,&quot;failed&quot;:0&#125;, &quot;created&quot;:false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，我们将原始数据从”数据库管理”改成”数据库管理，软件开发”。 返回结果里面，有几个字段发生了变化。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;_version&quot; : 2,</span><br><span class="line">&quot;result&quot; : &quot;updated&quot;,</span><br><span class="line">&quot;created&quot; : false</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，记录的 Id 没变，但是版本（version）从 <code>1</code> 变成 <code>2</code> ，操作类型（result）从 <code>created</code> 变成 <code>updated</code> ， <code>created</code> 字段变成 <code>false</code> ，因为这次不是新建记录。</p>
+<h2 id="六、数据查询"><a href="#六、数据查询" class="headerlink" title="六、数据查询"></a>六、数据查询</h2><h3 id="6-1-返回所有记录"><a href="#6-1-返回所有记录" class="headerlink" title="6.1 返回所有记录"></a>6.1 返回所有记录</h3><p>使用 GET 方法，直接请求 <code>/Index/Type/_search</code> ，就会返回所有记录。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl &#39;localhost:9200&#x2F;accounts&#x2F;person&#x2F;_search&#39; &#123; &quot;took&quot;:2, &quot;timed_out&quot;:false, &quot;_shards&quot;:&#123;&quot;total&quot;:5,&quot;successful&quot;:5,&quot;failed&quot;:0&#125;, &quot;hits&quot;:&#123; &quot;total&quot;:2, &quot;max_score&quot;:1.0, &quot;hits&quot;:[ &#123; &quot;_index&quot;:&quot;accounts&quot;, &quot;_type&quot;:&quot;person&quot;, &quot;_id&quot;:&quot;AV3qGfrC6jMbsbXb6k1p&quot;, &quot;_score&quot;:1.0, &quot;_source&quot;: &#123; &quot;user&quot;: &quot;李四&quot;, &quot;title&quot;: &quot;工程师&quot;, &quot;desc&quot;: &quot;系统管理&quot; &#125; &#125;, &#123; &quot;_index&quot;:&quot;accounts&quot;, &quot;_type&quot;:&quot;person&quot;, &quot;_id&quot;:&quot;1&quot;, &quot;_score&quot;:1.0, &quot;_source&quot;: &#123; &quot;user&quot; : &quot;张三&quot;, &quot;title&quot; : &quot;工程师&quot;, &quot;desc&quot; : &quot;数据库管理，软件开发&quot; &#125; &#125; ] &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，返回结果的 <code>took</code> 字段表示该操作的耗时（单位为毫秒）， <code>timed_out</code> 字段表示是否超时， <code>hits</code> 字段表示命中的记录，里面子字段的含义如下。</p>
+<ul>
+<li><code>total</code> ：返回记录数，本例是2条。</li>
+<li><code>max_score</code> ：最高的匹配程度，本例是 <code>1.0</code> 。</li>
+<li><code>hits</code> ：返回的记录组成的数组。<br>返回的记录中，每条记录都有一个 <code>_score</code> 字段，表示匹配的程序，默认是按照这个字段降序排列。</li>
+</ul>
+<h3 id="6-2-全文搜索"><a href="#6-2-全文搜索" class="headerlink" title="6.2 全文搜索"></a>6.2 全文搜索</h3><p>Elastic 的查询非常特别，使用自己的 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.5/query-dsl.html">查询语法</a> ，要求 GET 请求带有数据体。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl &#39;localhost:9200&#x2F;accounts&#x2F;person&#x2F;_search&#39; -d &#39;</span><br><span class="line">&#123; &quot;query&quot; : &#123; &quot;match&quot; : &#123; &quot;desc&quot; : &quot;软件&quot; &#125;&#125;</span><br><span class="line">&#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码使用 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.5/query-dsl-match-query.html">Match 查询</a> ，指定的匹配条件是 <code>desc</code> 字段里面包含”软件”这个词。返回结果如下。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;took&quot;:3, &quot;timed_out&quot;:false, &quot;_shards&quot;:&#123;&quot;total&quot;:5,&quot;successful&quot;:5,&quot;failed&quot;:0&#125;, &quot;hits&quot;:&#123; &quot;total&quot;:1, &quot;max_score&quot;:0.28582606, &quot;hits&quot;:[ &#123; &quot;_index&quot;:&quot;accounts&quot;, &quot;_type&quot;:&quot;person&quot;, &quot;_id&quot;:&quot;1&quot;, &quot;_score&quot;:0.28582606, &quot;_source&quot;: &#123; &quot;user&quot; : &quot;张三&quot;, &quot;title&quot; : &quot;工程师&quot;, &quot;desc&quot; : &quot;数据库管理，软件开发&quot; &#125; &#125; ] &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Elastic 默认一次返回10条结果，可以通过 <code>size</code> 字段改变这个设置。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl &#39;localhost:9200&#x2F;accounts&#x2F;person&#x2F;_search&#39; -d &#39;</span><br><span class="line">&#123; &quot;query&quot; : &#123; &quot;match&quot; : &#123; &quot;desc&quot; : &quot;管理&quot; &#125;&#125;, &quot;size&quot;: 1</span><br><span class="line">&#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码指定，每次只返回一条结果。</p>
+<p>还可以通过 <code>from</code> 字段，指定位移。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl &#39;localhost:9200&#x2F;accounts&#x2F;person&#x2F;_search&#39; -d &#39;</span><br><span class="line">&#123; &quot;query&quot; : &#123; &quot;match&quot; : &#123; &quot;desc&quot; : &quot;管理&quot; &#125;&#125;, &quot;from&quot;: 1, &quot;size&quot;: 1</span><br><span class="line">&#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码指定，从位置1开始（默认是从位置0开始），只返回一条结果。</p>
+<h3 id="6-3-逻辑运算"><a href="#6-3-逻辑运算" class="headerlink" title="6.3 逻辑运算"></a>6.3 逻辑运算</h3><p>如果有多个搜索关键字， Elastic 认为它们是 <code>or</code> 关系。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl &#39;localhost:9200&#x2F;accounts&#x2F;person&#x2F;_search&#39; -d &#39;</span><br><span class="line">&#123; &quot;query&quot; : &#123; &quot;match&quot; : &#123; &quot;desc&quot; : &quot;软件 系统&quot; &#125;&#125;</span><br><span class="line">&#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码搜索的是 <code>软件 or 系统</code> 。</p>
+<p>如果要执行多个关键词的 <code>and</code> 搜索，必须使用 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.5/query-dsl-bool-query.html">布尔查询</a> 。</p>
+<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl &#39;localhost:9200&#x2F;accounts&#x2F;person&#x2F;_search&#39; -d &#39;</span><br><span class="line">&#123; &quot;query&quot;: &#123; &quot;bool&quot;: &#123; &quot;must&quot;: [ &#123; &quot;match&quot;: &#123; &quot;desc&quot;: &quot;软件&quot; &#125; &#125;, &#123; &quot;match&quot;: &#123; &quot;desc&quot;: &quot;系统&quot; &#125; &#125; ] &#125; &#125;</span><br><span class="line">&#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<h2 id="七、参考链接"><a href="#七、参考链接" class="headerlink" title="七、参考链接"></a>七、参考链接</h2><ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html">ElasticSearch 官方手册</a></li>
+<li><a href="https://www.elastic.co/blog/a-practical-introduction-to-elasticsearch">A Practical Introduction to Elasticsearch</a><br>（完）</li>
+</ul>
+<p><a href="http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html">全文搜索引擎 ElasticSearch 入门教程</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous">
+            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Previous</a>
+        </div>
+        <div class="pagination-next">
+            <a class="is-flex-grow has-text-black-ter" href="/page/4/">Next</a>
+        </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link has-text-black-ter" href="/">1</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/2/">2</a></li>
+            
+            <li><a class="pagination-link is-current" href="/page/3/">3</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/4/">4</a></li>
+            
+            <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/7/">7</a></li>
+            
+        </ul>
+    </nav>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Robynn-D">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Robynn-D
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        社長大人
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>中國台灣</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            61
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        
+        
+    </div>
+</div>
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="大结局后，谁还不服这华语最佳爱情">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T08:08:42.846Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">大结局后，谁还不服这华语最佳爱情</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T06:23:36.973Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="title has-link-black-ter is-size-6 has-text-weight-normal">浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域建模DDD">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域建模DDD</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域驱动设计战略">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域驱动设计战略</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="去BAT面试完的Mysql面试题总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="title has-link-black-ter is-size-6 has-text-weight-normal">去BAT面试完的Mysql面试题总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">59</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="大结局后，谁还不服这华语最佳爱情">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T08:08:42.846Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">大结局后，谁还不服这华语最佳爱情</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T06:23:36.973Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="title has-link-black-ter is-size-6 has-text-weight-normal">浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域建模DDD">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域建模DDD</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域驱动设计战略">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域驱动设计战略</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="去BAT面试完的Mysql面试题总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="title has-link-black-ter is-size-6 has-text-weight-normal">去BAT面试完的Mysql面试题总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">59</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="柠檬资源社" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Robynn-D&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://yoursite.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

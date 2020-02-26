@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>携程大数据实践：高并发应用架构及推荐系统案例 - 柠檬资源社</title>
+
+
+    <meta name="description" content="携程大数据实践：高并发应用架构及推荐系统案例摘要：本文来自携程技术中心基础业务研发部的《应用架构涅槃》系列分享。 本文来自携程技术中心基础业务研发部的《应用架构涅槃》系列分享。据基础业务研发部负责人李小林介绍，互联网二次革命的移动互联网时代，如何吸引用户、留住用户并深入挖掘用户价值，在激烈的竞争中脱颖而出，是各大电商的重要课题。通过各类 大数据 对用户进行研究，以数据驱动产品是解决这个课题的主要手">
+<meta property="og:type" content="article">
+<meta property="og:title" content="携程大数据实践：高并发应用架构及推荐系统案例">
+<meta property="og:url" content="http://yoursite.com/2019/08/02/%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/index.html">
+<meta property="og:site_name" content="柠檬资源社">
+<meta property="og:description" content="携程大数据实践：高并发应用架构及推荐系统案例摘要：本文来自携程技术中心基础业务研发部的《应用架构涅槃》系列分享。 本文来自携程技术中心基础业务研发部的《应用架构涅槃》系列分享。据基础业务研发部负责人李小林介绍，互联网二次革命的移动互联网时代，如何吸引用户、留住用户并深入挖掘用户价值，在激烈的竞争中脱颖而出，是各大电商的重要课题。通过各类 大数据 对用户进行研究，以数据驱动产品是解决这个课题的主要手">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="article:published_time" content="2019-08-02T06:48:51.078Z">
+<meta property="article:modified_time" content="2019-08-02T06:48:51.078Z">
+<meta property="article:author" content="Robynn-D">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="携程大数据实践：高并发应用架构及推荐系统案例" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-02T06:48:51.078Z">2019-08-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    37 minutes read (About 5482 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                携程大数据实践：高并发应用架构及推荐系统案例
+            
+        </h1>
+        <div class="content">
+            <h1 id="携程大数据实践：高并发应用架构及推荐系统案例"><a href="#携程大数据实践：高并发应用架构及推荐系统案例" class="headerlink" title="携程大数据实践：高并发应用架构及推荐系统案例"></a>携程大数据实践：高并发应用架构及推荐系统案例</h1><p>摘要：本文来自携程技术中心基础业务研发部的《应用架构涅槃》系列分享。</p>
+<p>本文来自携程技术中心基础业务研发部的《应用架构涅槃》系列分享。据基础业务研发部负责人李小林介绍，互联网二次革命的移动互联网时代，如何吸引用户、留住用户并深入挖掘用户价值，在激烈的竞争中脱颖而出，是各大电商的重要课题。通过各类 <a href="http://www.afenxi.com/topic/%e5%a4%a7%e6%95%b0%e6%8d%ae">大数据</a> 对用户进行研究，以数据驱动产品是解决这个课题的主要手段，携程的大数据团队也由此应运而生；经过几年的努力，大数据的相关技术为业务带来了惊人的提升与帮助。以基础大数据的用户意图服务为例，通过将广告和栏位的“千人一面”变为“千人千面”，在提升用户便捷性，可用性，降低费力度的同时，其转化率也得到了数倍的提升，体现了大数据服务的真正价值。</p>
+<p>在李小林看来，大数据是互联网行业发展的趋势，互联网的从业人员需要高度关注大数据相关的技术及应用，也希望通过这一系列大数据相关的讲座，让各位同学有所收获。</p>
+<p>首场《应用架构涅磐》分享来自基础业务研发部的董锐，包括业务高速发展带来的应用架构挑战、应对挑战的架构涅磐、应用系统整体架构和 <a href="http://www.afenxi.com/topic/%e6%8e%a8%e8%8d%90%e7%b3%bb%e7%bb%9f">推荐系统</a> 案例等四个部分。</p>
+<h2 id="一、业务高速发展带来的应用架构挑战"><a href="#一、业务高速发展带来的应用架构挑战" class="headerlink" title="一、业务高速发展带来的应用架构挑战"></a>一、业务高速发展带来的应用架构挑战</h2><p>公司业务高速发展带来哪些主要的变化，以及给我们的系统带来了哪些挑战？</p>
+<ol>
+<li>业务需求的急速增长，访问请求的并发量激增，2016年1月份以来，业务部门的服务日均请求量激增了5.5倍。</li>
+<li>业务逻辑日益复杂化，基础业务研发部需要支撑起OTA数十个业务线，业务逻辑日趋复杂和繁多。</li>
+<li>业务数据源多样化，异构化，接入的业务线、合作公司的数据源越来越多；接入的数据结构由以前的数据库结构化数据整合转为Hive表、评论文本数据、日志数据、天气数据、网页数据等多元化异构数据整合。</li>
+<li>业务的高速发展和迭代，部门一直以追求以最少的开发人力，以架构和系统的技术优化，支撑起携程各业务线高速发展和迭代的需要。<br>在这种新形势下，传统应用架构不得不变，做为工程师也必然要自我涅槃，改为大数据及新的高并发架构，来应对业务需求激增及高速迭代的需要。计算分层分解、去SQL、去数据库化、模块化拆解的相关技改工作已经刻不容缓。</li>
+</ol>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/201608280510525.png" alt=""></p>
+<p>以用户意图（AI 点金杖）的个性化服务为例， 面对BU业务线的全面支持的迫切需要，其应用架构必须解决如下技术难点：</p>
+<ol>
+<li>高访问并发：每天近亿次的访问请求；</li>
+<li>数据量大：每天TB级的增量数据，近百亿条的用户数据，上百万的产品数据；</li>
+<li>业务逻辑复杂：复杂个性化算法和LBS算法；例如：满足一个复杂用户请求需要大量计算和30次左右的SQL数据查询，服务延时越来越长；</li>
+<li>高速迭代上线：面对OTA多业务线的个性化、Cross-saling、Up-saling、需满足提升转化率的迫切需求，迭代栏位或场景要快速，同时减少研发成本。<h2 id="二、应对挑战的架构涅磐"><a href="#二、应对挑战的架构涅磐" class="headerlink" title="二、应对挑战的架构涅磐"></a>二、应对挑战的架构涅磐</h2></li>
+</ol>
+<p>面对这些挑战，我们的应用系统架构应该如何涅磐？主要分如下三大方面系统详解:</p>
+<ul>
+<li><strong>存储的涅磐</strong> ，这一点对于整个系统的吞吐量和并发量的提升起到最关键的作用，需要结合数据存储模型和具体应用的场景。</li>
+<li><strong>计算的涅磐</strong> ，可以从横向和纵向考虑：横向主要是增加并发度，首先想到的是分布式。纵向拆分就是要求我们找到计算的结合点从而进行分层，针对不同的层次选择不同的计算地点。然后再将各层次计算完后的结果相结合，尽可能最大化系统整体的处理能力。</li>
+<li><strong>业务层架构的涅磐</strong> ，要求系统的良好的模块化设计，清楚的定义模块的边界，模块自升级和可配置化。<h2 id="三、应用系统的整体架构"><a href="#三、应用系统的整体架构" class="headerlink" title="三、应用系统的整体架构"></a>三、应用系统的整体架构</h2></li>
+</ul>
+<p>认识到需要应对的挑战，我们应该如何设计我们的系统呢，下面将全面的介绍下我们的应用系统整体架构。</p>
+<p>下图就是我们应用系统整体架构以及系统层次的模块构成。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/84d140cfd5bd087f6b69fc1aa0546bdf.png" alt=""></p>
+<p>数据源部分，Hermes是携程框架部门提供的消息队列，基于Kafka和MySQL做为底层实现的封装，应用于系统间实时数据传输交互通道。Hive和HDFS是携程海量数据的主要存储，两者来自Hadoop生态体系。Hadoop大家已经很熟悉，如果不熟悉的同学只要知道Hadoop主要用于大数据量存储和并行计算批处理工作。</p>
+<p>Hive是基于Hadoop平台的数据仓库，沿用了关系型数据库的很多概念。比如说数据库和表，还有一套近似于SQL的查询接口的支持，在Hive里叫做HQL，但是其底层的实现细节和关系型数据库完全不一样，Hive底层所有的计算都是基于MR来完成，我们的数据工程师90%都数据处理工作都基于它来完成。</p>
+<p>离线部分，包含的模块有MR、Hive、Mahout、SparkQL/MLLib。Hive上面已经介绍过，Mahout简单理解提供基于Hadoop平台进行数据挖掘的一些机器学习的算法包。Spark类似hadoop也是提供大数据并行批量处理平台，但是它是基于内存的。SparkQL 和Spark MLLib是基于Spark平台的SQL查询引擎和数据挖掘相关算法框架。我们主要用Mahout和Spark MLLib进行数据挖掘工作。</p>
+<p>调度系统zeus，是淘宝开源大数据平台调度系统，于2015年引进到携程，之后我们进行了重构和功能升级，做为携程大数据平台的作业调度平台。</p>
+<p>近线部分，是基于Muise来实现我们的近实时的计算场景，Muise是也是携程OPS提供的实时计算流处理平台，内部是基于Storm实现与HERMES消息队列搭配起来使用。例如，我们使用MUSIE通过消费来自消息队列里的用户实时行为，订单记录，结合画像等一起基础数据，经一系列复杂的规则和算法，实时的识别出用户的行程意图。</p>
+<p>后台/线上应用部分，MySQL用于支撑后台系统的数据库。ElasticSearch是基于Lucene实现的分布式搜索引擎，用于索引用户画像的数据，支持离线精准营销的用户筛选，同时支持线上应用推荐系统的选品功能。HBase 基于Hadoop的HDFS 上的列存储NoSQL数据库，用于后台报表可视化系统和线上服务的数据存储。</p>
+<p>这里说明一下, 在线和后台应用使用的ElasticSearch和HBase集群是分开的，互不影响。Redis支持在线服务的高速缓存，用于缓存统计分析出来的热点数据。</p>
+<h2 id="四、推荐系统案例"><a href="#四、推荐系统案例" class="headerlink" title="四、推荐系统案例"></a>四、推荐系统案例</h2><p>介绍完我们应用系统的整体构成，接下来分享基于这套系统架构实现的一个实例——携程个性化推荐系统。</p>
+<p>推荐系统的架构图：</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/2af98e023c7b6cea11663bd0845336c0.png" alt=""></p>
+<h3 id="1、存储的涅磐"><a href="#1、存储的涅磐" class="headerlink" title="1、存储的涅磐"></a>1、存储的涅磐</h3><p>1）NoSQL (HBase+Redis)<br><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/b9f12f1fece87c1b0d8aab9ddf0b1284.png" alt=""></p>
+<p>我们之前存储使用的是MySQL，一般关系型数据库会做为应用系统存储的首选。大家知道MySQL非商业版对分布式支持不够，在存储数据量不高，查询量和计算复杂度不是很大的情况下，可以满足应用系统绝大部分的功能需求。</p>
+<p>我们现状是需要安全存储海量的数据，高吞吐，并发能力强，同时随着数据量和请求量的快速增加，能够通过加节点来扩容。另外还需要支持故障转移，自动恢复，无需额外的运维成本。综上几个主要因素，我们进行了大量的调研和测试，最终我们选用HBase和Redis两个NoSQL数据库来取代以往使用的MySQL。我们把用户意图以及推荐产品数据以KV的形式存储在HBase中，我对操作HBase进行一些优化，其中包括rowkey的设计，预分配，数据压缩等，同时针对我们的使用场景对HBase本身配置方面的也进行了调优。目前存储的数据量已经达到TB级别，支持每天千万次请求，同时保证99%在50毫秒内返回。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/9d33e5a6922ec81eff2d9d36f6b9b519.png" alt=""></p>
+<p>Redis和多数应用系统使用方式一样，主要用于缓存热点数据，这里就不多说了。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/27ac490e8e515119f534d812bd195aac.png" alt=""></p>
+<p>2）搜索引擎 (ElasticSearch)<br><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/5ba19a12e87cd2ae964fbe30bac7fd67.png" alt=""></p>
+<p>ES索引各业务线产品特征数据，提供基于用户的意图特征和产品特征复杂的多维检索和排序功能，当前集群由4台大内存物理机器构成，采用全内存索引。对比某一个复杂的查询场景，之前用MySQL将近需要30次查询，使用ES只需要一次组合查询且在100毫秒内返回。目前每天千万次搜索，99%以上在300毫秒以内返回。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/4a52e65454c764839434bd68bc127835.png" alt=""></p>
+<h3 id="2、计算的涅磐"><a href="#2、计算的涅磐" class="headerlink" title="2、计算的涅磐"></a>2、计算的涅磐</h3><p>1）数据源，我们的数据源分结构化和半结构化数据以及非结构化数据。<br><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/ddcd3c25617e387ff34f5e2b581974d2.png" alt=""></p>
+<p>结构化数据主要是指携程各产线的产品维表和订单数据，有酒店、景酒、团队游、门票、景点等，还有一些基础数据，比如城市表、车站等，这类数据基本上都是T+1，每天会有流程去各BU的生产表拉取数据。</p>
+<p>半结构化数据是指，携程用户的访问行为数据，例如浏览、搜索、预订、反馈等，这边顺便提一下，这些数据这些是由前端采集框架实时采集，然后下发到后端的收集服务，由收集服务在写入到Hermes消息队列，一路会落地到Hadoop上面做长期存储，另一路近线层可以通过订阅Hermes此类数据Topic进行近实时的计算工作。</p>
+<p>我们还用到外部合作渠道的数据，还有一些评论数据，评论属于非结构化的，也是T+1更新。</p>
+<p>2）离线计算，主要分三个处理阶段。<br><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/c89572e9069f64f539bbc1b9d8286bf8.png" alt=""></p>
+<p>预处理阶段，这块主要为后续数据挖掘做一些数据的准备工作，数据去重，过滤，对缺失信息的补足。举例来说采集下来的用户行为数据，所含有的产品信息很少，我们会使用产品表的数据进行一些补足，确保给后续的数据挖掘使用时候尽量完整的。</p>
+<p>数据挖掘阶段，主要运用一些常用的数据挖掘算法进行模型训练和推荐数据的输出(分类、聚类、回归、CF等)。</p>
+<p>结果导入阶段，我们通过可配置的数据导入工具将推荐数据，进行一系列转换后，导入到HBase、Redis以及建立ES索引，Redis存储的是经统计计算出的热点数据。</p>
+<p>3）近线计算（用户意图、产品缓存）</p>
+<p>当用户没有明确的目的性情况下，很难找到满足兴趣的产品，我们不仅需要了解用户的历史兴趣，用户实时行为特征的抽取和理解更加重要，以便快速的推荐出符合用户当前兴趣的产品，这就是用户意图服务需要实现的功能。</p>
+<p>一般来说用户特征分成两大类：一种是稳定的特征（用户画像），如用户性别、常住地、主题偏好等特征；另一类是根据用户行为计算获取的特征，如用户对酒店星级的偏好、目的地偏好、跟团游/自由行偏好等。基于前面所述的计算的特点，我们使用近在线计算来获取第二类用户特征，整体框图如下。从图中可以看出它的输入数据源包括两大类：第一类是实时的用户行为；第二类是用户画像，历史交易以及情景等离线模块提供的数据。结合这两类数据，经一些列复杂的近线学习算法和规则引擎，计算得出用户当前实时意图列表存储到HBase和Redis中。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/513a6b967998e90739cf93ea9781bd4d.png" alt=""></p>
+<p>携程用户意图框架近线另一个工作是产品数据缓存，携程的业务线很多，而我们的推荐系统会推各个业务线的产品，因此我们需要调用所有业务线的产品服务接口，但随着我们上线的场景的增加，这样无形的增加了对业务方接口的调用压力。而且业务线产品接口服务主要应用于业务的主流程或关键型应用，比较重，且SLA服务等级层次不齐，可能会影响到整个推荐系统的响应时间。</p>
+<p>为了解决这两个问题，我们设计了近在线计算来进行业务的产品信息异步缓存策略，具体的流程如下。</p>
+<p>我们会将待推荐的产品Id全部通过Kafka异步下发，在Storm中我们会对各业务方的产品首先进行聚合，达到批处理个数或者时间gap时，再调用各业务方的接口，这样减少对业务方接口的压力。通过调用业务方接口更新的产品状态临时缓存起来（根据各业务产品信息更新周期分别设置缓存失效时间），在线计算的时候直接先读取临时缓存数据，缓存不存在的情况下，再击穿到业务的接口服务。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/05397d61a7bc98253dc8ab33d89bd381.png" alt=""></p>
+<p>产品异步缓存框架</p>
+<p>4）在线计算（2个关键业务层架构模块介绍）</p>
+<p><strong>①业务层架构-数据治理和访问模块</strong> ，支持的存储介质，目前支持的存储介质有Localcache、Redis、HBase、MySQL可以支持横向扩展。统一配置，对同一份数据，采用统一配置，可以随意存储在任意介质，根据id查询返回统一格式的数据，对查询接口完全透明。</p>
+<p>穿透策略和容灾策略，Redis只存储了热数据，当需要查询冷数据则可以自动到下一级存储如HBase查询，避免缓存资源浪费。当Redis出现故障时或请求数异常上涨，超过整体承受能力，此时服务降级自动生效，并可配置化。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/2da4694bd4cd65061368551f3231d691.png" alt=""></p>
+<p><strong>②业务层架构-推荐策略模块</strong> ，整个流程是先将用户意图、用户浏览，相关推荐策略生成的产品集合等做为数据输入，接着按照场景规则，业务逻辑重新过滤，聚合、排序。最后验证和拼装业务线产品信息后输出推荐结果；</p>
+<p>我们对此流程每一步进行了一些模块化的抽象，将重排序逻辑按步骤抽象解耦，抽象如右图所示的多个组件，开发新接口时仅需要将内部DSL拼装便可以得到满足业务需求的推荐服务；提高了代码的复用率和可读性，减少了超过50%的开发时间；对于充分验证的模块的复用，有效保证了服务的质量。</p>
+<p><img src="%E6%90%BA%E7%A8%8B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E8%B7%B5%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%A1%88%E4%BE%8B/2092f38cba40ba40cbb4f5403d84453a.png" alt=""></p>
+<blockquote>
+<p>转自：极客头条  </p>
+</blockquote>
+<blockquote>
+<p>链接：<a href="http://geek.csdn.net/news/detail/96708">http://geek.csdn.net/news/detail/96708</a>  </p>
+</blockquote>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/08/02/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%20%7C%20%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84TIME_WAIT%E5%92%8CCLOSE_WAIT/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">高性能网络 | 你所不知道的TIME_WAIT和CLOSE_WAIT</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/02/%E6%9E%B6%E6%9E%84%E8%AF%84%E5%AE%A1%E7%9A%84%E6%84%8F%E4%B9%89/">
+                <span class="level-item">架构评审的意义</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Robynn-D">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Robynn-D
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        社長大人
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>中國台灣</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            61
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        
+        
+    </div>
+</div>
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="大结局后，谁还不服这华语最佳爱情">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T08:08:42.846Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">大结局后，谁还不服这华语最佳爱情</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T06:23:36.973Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="title has-link-black-ter is-size-6 has-text-weight-normal">浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域建模DDD">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域建模DDD</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域驱动设计战略">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域驱动设计战略</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="去BAT面试完的Mysql面试题总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="title has-link-black-ter is-size-6 has-text-weight-normal">去BAT面试完的Mysql面试题总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">59</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="大结局后，谁还不服这华语最佳爱情">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T08:08:42.846Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E5%A4%A7%E7%BB%93%E5%B1%80%E5%90%8E%EF%BC%8C%E8%B0%81%E8%BF%98%E4%B8%8D%E6%9C%8D%E8%BF%99%E5%8D%8E%E8%AF%AD%E6%9C%80%E4%BD%B3%E7%88%B1%E6%83%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">大结局后，谁还不服这华语最佳爱情</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T06:23:36.973Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%E6%B5%AA%E6%BC%AB%E5%8C%BB%E7%94%9F%E9%87%91%E5%B8%88%E5%82%852%20-%20%E4%B8%8D%E5%AE%B9%E6%98%93%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%80%BC%E5%BE%97%E8%A2%AB%E7%8F%8D%E6%83%9C/" class="title has-link-black-ter is-size-6 has-text-weight-normal">浪漫医生金师傅2 - 不容易的人生里，每一个人都值得被珍惜</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域建模DDD">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E5%BB%BA%E6%A8%A1DDD/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域建模DDD</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="领域驱动设计战略">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.089Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E6%88%98%E7%95%A5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">领域驱动设计战略</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="去BAT面试完的Mysql面试题总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-02T06:48:51.085Z">2019-08-02</time></div>
+                    <a href="/2019/08/02/%E5%8E%BBBAT%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84Mysql%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="title has-link-black-ter is-size-6 has-text-weight-normal">去BAT面试完的Mysql面试题总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">59</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="携程大数据实践：高并发应用架构及推荐系统案例" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Robynn-D&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://yoursite.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
